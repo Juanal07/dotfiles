@@ -124,6 +124,7 @@ map <c-e> down
 map <c-y> up
 map V push :!nvim<space>
 # Common locations
+map gh cd ~/
 map gd cd ~/Documents
 map gD cd ~/Downloads
 map gp cd ~/Pictures
