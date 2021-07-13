@@ -1,5 +1,3 @@
-let mapleader =","
-
 if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
 	echo "Downloading junegunn/vim-plug to manage plugins..."
 	silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
@@ -16,6 +14,10 @@ Plug 'preservim/nerdtree'
 Plug 'gruvbox-community/gruvbox'                                " Themes
 Plug 'alvan/vim-closetag'
 
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 call plug#end()
 
 syntax enable               " syntax highlighting
@@ -62,10 +64,20 @@ nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
 
 " NerdTree
-nmap <Leader>nt :NERDTreeFind<CR>
+nmap <Leader>n :NERDTreeFind<CR>
 " Refresh
 nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
 
 colorscheme gruvbox
 set background=dark
 
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+lua << EOF
+require('telescope').setup{
+}
+require('telescope').load_extension('fzf')
+EOF
