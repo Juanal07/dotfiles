@@ -1,8 +1,9 @@
+" Comprueba que esta instalado el gestor de plugins
 if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
-	echo "Downloading junegunn/vim-plug to manage plugins..."
-	silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
-	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
-	autocmd VimEnter * PlugInstall
+    echo "Downloading junegunn/vim-plug to manage plugins..."
+    silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
+    silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
+    autocmd VimEnter * PlugInstall
 endif
 
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
@@ -28,15 +29,13 @@ set ts=4 sts=4 sw=4 expandtab
 set autoindent
 set smartindent
 set listchars=space:·,tab:>~ list
-set number                  " always show line numbers
-set relativenumber
+set number relativenumber   " always show line numbers
 set mouse=a
 set numberwidth=1
 set showcmd
 set ruler
 set encoding=utf-8
 set showmatch
-set noshowmode
 set noerrorbells
 set clipboard=unnamed
 set clipboard+=unnamedplus
@@ -76,8 +75,4 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
-lua << EOF
-require('telescope').setup{
-}
-require('telescope').load_extension('fzf')
-EOF
+lua require("juanal07")
