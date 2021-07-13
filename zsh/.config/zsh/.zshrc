@@ -33,6 +33,7 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
+# No se para que sirve
 bindkey -v '^?' backward-delete-char
 
 # Change cursor shape for different vi modes.
@@ -63,10 +64,12 @@ lfcd () {
 }
 bindkey -s '^o' 'lfcd\n'
 
+# Calculadora
 bindkey -s '^a' 'bc -lq\n'
 
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 
+# No se para que sirve
 bindkey '^[[P' delete-char
 
 # Edit line in vim with ctrl-e:
@@ -75,3 +78,6 @@ bindkey '^e' edit-command-line
 
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+# Con autosuggestions no funciona /n para darle enter automatico a los comandos
+# source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 2>/dev/null
+# bindkey '^j' autosuggest-accept
