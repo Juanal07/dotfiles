@@ -12,13 +12,16 @@ Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdtree'
 " Plug 'ap/vim-css-color'
-Plug 'gruvbox-community/gruvbox'                                " Themes
+Plug 'gruvbox-community/gruvbox'
 Plug 'alvan/vim-closetag'
 
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+
+Plug 'kyazdani42/nvim-web-devicons'
+
 call plug#end()
 
 syntax enable               " syntax highlighting
@@ -29,7 +32,7 @@ set ts=4 sts=4 sw=4 expandtab
 set autoindent
 set smartindent
 set listchars=space:·,tab:>~ list
-set number relativenumber   " always show line numbers
+set number relativenumber   " always show line relative numbers
 set mouse=a
 set numberwidth=1
 set showcmd
