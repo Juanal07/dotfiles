@@ -5,10 +5,39 @@ require'nvim-web-devicons'.setup {
     default = true;
 }
 
+-- NVIM-LSP
+
 require'lspconfig'.pyright.setup{}
 require'lspconfig'.tsserver.setup{}
+require'lspconfig'.bashls.setup{}
 
--- NVIM-LSP
+--Enable (broadcasting) snippet capability for completion
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+require'lspconfig'.cssls.setup {
+  capabilities = capabilities,
+}
+
+--Enable (broadcasting) snippet capability for completion
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+require'lspconfig'.html.setup {
+  capabilities = capabilities,
+}
+
+require'lspconfig'.jsonls.setup {
+    commands = {
+      Format = {
+        function()
+          vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
+        end
+      }
+    }
+}
+
+-- ANGULAR NO ME FUNCIONA
+-- require'lspconfig'.angularls.setup{}
 
 local nvim_lsp = require('lspconfig')
 
