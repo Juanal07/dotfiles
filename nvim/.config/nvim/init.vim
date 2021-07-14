@@ -7,6 +7,7 @@ if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autolo
 endif
 
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
+
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
@@ -19,9 +20,11 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-
 Plug 'kyazdani42/nvim-web-devicons'
-
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-compe'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'hoob3rt/lualine.nvim'
 call plug#end()
 
 syntax enable               " syntax highlighting
@@ -52,6 +55,7 @@ set scrolloff=8            " cuando haces scroll deja 8 lineas de margen
 set signcolumn=yes
 set notimeout
 set autoread
+set completeopt=menuone,noselect
 
 " Shortcutting split navigation, saving a keypress:
 map <C-h> <C-w>h
@@ -81,4 +85,4 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 lua require("juanal07")
 
 " Source files automaticaly
-nnoremap <F5> :lua package.loaded.juanal07 = nil <cr>:source ~/.config/nvim/init.vim <cr>
+nnoremap <F5> :lua package.loaded.juanal07 = nil<cr>:source ~/.config/nvim/init.vim<cr>
