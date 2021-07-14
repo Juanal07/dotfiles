@@ -37,7 +37,7 @@ set mouse=a
 set numberwidth=1
 set showcmd
 set ruler
-set encoding=utf-8
+set encoding=UTF-8
 set showmatch
 set noerrorbells
 set clipboard=unnamed
@@ -79,3 +79,6 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 lua require("juanal07")
+
+" Source files automaticaly
+nnoremap <F5> :lua package.loaded.juanal07 = nil <cr>:source ~/.config/nvim/init.vim <cr>
