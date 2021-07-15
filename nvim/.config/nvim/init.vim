@@ -25,6 +25,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'hoob3rt/lualine.nvim'
+Plug 'kyazdani42/nvim-tree.lua'
 call plug#end()
 
 syntax enable               " syntax highlighting
@@ -69,10 +70,10 @@ let g:mapleader = "\<Space>"
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
 
-" NerdTree
-nmap <Leader>n :NERDTreeFind<CR>
-" Refresh
-nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
+" " NerdTree
+" nmap <Leader>n :NERDTreeFind<CR>
+" " Refresh
+" nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
 
 colorscheme gruvbox
 set background=dark
@@ -85,4 +86,45 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 lua require("juanal07")
 
 " Source files automaticaly
-nnoremap <F5> :lua package.loaded.juanal07 = nil<cr>:source ~/.config/nvim/init.vim<cr>
+nnoremap <F5> :source ~/.config/nvim/init.vim<cr>
+
+" NVIM TREE LUA
+" let g:nvim_tree_icons = {
+"     \ 'default': '',
+"     \ 'symlink': '',
+"     \ 'git': {
+"     \   'unstaged': "✗",
+"     \   'staged': "✓",
+"     \   'unmerged': "",
+"     \   'renamed': "➜",
+"     \   'untracked': "★",
+"     \   'deleted': "",
+"     \   'ignored': "◌"
+"     \   },
+"     \ 'folder': {
+"     \   'arrow_open': "",
+"     \   'arrow_closed': "",
+"     \   'default': "",
+"     \   'open': "",
+"     \   'empty': "",
+"     \   'empty_open': "",
+"     \   'symlink': "",
+"     \   'symlink_open': "",
+"     \   },
+"     \   'lsp': {
+"     \     'hint': "",
+"     \     'info': "",
+"     \     'warning': "",
+"     \     'error': "",
+"     \   }
+"     \ }
+
+nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <leader>n :NvimTreeFindFile<CR>
+" NvimTreeOpen and NvimTreeClose are also available if you need them
+
+set termguicolors " this variable must be enabled for colors to be applied properly
+
+" a list of groups can be found at `:help nvim_tree_highlight`
+highlight NvimTreeFolderIcon guibg=blue
