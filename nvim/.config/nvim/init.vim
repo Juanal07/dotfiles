@@ -70,13 +70,12 @@ let g:mapleader = "\<Space>"
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
 
-" " NerdTree
-" nmap <Leader>n :NERDTreeFind<CR>
-" " Refresh
-" nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
+nnoremap <Leader>+ :vertical resize +5<CR>
+nnoremap <Leader>- :vertical resize -5<CR>
 
 colorscheme gruvbox
-set background=dark
+" set background=dark
+hi Normal guibg=NONE ctermbg=NONE
 
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -178,8 +177,10 @@ set termguicolors " this variable must be enabled for colors to be applied prope
 
 " a list of groups can be found at `:help nvim_tree_highlight`
 " highlight NvimTreeFolderIcon guibg=blue
-"
 " let g:nvim_tree_disable_default_keybindings = 1
+
+" NVIM TREE
+
 lua << EOF
  local tree_cb = require'nvim-tree.config'.nvim_tree_callback
  vim.g.nvim_tree_bindings = {
