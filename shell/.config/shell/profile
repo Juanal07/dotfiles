@@ -61,7 +61,8 @@ export MOZ_USE_XINPUT2="1"		# Mozilla smooth scrolling/touchpads.
 export AWT_TOOLKIT="MToolkit wmname LG3D"	#May have to install wmname
 export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
 
-export GPG_TTY=$(tty)
+GPG_TTY=$(tty)
+export GPG_TTY
 gpg-connect-agent updatestartuptty /bye >/dev/null
 
 # This is the list for lf icons:
@@ -161,7 +162,7 @@ sudo -n loadkeys ${XDG_DATA_HOME:-$HOME/.local/share}/larbs/ttymaps.kmap 2>/dev/
 
 # Para recordar las claves ssh
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
+    ssh-agent -t 5m > "$XDG_RUNTIME_DIR/ssh-agent.env"
 fi
 if [[ ! "$SSH_AUTH_SOCK" ]]; then
     source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null

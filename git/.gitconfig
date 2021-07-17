@@ -2,7 +2,7 @@
 	name = Juan Alberto Raya
 	email = 22559891+Juanal07@users.noreply.github.com
 	username = Juanal07
-	signingkey = B1D0FA43A49A7427
+	signingkey = A34D0C0E70B22CFD
 [commit]
 	gpgsign = true
 [gpg]
