@@ -24,6 +24,9 @@ HISTFILE=~/.cache/zsh/history
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
 
+export GPG_TTY=$TTY
+# gpg-connect-agent updatestartuptty /bye >/dev/null
+
 # Basic auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' menu select
