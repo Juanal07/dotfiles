@@ -76,7 +76,7 @@ bindkey -s '^o' 'lfcd\n'
 # Calculadora
 bindkey -s '^a' 'bc -lq\n'
 
-bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
+# bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 
 # No se para que sirve
 bindkey '^[[P' delete-char
@@ -101,8 +101,10 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 [[ $- == *i* ]] && source "/usr/share/fzf/completion.zsh" 2> /dev/null
 source "/usr/share/fzf/key-bindings.zsh"
 
-export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --preview "bat --style=numbers,changes --color=always {}"'
-export FZF_DEFAULT_COMMAND="find ."
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --preview "bat --theme=gruvbox-dark --style=numbers,changes --color=always {}"'
+# export FZF_DEFAULT_COMMAND="fd ."
+export FZF_DEFAULT_COMMAND="fd --type d --type f --hidden --follow --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="find -t d ."
+export FZF_ALT_C_COMMAND="fd -t d ."
 
+setopt  autocd
