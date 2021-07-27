@@ -10,9 +10,10 @@ call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'mhinz/vim-signify'
 Plug 'jiangmiao/auto-pairs'
-" Plug 'preservim/nerdtree'
-" Plug 'ap/vim-css-color'
+Plug 'ap/vim-css-color'
 Plug 'gruvbox-community/gruvbox'
 Plug 'alvan/vim-closetag'
 
