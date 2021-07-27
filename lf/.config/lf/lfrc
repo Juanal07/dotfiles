@@ -102,7 +102,7 @@ map O $mimeopen --ask $f
 
 map <c-f> $lf -remote "send $id select '$(fzf)'"
 map J $lf -remote "send $id cd $(cut -d'	' -f2 ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf)"
-map gh
+# map gh
 map gg top
 map D delete
 # map p paste
@@ -111,41 +111,21 @@ map E extract
 # map M moveto
 map <c-n> push :mkdir<space>
 map <c-r> reload
-map <c-s> set hidden!
+map . set hidden!
 
+# Renames
 map A rename # at the very end
 map c push A<c-u> # new rename
 map I push A<c-a> # at the very beginning
 map i push A<a-b><a-b><a-f> # before extention
 map a push A<a-b> # after extention
 map B bulkrename
+
 map b $setbg $f
 
 map <c-e> down
 map <c-y> up
 map V push :!nvim<space>
-# Common locations
-map gh cd ~/
-map gd cd ~/Documents
-map gD cd ~/Downloads
-map gp cd ~/Pictures
-map gs cd ~/Pictures/Screenshots
-map gW cd ~/Pictures/Wallpapers
-map gw cd ~/Workspace
-map gt cd ~/TODO
-map gc cd ~/.config
-map g/ cd /
-map ge cd /etc
-map gB cd /boot
-map gm cd /mnt
-map gu cd /usr
-map go cd /opt
-map gl cd /usr/lib
-map gb cd /usr/bin
-map gv cd /var
-map gV cd ~/Videos
-map g. cd ~/Workspace/dotfiles
-map gP cd ~/Workspace/PKGBUILD
 
 # Source Bookmarks
 source "~/.config/lf/shortcutrc"

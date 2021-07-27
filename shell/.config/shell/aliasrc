@@ -25,7 +25,7 @@ alias \
 # Colorize commands when possible.
 alias \
 	ls="ls -hN --color=auto --group-directories-first" \
-	l="ls -la"
+	l="ls -la" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
 	ccat="highlight --out-format=ansi"
@@ -49,3 +49,11 @@ alias \
 	magit="nvim -c MagitOnly" \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
 	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
+
+alias -s html="$BROWSER"
+alias -s ts=nvim
+alias -s js=nvim
+alias -s py=nvim
+alias n=nvim
+
+alias gps='git add . && git=commit -m "auto push" && git push' \

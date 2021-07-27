@@ -1,3 +1,14 @@
+# TODO: add this programms as git submodules in .config/zsh
+# This zsh config need this programs to be installed in /usr/share
+# fast-syntax-highlighting
+# zsh-autosuggestions
+# zsh-theme-powerlevel10k
+# fzf
+
+# Flex on the ubuntu users
+# neofetch
+
+# Needed for gpg password sign
 export GPG_TTY=$TTY
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
@@ -7,13 +18,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Luke's config for the Zoomer Shell
+# Automatically cd into typed directory.
+setopt autocd
 
-# Enable colors and change prompt:
-# autoload -U colors && colors	# Load colors
-# PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-# setopt autocd		# Automatically cd into typed directory.
-# stty stop undef		# Disable ctrl-s to freeze terminal.
 # setopt interactive_comments
 
 # History in cache directory:
@@ -31,20 +38,18 @@ autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
-_comp_options+=(globdots)		# Include hidden files.
+# Include hidden files.
+_comp_options+=(globdots)
 
 # vi mode
 bindkey -v
 export KEYTIMEOUT=1
-
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
-# No se para que sirve
 bindkey -v '^?' backward-delete-char
-
 # Change cursor shape for different vi modes.
 function zle-keymap-select () {
     case $KEYMAP in
@@ -76,9 +81,7 @@ bindkey -s '^o' 'lfcd\n'
 # Calculadora
 bindkey -s '^a' 'bc -lq\n'
 
-# bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
-
-# No se para que sirve
+# No se para que sirve, igual para borrar en vi mode o similar
 bindkey '^[[P' delete-char
 
 # Edit line in vim with ctrl-e:
@@ -87,24 +90,20 @@ bindkey '^e' edit-command-line
 
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
-# Con autosuggestions no funciona /n para darle enter automatico a los comandos
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 2>/dev/null
-# bindkey '^j' autosuggest-accept
 
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+# Autosuggestions
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 2>/dev/null
+bindkey '^n' autosuggest-accept
+
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
-
 # Setup fzf
-
 [[ $- == *i* ]] && source "/usr/share/fzf/completion.zsh" 2> /dev/null
 source "/usr/share/fzf/key-bindings.zsh"
-
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --preview "bat --theme=gruvbox-dark --style=numbers,changes --color=always {}"'
-# export FZF_DEFAULT_COMMAND="fd ."
 export FZF_DEFAULT_COMMAND="fd --type d --type f --hidden --follow --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fd -t d ."
-
-setopt  autocd
+# Go to directories
+bindkey -s '^f' '$(fd . ~ --type d --hidden --follow --exclude .git | fzf)\n'
