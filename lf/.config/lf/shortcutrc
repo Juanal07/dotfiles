@@ -32,4 +32,3 @@ map gtp $$EDITOR "/home/juan/.config/shell/profile"
 map gtn $$EDITOR "/home/juan/.config/nvim/init.vim" 
 map gtz $$EDITOR "/home/juan/.config/zsh/.zshrc" 
 map gtl $$EDITOR "/home/juan/.config/lf/lfrc" 
-
