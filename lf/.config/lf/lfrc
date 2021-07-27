@@ -102,20 +102,16 @@ map O $mimeopen --ask $f
 
 map <c-f> $lf -remote "send $id select '$(fzf)'"
 map J $lf -remote "send $id cd $(cut -d'	' -f2 ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf)"
-# map gh
-map gg top
+
 map D delete
-# map p paste
 map E extract
-# map C copyto
-# map M moveto
 map <c-n> push :mkdir<space>
 map <c-r> reload
 map . set hidden!
 
 # Renames
 map A rename # at the very end
-map c push A<c-u> # new rename
+# map c push A<c-u> # new rename
 map I push A<c-a> # at the very beginning
 map i push A<a-b><a-b><a-f> # before extention
 map a push A<a-b> # after extention
