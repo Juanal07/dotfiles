@@ -6,7 +6,7 @@
 # fzf
 
 # Flex on the ubuntu users
-neofetch
+# neofetch
 
 # Needed for gpg password sign
 export GPG_TTY=$TTY

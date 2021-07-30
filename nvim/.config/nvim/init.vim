@@ -73,6 +73,21 @@ nmap <Leader>q :q<CR>
 nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
 
+" TOP 5 remaps ThePrimeagen
+nnoremap Y y$
+
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ( (<c-g>u
+inoremap { {<c-g>u
+
+inoremap <C-j> <esc>:m .+1<CR>==
+inoremap <C-k> <esc>:m .-2<CR>==
+nnoremap <leader>j :m .+1<CR>==
+nnoremap <leader>k :m .-2<CR>==
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 colorscheme gruvbox
 " set background=dark
 hi Normal guibg=NONE ctermbg=NONE
