@@ -10,6 +10,9 @@ remaps &		# run the remaps script, switching caps/esc and more; check it for mor
 xcompmgr &		# xcompmgr for transparency
 dunst &			# dunst for notifications
 xset r rate 300 50 &	# Speed xrate up
+xinput set-prop 13 "libinput Accel Profile Enabled" 0 1 # disabled mouse acceleration
+xset s 300 300  # time for suspend screen
+xset dpms 300 300 300 # time for suspend screen
 unclutter &		# Remove mouse when idle
 
 # This line autostarts an instance of Pulseaudio that does not exit on idle.

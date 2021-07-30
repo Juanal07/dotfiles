@@ -13,7 +13,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
 Plug 'jiangmiao/auto-pairs'
-Plug 'ap/vim-css-color'
 Plug 'gruvbox-community/gruvbox'
 Plug 'alvan/vim-closetag'
 
