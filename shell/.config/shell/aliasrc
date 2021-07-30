@@ -56,4 +56,4 @@ alias -s js=nvim
 alias -s py=nvim
 alias n=nvim
 
-alias gps='git add . && git=commit -m "auto push" && git push' \
+alias gps='git add . && git commit -m "auto push" && git push' \
