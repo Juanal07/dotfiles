@@ -156,15 +156,15 @@ let g:nvim_tree_hide_dotfiles = 0 "0 by default, this option hides files and fol
 let g:nvim_tree_icons = {
     \ 'default': '',
     \ 'symlink': '',
-    \ 'git': {
-    \   'unstaged': "✗",
-    \   'staged': "✓",
-    \   'unmerged': "",
-    \   'renamed': "➜",
-    \   'untracked': "★",
-    \   'deleted': "",
-    \   'ignored': "◌"
-    \   },
+    " \ 'git': {
+    " \   'unstaged': "✗",
+    " \   'staged': "✓",
+    " \   'unmerged': "",
+    " \   'renamed': "➜",
+    " \   'untracked': "★",
+    " \   'deleted': "",
+    " \   'ignored': "◌"
+    " \   },
     \ 'folder': {
     \   'arrow_open': "",
     \   'arrow_closed': "",

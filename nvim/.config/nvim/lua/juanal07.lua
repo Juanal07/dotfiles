@@ -116,7 +116,9 @@ vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 
 -- LENGUAJES 
 
+-- Python
 require'lspconfig'.pyright.setup{}
+-- TS JS 
 require'lspconfig'.tsserver.setup{}
 require'lspconfig'.bashls.setup{}
 
