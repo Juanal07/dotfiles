@@ -18,6 +18,19 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Pluggins 
+
+# sudo pacman -S zsh-syntax-autosuggestions
+autosuggestions=/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# sudo pacman -S zsh-syntax-highlighting
+syntax=/usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+# curl -sL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh -o ~/.sudo.plugin.zsh
+sudo=~/.sudo.plugin.zsh
+
+powerlevel10k=/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+# Rest of plugins are sourced at the bottom
+[[ -f $powerlevel10k ]] && source $powerlevel10k
+
 # Automatically cd into typed directory.
 setopt autocd
 
@@ -88,15 +101,22 @@ bindkey '^[[P' delete-char
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-# Load syntax highlighting; should be last.
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+# Source plugins
 
+# Sudo
+if [[ -f $sudo ]]; then
+    source $sudo
+    bindkey -M vicmd '^V' sudo-command-line # CTL + v
+    bindkey -M viins '^V' sudo-command-line # CTL + v
+fi
+# Load syntax highlighting; should be last.
+[[ -f $syntax ]] && source $syntax
 # Autosuggestions
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 2>/dev/null
+[[ -f $autosuggestions ]] && source $autosuggestions
 bindkey '^n' autosuggest-accept
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+# source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
 # Setup fzf

@@ -26,6 +26,10 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
+Plug 'ryanoasis/vim-devicons'
+
+Plug 'sbdchd/neoformat'
+" Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 call plug#end()
 
 syntax enable               " syntax highlighting
@@ -57,7 +61,6 @@ set signcolumn=yes
 set notimeout
 set autoread
 set completeopt=menuone,noselect
-
 " Shortcutting split navigation, saving a keypress:
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -72,6 +75,9 @@ nmap <Leader>q :q<CR>
 
 nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
+
+vnoremap < <gv
+vnoremap > >gv
 
 " TOP 5 remaps ThePrimeagen
 nnoremap Y y$
@@ -97,6 +103,10 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fc <cmd>Telescope git_commits<cr>
+
+autocmd FileType javascriptreact setlocal commentstring={/*\ %s\ */}
+
+nnoremap <leader>, :Neoformat<cr>
 
 lua require("juanal07")
 
@@ -156,15 +166,6 @@ let g:nvim_tree_hide_dotfiles = 0 "0 by default, this option hides files and fol
 let g:nvim_tree_icons = {
     \ 'default': '',
     \ 'symlink': '',
-    \ 'git': {
-    \   'unstaged': "✗",
-    \   'staged': "✓",
-    \   'unmerged': "",
-    \   'renamed': "➜",
-    \   'untracked': "★",
-    \   'deleted': "",
-    \   'ignored': "◌"
-    \   },
     \ 'folder': {
     \   'arrow_open': "",
     \   'arrow_closed': "",
