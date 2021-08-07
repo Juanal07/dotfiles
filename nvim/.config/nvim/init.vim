@@ -39,7 +39,7 @@ filetype plugin indent on
 set ts=4 sts=4 sw=4 expandtab
 set autoindent
 set smartindent
-set listchars=space:·,tab:>~ list
+set listchars=space:·,tab:>~,eol:↲ list
 set number relativenumber   " always show line relative numbers
 set mouse=a
 set numberwidth=1
@@ -61,6 +61,7 @@ set signcolumn=yes
 set notimeout
 set autoread
 set completeopt=menuone,noselect
+
 " Shortcutting split navigation, saving a keypress:
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -122,7 +123,7 @@ let g:nvim_tree_quit_on_open = 1 "0 by default, closes the tree when you open a 
 let g:nvim_tree_follow = 1 "0 by default, this option allows the cursor to be updated when entering a buffer
 let g:nvim_tree_indent_markers = 1 "0 by default, this option shows indent markers when folders are open
 let g:nvim_tree_hide_dotfiles = 0 "0 by default, this option hides files and folders starting with a dot `.`
-" let g:nvim_tree_git_hl = 1 "0 by default, will enable file highlight for git attributes (can be used without the icons).
+let g:nvim_tree_git_hl = 1 "0 by default, will enable file highlight for git attributes (can be used without the icons).
 " let g:nvim_tree_highlight_opened_files = 1 "0 by default, will enable folder and file icon highlight for opened files/directories.
 " let g:nvim_tree_root_folder_modifier = ':~' "This is the default. See :help filename-modifiers for more options
 " let g:nvim_tree_tab_open = 1 "0 by default, will open the tree when entering a new tab and the tree was previously open
@@ -149,12 +150,12 @@ let g:nvim_tree_hide_dotfiles = 0 "0 by default, this option hides files and fol
 " indicates to the window picker that the buffer's window should not be
 " selectable.
 " let g:nvim_tree_special_files = { 'README.md': 1, 'Makefile': 1, 'MAKEFILE': 1 } " List of filenames that gets highlighted with NvimTreeSpecialFile
-" let g:nvim_tree_show_icons = {
-"     \ 'git': 1,
-"     \ 'folders': 0,
-"     \ 'files': 0,
-"     \ 'folder_arrows': 0,
-"     \ }
+let g:nvim_tree_show_icons = {
+    \ 'git': 0,
+    \ 'folders': 1,
+    \ 'files': 1,
+    \ 'folder_arrows': 1,
+    \ }
 "If 0, do not show the icons for one of 'git' 'folder' and 'files'
 "1 by default, notice that if 'files' is 1, it will only display
 "if nvim-web-devicons is installed and on your runtimepath.
@@ -186,7 +187,7 @@ let g:nvim_tree_icons = {
 
 nnoremap <leader>n :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
-nnoremap <C-n> :NvimTreeFindFile<CR>
+" nnoremap <C-n> :NvimTreeFindFile<CR>
 " NvimTreeOpen and NvimTreeClose are also available if you need them
 
 set termguicolors " this variable must be enabled for colors to be applied properly
