@@ -106,6 +106,10 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fc <cmd>Telescope git_commits<cr>
 
 autocmd FileType javascriptreact setlocal commentstring={/*\ %s\ */}
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
 
 nnoremap <leader>, :Neoformat<cr>
 
