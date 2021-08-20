@@ -61,6 +61,7 @@ set signcolumn=yes
 set notimeout
 set autoread
 set completeopt=menuone,noselect
+set nocompatible 
 
 " Shortcutting split navigation, saving a keypress:
 map <C-h> <C-w>h
