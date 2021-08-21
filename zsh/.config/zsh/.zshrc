@@ -25,7 +25,7 @@ autosuggestions=/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.z
 # sudo pacman -S zsh-syntax-highlighting
 syntax=/usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 # curl -sL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh -o ~/.sudo.plugin.zsh
-sudo=~/.sudo.plugin.zsh
+sudo=~/.config/zsh/.sudo.plugin.zsh
 
 powerlevel10k=/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 # Rest of plugins are sourced at the bottom

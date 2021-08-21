@@ -2,11 +2,11 @@ map gh cd ~/
 map gd cd ~/Downloads
 map go cd ~/Documents
 map gp cd ~/Pictures
-map gV cd ~/Videos
+map gv cd ~/Videos/Peliculas
 map gm cd ~/Music 
 map gc cd ~/code
 map gw cd ~/code/workspace
-map g. cd ~/stow-dotfiles
+map g. cd ~/dotfiles
 map gC cd ~/.config
 map gz cd ~/.config/zsh
 map gn cd ~/.config/nvim
@@ -15,7 +15,6 @@ map gs cd ~/.config/shell
 map glb cd "/home/juan/.local/bin" 
 map glsr cd "/home/juan/.local/src" 
 map glsh cd "/home/juan/.local/share" 
-
 map g/ cd /
 map gE cd /etc
 map gB cd /boot
@@ -25,7 +24,6 @@ map gO cd /opt
 map gL cd /usr/lib
 map gB cd /usr/bin
 map gV cd /var
-
 map gta $$EDITOR "/home/juan/.config/shell/aliasrc" 
 map gts $$EDITOR "/home/juan/.config/shell/shortcutrc"
 map gtp $$EDITOR "/home/juan/.config/shell/profile" 
