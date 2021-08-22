@@ -1,0 +1,37 @@
+[user]
+	name = Juan Alberto Raya
+	email = 22559891+Juanal07@users.noreply.github.com
+	username = Juanal07
+[core]
+	editor = nvim
+[alias]
+	a = add --all
+	ai = add -i
+	r = restore
+	b = branch
+
+	c = commit
+	ca = commit -a
+	cm = commit -m
+
+	cl = clone
+
+	f = fetch
+	fo = fetch origin
+	fu = fetch upstream
+
+	l = log --oneline
+	lg = log --oneline --graph --decorate
+
+	o = checkout
+
+	ps = push
+
+	pso = push origin
+
+    m = merge
+	pl = pull
+
+	s = status
+[pull]
+	rebase = false
