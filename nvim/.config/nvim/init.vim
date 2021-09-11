@@ -30,9 +30,16 @@ Plug 'ryanoasis/vim-devicons'
 
 Plug 'sbdchd/neoformat'
 " Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
+Plug 'Yggdroot/indentLine'
+
+Plug 'TovarishFin/vim-solidity'
 call plug#end()
 
 syntax enable               " syntax highlighting
+set nobackup
+set nowritebackup
+
 set showmode                " always show what mode we're currently editing in
 set nowrap                  " don't wrap lines
 filetype plugin indent on
@@ -62,6 +69,8 @@ set notimeout
 set autoread
 set completeopt=menuone,noselect
 set nocompatible 
+
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx'
 
 " Shortcutting split navigation, saving a keypress:
 map <C-h> <C-w>h
@@ -106,7 +115,9 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fc <cmd>Telescope git_commits<cr>
 
-autocmd FileType javascriptreact setlocal commentstring={/*\ %s\ */}
+" Esto da errores en otros tipo de archivos
+" autocmd FileType javascriptreact setlocal commentstring={/*\ %s\ */}
+
 augroup fmt
   autocmd!
   autocmd BufWritePre * undojoin | Neoformat
@@ -128,7 +139,7 @@ let g:nvim_tree_quit_on_open = 1 "0 by default, closes the tree when you open a 
 let g:nvim_tree_follow = 1 "0 by default, this option allows the cursor to be updated when entering a buffer
 let g:nvim_tree_indent_markers = 1 "0 by default, this option shows indent markers when folders are open
 let g:nvim_tree_hide_dotfiles = 0 "0 by default, this option hides files and folders starting with a dot `.`
-let g:nvim_tree_git_hl = 1 "0 by default, will enable file highlight for git attributes (can be used without the icons).
+let g:nvim_tree_git_hl = 0 "0 by default, will enable file highlight for git attributes (can be used without the icons).
 " let g:nvim_tree_highlight_opened_files = 1 "0 by default, will enable folder and file icon highlight for opened files/directories.
 " let g:nvim_tree_root_folder_modifier = ':~' "This is the default. See :help filename-modifiers for more options
 " let g:nvim_tree_tab_open = 1 "0 by default, will open the tree when entering a new tab and the tree was previously open
