@@ -56,4 +56,6 @@ alias -s js=nvim
 alias -s py=nvim
 alias n=nvim
 
-alias gps='git add . && git commit -m "auto push" && git push' \
+alias gps='git add . && git commit -m "auto push" && git push'
+
+alias orp='ls ~/code/workspace | rofi -show -dmenu "Monospace 30" -i | xargs -I_ nvim ~/code/workspace/_'
