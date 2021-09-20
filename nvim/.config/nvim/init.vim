@@ -13,20 +13,22 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
 Plug 'jiangmiao/auto-pairs'
-Plug 'gruvbox-community/gruvbox'
 Plug 'alvan/vim-closetag'
+
+Plug 'gruvbox-community/gruvbox'
+
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
-Plug 'hrsh7th/cmp-nvim-lsp'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -35,15 +37,16 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'ryanoasis/vim-devicons'
 
-" Plug 'sbdchd/neoformat'
-" Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-" Plug 'eslint/eslint'
-" Plug 'dense-analysis/ale'
 Plug 'mhartington/formatter.nvim'
 
 Plug 'Yggdroot/indentLine'
 
 Plug 'TovarishFin/vim-solidity'
+
+" Investigar
+" https://github.com/nvim-telescope/telescope-media-files.nvim
+" https://github.com/glepnir/dashboard-nvim
+
 call plug#end()
 
 syntax enable               " syntax highlighting
@@ -71,7 +74,8 @@ set noswapfile
 set path+=**               " permite hacer busquedas con el comando :find '*model.ts' por ejemplo, como fzf
 set laststatus=2           " Always display the status bar
 set termguicolors          " True colors in terminal
-set nohlsearch             " no highlight my search with /
+" set nohlsearch             " no highlight my search with /
+set ignorecase
 set hidden                 " permite moverme entre buffers sin guardar
 set scrolloff=8            " cuando haces scroll deja 8 lineas de margen
 set signcolumn=yes
