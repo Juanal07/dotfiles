@@ -1,22 +1,22 @@
 #!/bin/sh
+ 
 cd $HOME/code/workspace/cav-react
 tmux new-session -s 'work' -d
-
 tmux rename-window -t work cav-react
 tmux send-keys -t work 'nvim .' C-m
 tmux split-window -h -p 30 
 # tmux send-keys -t work 'g f' C-m
 
-cd $HOME/code/workspace/my-gatsby-site
+cd $HOME/code/workspace/nextjs-blog
 tmux new-window -t work
-tmux rename-window -t work gatsby
+tmux rename-window -t work nextjs
 tmux send-keys -t work 'nvim .' C-m
 tmux split-window -h -p 15 
 # tmux send-keys -t work 'g f' C-m
 
-cd $HOME/code/workspace/nextjs-blog
+cd $HOME/code/workspace/ethereum_voting_dapp/chapter1
 tmux new-window -t work
-tmux rename-window -t work nextjs
+tmux rename-window -t work election
 tmux send-keys -t work 'nvim .' C-m
 tmux split-window -h -p 15 
 # tmux send-keys -t work 'g f' C-m
