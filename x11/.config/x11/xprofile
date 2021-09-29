@@ -6,8 +6,8 @@
 setbg &			# set the background with the `setbg` script
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources &	# Uncomment to use Xresources colors/settings on startup
 mpd &			# music player daemon-you might prefer it as a service though
-# fcitx -d &  # para escribir en chino
 remaps &		# run the remaps script, switching caps/esc and more; check it for more info
+fcitx &  # para escribir en chino
 # xcompmgr &		# xcompmgr for transparency
 picom &       # for transparency and blur
 dunst &			# dunst for notifications
