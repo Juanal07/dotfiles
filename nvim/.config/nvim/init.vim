@@ -36,6 +36,7 @@ Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'ryanoasis/vim-devicons'
+Plug 'norcalli/nvim-colorizer.lua'
 
 Plug 'mhartington/formatter.nvim'
 
@@ -246,6 +247,9 @@ set termguicolors " this variable must be enabled for colors to be applied prope
 "-------------------------------------LUA----------------------------------------------------------
 
 lua << EOF
+
+--COLORIZER
+require'colorizer'.setup()
 
 -- NVIM TREE
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
