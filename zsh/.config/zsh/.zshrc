@@ -127,3 +127,6 @@ export FZF_DEFAULT_COMMAND="fd --type d --type f --hidden --follow --exclude .gi
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Go to directories
 bindkey -s '^f' '$(fd . ~ --type d --hidden --follow --exclude .git | fzf)\n'
+
+# To customize prompt, run `p10k configure` or edit ~/dotfiles/zsh/.config/zsh/.p10k.zsh.
+[[ ! -f ~/dotfiles/zsh/.config/zsh/.p10k.zsh ]] || source ~/dotfiles/zsh/.config/zsh/.p10k.zsh

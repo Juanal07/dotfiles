@@ -23,12 +23,15 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-nvim-lua'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/vim-vsnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
+Plug 'onsails/lspkind-nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -84,6 +87,7 @@ set notimeout
 set autoread
 set completeopt=menuone,noselect
 set nocompatible 
+set cursorline
 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx'
 
@@ -121,8 +125,8 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 colorscheme gruvbox
-" set background=dark
 hi Normal guibg=NONE ctermbg=NONE
+hi Visual  guifg=NONE guibg=#928374 gui=NONE
 
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -363,13 +367,31 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
   },
+  formatting = {
+  format = require("lspkind").cmp_format({with_text = true, menu = ({
+      buffer = "[Buffer]",
+      nvim_lsp = "[LSP]",
+      luasnip = "[LuaSnip]",
+      path = "[Path]",
+      nvim_lua = "[Lua]",
+      latex_symbols = "[Latex]",
+  })}),
+  experimental = {
+    native_menu = false,
+    ghost_text = true,
+  }
+},
+
 }
 
 -- LENGUAJES 
 -- instalar:
 -- npm i -g bash-language-server
 
-
+-- java
+require'lspconfig'.java_language_server.setup{}
+-- c,c++, etc.
+require'lspconfig'.sourcekit.setup{}
 -- Python
 require'lspconfig'.pyright.setup{}
 -- TS JS 
