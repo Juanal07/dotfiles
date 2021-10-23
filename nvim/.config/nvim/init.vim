@@ -388,6 +388,8 @@ cmp.setup {
 -- instalar:
 -- npm i -g bash-language-server
 
+-- vim
+require'lspconfig'.vimls.setup{}
 -- java
 require'lspconfig'.java_language_server.setup{}
 -- c,c++, etc.
