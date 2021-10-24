@@ -3,16 +3,10 @@
 configuration {
     font: "Monospace 18";
     show-icons: true;
-    display-window: "Window";
-    display-drun: "Search";
 }
 
 @theme "gruvbox-dark-soft"
 
-listview {
-    lines: 12;
-}
-
-* {
-  transparency: "real";
+prompt {
+  enabled: false;
 }
