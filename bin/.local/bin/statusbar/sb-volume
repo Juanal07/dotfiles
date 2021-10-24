@@ -25,4 +25,4 @@ else
   icon="奔"
 fi
 
-echo "^c#98971a^$icon$vol%"
+echo "$icon $vol%"
