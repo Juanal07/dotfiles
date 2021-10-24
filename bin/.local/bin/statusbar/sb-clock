@@ -26,9 +26,13 @@ case $BLOCK_BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-# date "+%Y %b %d (%a) $icon%I:%M%p"
+# date_icon=" ^c#f7ca88^$date^d^"
+# date_icon=" "
+# date "+%Y %b %d (%a) $date_icon $icon^c#f7ca88^%H:%M^d^"
 
-date_icon=" "
-date=`date +"%d/%m/%Y %a"`
-hour="$(date +%H:%M)"
-printf "$date_icon ^c#f7ca88^$date^d^  $icon $hour" 
+hour=`date +'%H:%M'`
+hour_icon=" ^c#f7ca88^$hour^d^"
+# hour_icon="^c#f7ca88^manolo^d^"
+printf "$hour_icon" 
+
+# printf "$date_icon ^c#f7ca88^$date^d^  $icon $hour" 

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+date=`date +'%d/%m/%Y'`
+date_icon=" ^c#f7ca88^$date^d^"
+printf "$date_icon"
