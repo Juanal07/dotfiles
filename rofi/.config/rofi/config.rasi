@@ -12,3 +12,7 @@ configuration {
 listview {
     lines: 12;
 }
+
+* {
+  transparency: "real";
+}

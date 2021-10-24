@@ -17,6 +17,6 @@ cmds="\
 🖥 shutdown	${shut:-sudo -A shutdown -h now}
 📺 display off 	 xset dpms force off"
 
-choice="$(echo "$cmds" | cut -d'	' -f 1 | dmenu)" || exit 1
+choice="$(echo "$cmds" | cut -d'	' -f 1 | rofi -dmenu -i)" || exit 1
 
 eval "$(echo "$cmds" | grep "^$choice	" | cut -d '	' -f2-)"
