@@ -88,6 +88,8 @@ set autoread
 set completeopt=menuone,noselect
 set nocompatible 
 set cursorline
+set incsearch
+set hlsearch
 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx'
 
@@ -102,6 +104,8 @@ let g:mapleader = "\<Space>"
 " Quit and save
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
+
+nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
 
 nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>

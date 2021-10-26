@@ -7,6 +7,9 @@ map gm cd ~/Music
 map gc cd ~/code
 map gw cd ~/code/workspace
 map g. cd ~/dotfiles
+
+map gx cd ~/Dropbox
+
 map gC cd ~/.config
 map gz cd ~/.config/zsh
 map gn cd ~/.config/nvim
