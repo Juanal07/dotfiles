@@ -261,10 +261,16 @@ require'colorizer'.setup()
 
 -- NVIM TREE
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
-vim.g.nvim_tree_bindings = {
+require'nvim-tree'.setup{
+  view = {
+    mappings = {
+      list = {
    { key = { "l", "<CR>", "o" }, cb = tree_cb("edit")},
    { key = "h", cb = tree_cb("close_node") },
    { key = "v", cb = tree_cb("vsplit") },
+        }
+      }
+    }
 }
 
 require('telescope').setup{}
@@ -344,28 +350,13 @@ cmp.setup {
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    },
     ['<Tab>'] = function(fallback)
-      if vim.fn.pumvisible() == 1 then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n')
-      elseif luasnip.expand_or_jumpable() then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
+      if cmp.visible() then
+        cmp.select_next_item()
       else
         fallback()
       end
-    end,
-    ['<S-Tab>'] = function(fallback)
-      if vim.fn.pumvisible() == 1 then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-p>', true, true, true), 'n')
-      elseif luasnip.jumpable(-1) then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
-      else
-        fallback()
-      end
-    end,
+    end
   },
   sources = {
     { name = 'nvim_lsp' },
