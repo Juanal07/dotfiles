@@ -130,7 +130,7 @@ vnoremap K :m '<-2<CR>gv=gv
 
 colorscheme gruvbox
 hi Normal guibg=NONE ctermbg=NONE
-hi Visual  guifg=NONE guibg=#928374 gui=NONE
+hi Visual guifg=NONE guibg=#928374 gui=NONE
 
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -163,11 +163,11 @@ let g:nvim_tree_side = 'left' "left by default
 let g:nvim_tree_width = 35 "30 by default, can be width_in_columns or 'width_in_percent%'
 " let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ] "empty by default
 " let g:nvim_tree_gitignore = 1 "0 by default
-let g:nvim_tree_auto_open = 1 "0 by default, opens the tree when typing `vim $DIR` or `vim`
-let g:nvim_tree_auto_close = 1 "0 by default, closes the tree when it's the last window
+" let g:nvim_tree_auto_open = 1 "0 by default, opens the tree when typing `vim $DIR` or `vim`
+" let g:nvim_tree_auto_close = 1 "0 by default, closes the tree when it's the last window
 " let g:nvim_tree_auto_ignore_ft = [ 'startify', 'dashboard' ] "empty by default, don't auto open tree on specific filetypes.
 let g:nvim_tree_quit_on_open = 1 "0 by default, closes the tree when you open a file
-let g:nvim_tree_follow = 1 "0 by default, this option allows the cursor to be updated when entering a buffer
+" let g:nvim_tree_follow = 1 "0 by default, this option allows the cursor to be updated when entering a buffer
 let g:nvim_tree_indent_markers = 1 "0 by default, this option shows indent markers when folders are open
 let g:nvim_tree_hide_dotfiles = 0 "0 by default, this option hides files and folders starting with a dot `.`
 let g:nvim_tree_git_hl = 0 "0 by default, will enable file highlight for git attributes (can be used without the icons).
@@ -179,7 +179,7 @@ let g:nvim_tree_highlight_opened_files = 1 "0 by default, will enable folder and
 " let g:nvim_tree_hijack_netrw = 0 "1 by default, prevents netrw from automatically opening when opening directories (but lets you keep its other utilities)
 " let g:nvim_tree_add_trailing = 1 "0 by default, append a trailing slash to folder names
 " let g:nvim_tree_group_empty = 1 " 0 by default, compact folders that only contain a single folder into one node in the file tree
-let g:nvim_tree_lsp_diagnostics = 1 "0 by default, will show lsp diagnostics in the signcolumn. See :help nvim_tree_lsp_diagnostics
+" let g:nvim_tree_lsp_diagnostics = 1 "0 by default, will show lsp diagnostics in the signcolumn. See :help nvim_tree_lsp_diagnostics
 " let g:nvim_tree_disable_window_picker = 1 "0 by default, will disable the window picker.
 " let g:nvim_tree_hijack_cursor = 0 "1 by default, when moving cursor in the tree, will position the cursor at the start of the file on the current line
 " let g:nvim_tree_icon_padding = ' ' "one space by default, used for rendering the space between the icon and the filename. Use with caution, it could break rendering if you set an empty string depending on your font.
@@ -252,27 +252,16 @@ set termguicolors " this variable must be enabled for colors to be applied prope
 " highlight NvimTreeFolderIcon guibg=blue
 " let g:nvim_tree_disable_default_keybindings = 1
 
-"-------------------------------------LUA----------------------------------------------------------
 
+source ~/.config/nvim/nvim-tree.lua
+
+"-------------------------------------LUA----------------------------------------------------------
 lua << EOF
 
 --COLORIZER
 require'colorizer'.setup()
 
 -- NVIM TREE
-local tree_cb = require'nvim-tree.config'.nvim_tree_callback
-require'nvim-tree'.setup{
-  view = {
-    mappings = {
-      list = {
-   { key = { "l", "<CR>", "o" }, cb = tree_cb("edit")},
-   { key = "h", cb = tree_cb("close_node") },
-   { key = "v", cb = tree_cb("vsplit") },
-        }
-      }
-    }
-}
-
 require('telescope').setup{}
 require('telescope').load_extension('fzf')
 
