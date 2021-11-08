@@ -59,8 +59,8 @@ set nowritebackup
 
 set showmode                " always show what mode we're currently editing in
 set nowrap                  " don't wrap lines
-filetype plugin indent on
 set ts=2 sts=2 sw=2 expandtab
+filetype plugin indent on
 set autoindent
 set smartindent
 " set listchars=space:·,tab:>~,eol:↲ list
@@ -104,6 +104,9 @@ let g:mapleader = "\<Space>"
 " Quit and save
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
+
+nnoremap n nzzzv
+nnoremap N Nzzzv
 
 nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
 
