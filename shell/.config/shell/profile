@@ -11,6 +11,7 @@ export PATH=$PATH:/opt/apache-spark/bin
 export PATH=$PATH:/home/juan/.local/bin
 export SPARK_HOME=/opt/apache-spark
 export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye >/dev/null
 
 unsetopt PROMPT_SP
 
