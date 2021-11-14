@@ -15,7 +15,7 @@ esac
 
 [ $(pamixer --get-mute) = true ] && echo 🔇 && exit
 
-vol="$(pamixer --get-volume)"
+vol="$(pamixer --get-volume)%"
 
 if [ "$vol" -gt "70" ]; then
 	icon="墳"
@@ -25,4 +25,7 @@ else
   icon="奔"
 fi
 
-echo "$icon $vol%"
+# echo "$icon $vol%"
+
+vol_icon="$icon ^c#f7ca88^$vol%^d^"
+printf "$vol_icon"
