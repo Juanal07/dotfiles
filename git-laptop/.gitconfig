@@ -2,6 +2,9 @@
 	name = Juan Alberto Raya
 	email = 22559891+Juanal07@users.noreply.github.com
 	username = Juanal07
+  signingkey = E91A31C83E566CD6
+[commit]
+  gpgsign = true
 [core]
 	editor = nvim
 [alias]
