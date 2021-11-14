@@ -34,6 +34,6 @@ for battery in /sys/class/power_supply/BAT?*; do
 	# Prints the info
   if [ -d "/sys/class/power_supply/BAT0" ]
   then
-	  printf "%s%s%d%%" "$status" "$warn" "$capacity"; unset warn
+	  printf "%s%s^c#f7ca88^%d%%^d^" "$status" "$warn" "$capacity"; unset warn
   fi
 done && exit 0
