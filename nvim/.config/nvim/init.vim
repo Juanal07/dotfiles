@@ -58,7 +58,6 @@ set nobackup
 set nowritebackup
 
 set showmode                " always show what mode we're currently editing in
-set nowrap                  " don't wrap lines
 set ts=2 sts=2 sw=2 expandtab
 filetype plugin indent on
 set autoindent
@@ -67,6 +66,7 @@ set smartindent
 set number relativenumber   " always show line relative numbers
 set mouse=a
 set numberwidth=1
+set nowrap                  " don't wrap lines
 set showcmd
 set ruler
 set encoding=UTF-8
