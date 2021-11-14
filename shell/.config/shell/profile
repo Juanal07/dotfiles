@@ -10,6 +10,7 @@ export PATH="$PATH:${$(find ~/dotfiles/bin/.local/bin -type d -printf %p:)%%:}"
 export PATH=$PATH:/opt/apache-spark/bin
 export PATH=$PATH:/home/juan/.local/bin
 export SPARK_HOME=/opt/apache-spark
+export GPG_TTY=$(tty)
 
 unsetopt PROMPT_SP
 
