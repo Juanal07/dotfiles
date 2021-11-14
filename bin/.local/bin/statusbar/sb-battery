@@ -32,7 +32,7 @@ for battery in /sys/class/power_supply/BAT?*; do
 	# Will make a warn variable if discharging and low
 	[ "$status" = "🔋" ] && [ "$capacity" -le 25 ] && warn="❗"
 	# Prints the info
-  if [ -d "/sys/class/power_supply/BAT" ]
+  if [ -d "/sys/class/power_supply/BAT0" ]
   then
 	  printf "%s%s%d%%" "$status" "$warn" "$capacity"; unset warn
   fi
