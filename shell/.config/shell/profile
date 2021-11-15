@@ -10,8 +10,7 @@ export PATH="$PATH:${$(find ~/dotfiles/bin/.local/bin -type d -printf %p:)%%:}"
 export PATH=$PATH:/opt/apache-spark/bin
 export PATH=$PATH:/home/juan/.local/bin
 export SPARK_HOME=/opt/apache-spark
-export GPG_TTY=$(tty)
-gpg-connect-agent updatestartuptty /bye >/dev/null
+export GOOGLE_APPLICATION_CREDENTIALS="/home/juan/code/workspace/billetajo/big-data-328215-74151e35e325.json"
 
 unsetopt PROMPT_SP
 
