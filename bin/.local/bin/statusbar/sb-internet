@@ -24,5 +24,5 @@ esac
 ssid=$(nmcli -t -f name connection show --active | head -n 1)
 wireless_icon=" ^c#f7ca88^$ssid^d^"
 
-printf "%s%s%s%s\n" "^c#f7ca88^$wifiicon" "$(sed "s/down/❎/;s/up/ /" /sys/class/net/e*/operstate 2>/dev/null)" "$(sed "s/.*/🔒/" /sys/class/net/tun*/operstate 2>/dev/null)" "$ssid^d^"
+printf "%s%s%s%s\n" "$wifiicon^c#f7ca88^" "$(sed "s/down/❎/;s/up/ /" /sys/class/net/e*/operstate 2>/dev/null)" "$(sed "s/.*/🔒/" /sys/class/net/tun*/operstate 2>/dev/null)" "$ssid^d^"
 # printf "$wireless_icon"
