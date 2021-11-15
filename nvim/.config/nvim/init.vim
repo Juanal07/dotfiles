@@ -119,10 +119,10 @@ vnoremap > >gv
 " TOP 5 remaps ThePrimeagen
 nnoremap Y y$
 
-inoremap , ,<c-g>u
-inoremap . .<c-g>u
-inoremap ( (<c-g>u
-inoremap { {<c-g>u
+" inoremap , ,<c-g>u
+" inoremap . .<c-g>u
+" inoremap ( (<c-g>u
+" inoremap { {<c-g>u
 
 " inoremap <C-j> <esc>:m .+1<CR>==
 " inoremap <C-k> <esc>:m .-2<CR>==
