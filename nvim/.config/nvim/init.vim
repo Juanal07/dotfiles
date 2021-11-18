@@ -201,7 +201,7 @@ let g:nvim_tree_highlight_opened_files = 1 "0 by default, will enable folder and
 " selectable.
 " let g:nvim_tree_special_files = { 'README.md': 1, 'Makefile': 1, 'MAKEFILE': 1 } " List of filenames that gets highlighted with NvimTreeSpecialFile
 let g:nvim_tree_show_icons = {
-    \ 'git': 1,
+    \ 'git': 0,
     \ 'folders': 1,
     \ 'files': 1,
     \ 'folder_arrows': 1,
