@@ -27,6 +27,7 @@ cmd open ${{
 	image/*) rotdir $f | grep -i "\.\(png\|jpg\|jpeg\|gif\|webp\|tif\|ico\)\(_large\)*$" | sxiv -aio 2>/dev/null | lf-select ;;
 	audio/*) mpv --audio-display=no $f ;;
 	video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
+	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) libreoffice $fx >/dev/null 2>&1;;
 	application/pdf|application/vnd*|application/epub*) setsid -f zathura $fx >/dev/null 2>&1 ;;
 	application/pgp-encrypted) $EDITOR $fx ;;
         *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;
@@ -106,7 +107,6 @@ cmd trash ${{
 #     rm ~/.local/share/lf/files
 #     lf -remote "send clear"
 # }}
-
 
 cmd setbg "$1"
 cmd bulkrename $vidir

@@ -63,6 +63,7 @@ filetype plugin indent on
 set autoindent
 set smartindent
 " set listchars=space:·,tab:>~,eol:↲ list
+set listchars=eol:↲
 set number relativenumber   " always show line relative numbers
 set mouse=a
 set numberwidth=1
