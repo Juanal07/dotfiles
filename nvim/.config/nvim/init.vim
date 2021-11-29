@@ -63,8 +63,8 @@ set ts=2 sts=2 sw=2 expandtab
 filetype plugin indent on
 set autoindent
 set smartindent
-set listchars=space:·,tab:>~,eol:↲ list
-" set listchars=eol:↲
+" set listchars=space:·,tab:>~,eol:↲ list
+" set listchars=eol:↲ list
 set number relativenumber   " always show line relative numbers
 set mouse=a
 set numberwidth=1
@@ -133,9 +133,12 @@ nnoremap Y y$
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+set background=dark
+let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
-hi Normal guibg=NONE ctermbg=NONE
-hi Visual guifg=NONE guibg=#928374 gui=NONE
+"
+" hi Normal guibg=NONE ctermbg=NONE
+" hi Visual guifg=NONE guibg=#928374 gui=NONE
 
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
