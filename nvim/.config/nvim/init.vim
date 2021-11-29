@@ -50,6 +50,7 @@ Plug 'TovarishFin/vim-solidity'
 " Investigar
 " https://github.com/nvim-telescope/telescope-media-files.nvim
 " https://github.com/glepnir/dashboard-nvim
+"TimUntersberger/neogit
 
 call plug#end()
 
@@ -62,8 +63,8 @@ set ts=2 sts=2 sw=2 expandtab
 filetype plugin indent on
 set autoindent
 set smartindent
-" set listchars=space:·,tab:>~,eol:↲ list
-set listchars=eol:↲
+set listchars=space:·,tab:>~,eol:↲ list
+" set listchars=eol:↲
 set number relativenumber   " always show line relative numbers
 set mouse=a
 set numberwidth=1
@@ -427,7 +428,7 @@ require'lspconfig'.jsonls.setup {
 -- TREESITTER
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained",
+  ensure_installed = "all",
   highlight = {
     enable = true,
   },

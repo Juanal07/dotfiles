@@ -1,19 +1,35 @@
-#!/usr/bin/bash
+#!/usr/bin/sh
 
 selected=`ls ~/code/workspace | rofi -show -dmenu -i` 
 mydir="/code/workspace/${selected}"
-echo $HOME$mydir
+# echo $HOME$mydir
 
-st -e sh -c "
-cd $HOME$mydir
+SESSION=$(tmux list-sessions | grep work)
+echo $SESSION
 
-tmux new-session -s 'work' -d
-tmux rename-window -t work $selected
+if [ "$SESSION" != "" ]
+then
+  cd $HOME$mydir
+  tmux neww -t work
+  tmux rename-window -t work $selected
+  tmux select-window -t work:2
+  tmux send-keys -t work 'nvim .' C-m
+  tmux split-window -h -l 30% -t work 
+  tmux select-pane -t 0
+  tmux attach -t work
+else
+  st -e sh -c "
+  cd $HOME$mydir
 
-tmux send-keys -t work 'nvim .' C-m
-tmux split-window -h -l 30% -t work 
-tmux select-pane -t 0
+  tmux new-session -s 'work' -d
+  tmux rename-window -t work $selected
 
-tmux select-window -t work:1
-tmux attach -t work
-"
+  tmux send-keys -t work 'nvim .' C-m
+  tmux split-window -h -l 30% -t work 
+  tmux select-pane -t 0
+
+  tmux select-window -t work:1
+  tmux attach -t work
+  "
+fi
+
