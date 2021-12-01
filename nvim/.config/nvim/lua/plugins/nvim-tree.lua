@@ -1,3 +1,7 @@
+-- vim.cmd("nnoremap <leader>n :NvimTreeToggle<CR>")
+vim.cmd("nnoremap <leader>r :NvimTreeRefresh<CR>")
+vim.cmd("nnoremap <leader>n :NvimTreeFindFile<CR>")
+
 vim.g.nvim_tree_side = "left"
 vim.g.nvim_tree_width = 35
 vim.g.nvim_tree_quit_on_open = 1
@@ -40,10 +44,6 @@ vim.g.nvim_tree_icons = {
 		error = "",
 	},
 }
-
--- vim.cmd("nnoremap <leader>n :NvimTreeToggle<CR>")
-vim.cmd("nnoremap <leader>r :NvimTreeRefresh<CR>")
-vim.cmd("nnoremap <leader>n :NvimTreeFindFile<CR>")
 
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
 require("nvim-tree").setup({
