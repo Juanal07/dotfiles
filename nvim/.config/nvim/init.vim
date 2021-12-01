@@ -100,6 +100,7 @@ set cursorline
 set incsearch
 set hlsearch
 
+nmap <leader>k :nohlsearch<cr>
 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx'
 
@@ -112,8 +113,8 @@ map <C-l> <C-w>l
 let mapleader = " "
 "
 " Quit and save
-" nmap <Leader>w :w<CR>
-" nmap <Leader>q :q<CR>
+nmap <leader>w :w<CR>
+nmap <leader>q :q<CR>
 
 nnoremap n nzzzv
 nnoremap N Nzzzv
@@ -126,7 +127,10 @@ nnoremap <Leader>- :vertical resize -5<CR>
 vnoremap < <gd
 vnoremap > >gv
 
-nnoremap <Leader>6 <c-^>
+nnoremap <Leader><Leader> <c-^>
+nnoremap <c-u> <c-u>zz
+nnoremap <c-d> <c-d>zz
+
 " TOP 5 remaps ThePrimeagen
 nnoremap Y y$
 
@@ -173,8 +177,10 @@ nnoremap <leader>fc <cmd>Telescope git_commits<cr>
 
 "-------------------------------------LUA----------------------------------------------------------
 lua << EOF
-require'arbolito'
-require'quetecla'
+require'plugins.nvim-tree'
+require'plugins.which-key'
+-- require'arbolito'
+-- require'quetecla'
 
 --COLORIZER
 require'colorizer'.setup()
