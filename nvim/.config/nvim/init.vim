@@ -5,7 +5,7 @@ if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autolo
     silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
     autocmd VimEnter * PlugInstall
 endif
- 
+
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 
 Plug 'tpope/vim-surround'
@@ -15,7 +15,10 @@ Plug 'mhinz/vim-signify'
 Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
 
-Plug 'gruvbox-community/gruvbox'
+" Plug 'gruvbox-community/gruvbox'
+" sustituto escrito en LUA https://github.com/ellisonleao/gruvbox.nvim
+Plug 'rktjmp/lush.nvim'
+Plug 'ellisonleao/gruvbox.nvim'
 
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -47,6 +50,8 @@ Plug 'Yggdroot/indentLine'
 
 Plug 'TovarishFin/vim-solidity'
 
+Plug 'folke/which-key.nvim'
+
 " Investigar
 " https://github.com/nvim-telescope/telescope-media-files.nvim
 " https://github.com/glepnir/dashboard-nvim
@@ -54,17 +59,21 @@ Plug 'TovarishFin/vim-solidity'
 
 call plug#end()
 
+filetype plugin indent on
 syntax enable               " syntax highlighting
+set timeoutlen=500
+set termguicolors          " True colors in terminal
+
 set nobackup
 set nowritebackup
-
 set showmode                " always show what mode we're currently editing in
 set ts=2 sts=2 sw=2 expandtab
-filetype plugin indent on
 set autoindent
 set smartindent
-" set listchars=space:·,tab:>~,eol:↲ list
-" set listchars=eol:↲ list
+set list
+set listchars=tab:>~,trail:·
+" set listchars=space:·,tab:>~,eol:↲
+" set listchars=eol:↲
 set number relativenumber   " always show line relative numbers
 set mouse=a
 set numberwidth=1
@@ -79,19 +88,18 @@ set clipboard+=unnamedplus
 set noswapfile
 set path+=**               " permite hacer busquedas con el comando :find '*model.ts' por ejemplo, como fzf
 set laststatus=2           " Always display the status bar
-set termguicolors          " True colors in terminal
 " set nohlsearch             " no highlight my search with /
 set ignorecase
 set hidden                 " permite moverme entre buffers sin guardar
 set scrolloff=8            " cuando haces scroll deja 8 lineas de margen
 set signcolumn=yes
-set notimeout
 set autoread
 set completeopt=menuone,noselect
 set nocompatible 
 set cursorline
 set incsearch
 set hlsearch
+
 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx'
 
@@ -101,11 +109,11 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-let g:mapleader = "\<Space>"
-
+let mapleader = " "
+"
 " Quit and save
-nmap <Leader>w :w<CR>
-nmap <Leader>q :q<CR>
+" nmap <Leader>w :w<CR>
+" nmap <Leader>q :q<CR>
 
 nnoremap n nzzzv
 nnoremap N Nzzzv
@@ -115,9 +123,10 @@ nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
 nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
 
-vnoremap < <gv
+vnoremap < <gd
 vnoremap > >gv
 
+nnoremap <Leader>6 <c-^>
 " TOP 5 remaps ThePrimeagen
 nnoremap Y y$
 
@@ -135,6 +144,7 @@ vnoremap K :m '<-2<CR>gv=gv
 
 set background=dark
 let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_italic=1
 colorscheme gruvbox
 "
 " hi Normal guibg=NONE ctermbg=NONE
@@ -254,18 +264,29 @@ nnoremap <leader>r :NvimTreeRefresh<CR>
 " nnoremap <C-n> :NvimTreeFindFile<CR>
 " NvimTreeOpen and NvimTreeClose are also available if you need them
 
-set termguicolors " this variable must be enabled for colors to be applied properly
 
 " a list of groups can be found at `:help nvim_tree_highlight`
 " highlight NvimTreeFolderIcon guibg=blue
 " let g:nvim_tree_disable_default_keybindings = 1
 
-
 source ~/.config/nvim/nvim-tree.lua
 
 "-------------------------------------LUA----------------------------------------------------------
 lua << EOF
+require("which-key").setup {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+  }
 
+local wk = require("which-key")
+
+wk.register({
+  ["<leader>"] = {
+      w = { "<cmd>:w<cr>", "Save" },
+      q = { "<cmd>:q<cr>", "Quit" },
+    },
+})
 --COLORIZER
 require'colorizer'.setup()
 
