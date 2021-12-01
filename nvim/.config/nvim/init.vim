@@ -19,6 +19,7 @@ Plug 'alvan/vim-closetag'
 " sustituto escrito en LUA https://github.com/ellisonleao/gruvbox.nvim
 Plug 'rktjmp/lush.nvim'
 Plug 'ellisonleao/gruvbox.nvim'
+Plug 'Mofiqul/dracula.nvim'
 
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -100,7 +101,6 @@ set cursorline
 set incsearch
 set hlsearch
 
-nmap <leader>k :nohlsearch<cr>
 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx'
 
@@ -115,6 +115,8 @@ let mapleader = " "
 " Quit and save
 nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
+
+nmap <leader>k :nohlsearch<cr>
 
 nnoremap n nzzzv
 nnoremap N Nzzzv
@@ -147,9 +149,9 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 set background=dark
-let g:gruvbox_contrast_dark='hard'
-let g:gruvbox_italic=1
-colorscheme gruvbox
+" let g:gruvbox_contrast_dark='hard'
+" let g:gruvbox_italic=1
+colorscheme dracula
 "
 " hi Normal guibg=NONE ctermbg=NONE
 " hi Visual guifg=NONE guibg=#928374 gui=NONE
