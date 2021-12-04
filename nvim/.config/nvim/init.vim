@@ -9,17 +9,22 @@ endif
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
-Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
+Plug 'jiangmiao/auto-pairs'
+Plug 'Yggdroot/indentLine'
+Plug 'numToStr/Comment.nvim'
+Plug 'folke/which-key.nvim'
 
-" Plug 'gruvbox-community/gruvbox'
-" sustituto escrito en LUA https://github.com/ellisonleao/gruvbox.nvim
+" GUI
 Plug 'rktjmp/lush.nvim'
 Plug 'ellisonleao/gruvbox.nvim'
-Plug 'Mofiqul/dracula.nvim'
+Plug 'hoob3rt/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'ryanoasis/vim-devicons'
+Plug 'norcalli/nvim-colorizer.lua'
 
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -39,19 +44,8 @@ Plug 'onsails/lspkind-nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-Plug 'hoob3rt/lualine.nvim'
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'kyazdani42/nvim-tree.lua'
-Plug 'ryanoasis/vim-devicons'
-Plug 'norcalli/nvim-colorizer.lua'
-
 Plug 'mhartington/formatter.nvim'
-
-Plug 'Yggdroot/indentLine'
-
 Plug 'TovarishFin/vim-solidity'
-
-Plug 'folke/which-key.nvim'
 
 " Investigar
 " https://github.com/nvim-telescope/telescope-media-files.nvim
@@ -97,7 +91,7 @@ set signcolumn=yes
 set autoread
 set completeopt=menuone,noselect
 set nocompatible 
-set cursorline
+" set cursorline
 set incsearch
 set hlsearch
 
@@ -109,31 +103,21 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-
 let mapleader = " "
-"
 " Quit and save
 nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
-
 nmap <leader>k :nohlsearch<cr>
-
 nnoremap n nzzzv
 nnoremap N Nzzzv
-
 nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
-
 nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
-
 vnoremap < <gd
 vnoremap > >gv
-
 nnoremap <Leader><Leader> <c-^>
 nnoremap <c-u> <c-u>zz
 nnoremap <c-d> <c-d>zz
-
-" TOP 5 remaps ThePrimeagen
 nnoremap Y y$
 
 " inoremap , ,<c-g>u
@@ -149,11 +133,11 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 set background=dark
-" let g:gruvbox_contrast_dark='hard'
-" let g:gruvbox_italic=1
-colorscheme dracula
-"
-" hi Normal guibg=NONE ctermbg=NONE
+" let g:gruvbox_contrast_dark='soft'
+let g:gruvbox_italic=1
+colorscheme gruvbox
+
+hi Normal guibg=NONE ctermbg=NONE
 " hi Visual guifg=NONE guibg=#928374 gui=NONE
 
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
@@ -181,7 +165,10 @@ nnoremap <leader>fc <cmd>Telescope git_commits<cr>
 lua << EOF
 require'plugins.nvim-tree'
 require'plugins.which-key'
+require'plugins.lualine'
+require'plugins.nvim-lsp'
 require'colorizer'.setup()
+require('Comment').setup()
 require('telescope').setup{}
 require('telescope').load_extension('fzf')
 require'nvim-web-devicons'.setup {
@@ -301,38 +288,6 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
--- LUA LINE
-require'lualine'.setup {
-  options = {
-    icons_enabled = true,
-    theme = 'gruvbox',
-    component_separators = {'', ''},
-    section_separators = {'', ''},
-    disabled_filetypes = {}
-  },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch'},
-    lualine_c = {{'filename', path=1}},
-    lualine_x = {
-        { 'diagnostics', sources = {"nvim_lsp"}, symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '} },
-        'encoding', 
-        'fileformat', 
-        'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
-  },
-  tabline = {},
-  extensions = {}
-}
 -------------- FORMAT
 -- I will use this until formatting from LSP is stable.
 

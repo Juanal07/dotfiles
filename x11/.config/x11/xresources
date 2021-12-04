@@ -11,9 +11,7 @@ Xft.antialias: 1
 Xft.rgba: rgb
 
 !! Transparency (0-1):
-/* *.alpha: 0.80 */
-*.alpha: 1
-/* st.alpha: 0.9 */
+*.alpha: 0.75
 
 !! Set a default font and font size as below:
 *.font: JetBrainsMono Nerd Font Mono:size=10
