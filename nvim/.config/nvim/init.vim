@@ -133,7 +133,6 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 set background=dark
-" let g:gruvbox_contrast_dark='medium'
 let g:gruvbox_italic=1
 colorscheme gruvbox
 
@@ -163,18 +162,14 @@ nnoremap <leader>fc <cmd>Telescope git_commits<cr>
 
 "-------------------------------------LUA----------------------------------------------------------
 lua << EOF
-require'plugins.nvim-tree'
-require'plugins.which-key'
-require'plugins.lualine'
-require'plugins.nvim-lsp'
+require'plugins'
 require'colorizer'.setup()
-require('Comment').setup()
-require('telescope').setup{}
-require('telescope').load_extension('fzf')
+require'Comment'.setup()
+require'telescope'.setup{}
+require'telescope'.load_extension('fzf')
 require'nvim-web-devicons'.setup {
     default = true;
 }
-require'plugins.nvim-lsp'
 
 -- CMP
 -- Set completeopt to have a better completion experience
@@ -365,8 +360,8 @@ require("formatter").setup {
     html = {
       prettier,
     },
-  json = {
-    prettier,
+    json = {
+      prettier,
     },
     rust = {
       rustfmt,
