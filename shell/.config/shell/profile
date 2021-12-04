@@ -11,6 +11,7 @@ export PATH=$PATH:/opt/apache-spark/bin
 export PATH=$PATH:/home/juan/.local/bin
 export SPARK_HOME=/opt/apache-spark
 export GOOGLE_APPLICATION_CREDENTIALS="/home/juan/code/workspace/billetajo/big-data-328215-74151e35e325.json"
+export BAT_THEME="gruvbox-dark"
 
 unsetopt PROMPT_SP
 
