@@ -133,7 +133,7 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 set background=dark
-" let g:gruvbox_contrast_dark='soft'
+" let g:gruvbox_contrast_dark='medium'
 let g:gruvbox_italic=1
 colorscheme gruvbox
 

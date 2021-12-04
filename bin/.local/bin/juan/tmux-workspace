@@ -1,35 +1,25 @@
 #!/usr/bin/sh
-
 selected=`ls ~/code/workspace | rofi -show -dmenu -i` 
-mydir="/code/workspace/${selected}"
-# echo $HOME$mydir
+path="${HOME}/code/workspace/${selected}"
+SESSION=$(tmux list-sessions | grep $selected)
 
-SESSION=$(tmux list-sessions | grep work)
-echo $SESSION
-
-if [ "$SESSION" != "" ]
+# si no selecciono nada pues q no haga nada
+if [ $path != "$HOME/code/workspace/" ]
 then
-  cd $HOME$mydir
-  tmux neww -t work
-  tmux rename-window -t work $selected
-  tmux select-window -t work:2
-  tmux send-keys -t work 'nvim .' C-m
-  tmux split-window -h -l 30% -t work 
-  tmux select-pane -t 0
-  tmux attach -t work
-else
-  st -e sh -c "
-  cd $HOME$mydir
-
-  tmux new-session -s 'work' -d
-  tmux rename-window -t work $selected
-
-  tmux send-keys -t work 'nvim .' C-m
-  tmux split-window -h -l 30% -t work 
-  tmux select-pane -t 0
-
-  tmux select-window -t work:1
-  tmux attach -t work
-  "
+  # si la sesion no existe la creo en un nuevo terminal, si existe pero esta por ahi o detached pues la attacho
+  if [ "$SESSION" = "" ]
+  then
+    st -e sh -c "
+    cd $path
+    tmux new-session -s $selected -d
+    tmux send-keys -t $selected 'nvim .' C-m
+    tmux new-window
+    tmux select-window -t 1
+    tmux attach -t $selected
+    "
+  else
+    st -e sh -c "
+    tmux attach -t $selected
+    "
+  fi
 fi
-
