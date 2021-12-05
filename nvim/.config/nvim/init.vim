@@ -73,10 +73,10 @@ set ruler
 set encoding=UTF-8
 set showmatch
 set noerrorbells
-set clipboard=unnamed
-set clipboard+=unnamedplus
+set clipboard=unnamedplus
+" set clipboard+=unnamedplus
 set noswapfile
-set path+=**               " permite hacer busquedas con el comando :find '*model.ts' por ejemplo, como fzf
+" set path+=**               " permite hacer busquedas con el comando :find '*model.ts' por ejemplo, como fzf
 set laststatus=2           " Always display the status bar
 set ignorecase
 set hidden                 " permite moverme entre buffers sin guardar
@@ -92,14 +92,12 @@ let mapleader = " "
 nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
 nmap <leader>k :nohlsearch<cr>
+nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
+nnoremap <Leader><Leader> <c-^>
 nnoremap n nzzzv
 nnoremap N Nzzzv
-nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
-nnoremap <Leader>+ :vertical resize +5<CR>
-nnoremap <Leader>- :vertical resize -5<CR>
 vnoremap < <gd
 vnoremap > >gv
-nnoremap <Leader><Leader> <c-^>
 nnoremap <c-u> <c-u>zz
 nnoremap <c-d> <c-d>zz
 map <C-h> <C-w>h
