@@ -108,6 +108,7 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 inoremap <C-k> <esc>:m .-2<CR>==
 inoremap <C-j> <esc>:m .+1<CR>==
+nnoremap <leader>e ggVG<CR>
 
 lua << EOF
 require'plugins'
