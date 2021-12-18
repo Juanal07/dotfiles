@@ -96,7 +96,7 @@ nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
 nnoremap <Leader><Leader> <c-^>
 nnoremap n nzzzv
 nnoremap N Nzzzv
-vnoremap < <gd
+" vnoremap < <gd
 vnoremap > >gv
 nnoremap <c-u> <c-u>zz
 nnoremap <c-d> <c-d>zz
@@ -108,7 +108,7 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 inoremap <C-k> <esc>:m .-2<CR>==
 inoremap <C-j> <esc>:m .+1<CR>==
-nnoremap <leader>e ggVG<CR>
+nnoremap <leader>e VG<CR>
 
 lua << EOF
 require'plugins'
