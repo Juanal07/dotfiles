@@ -43,7 +43,7 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 -- Move text up and down
 keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
-keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
+-- keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
 keymap("v", "p", '"_dP', opts) -- al pegar un texto sobre un texto en visual mode no copia lo que habia si no lo que he pegado
 
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)

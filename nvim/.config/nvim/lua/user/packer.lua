@@ -1,3 +1,4 @@
+-- TODO: no funciona el autoupdate
 local fn = vim.fn
 
 -- Automatically install packer
@@ -19,7 +20,7 @@ end
 vim.cmd([[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+    autocmd BufWritePost packer.lua source <afile> | PackerSync
   augroup end
 ]])
 
@@ -68,18 +69,22 @@ return packer.startup(function(use)
 	use("kyazdani42/nvim-web-devicons")
 	use("kyazdani42/nvim-tree.lua")
 	use("ryanoasis/vim-devicons")
+	use("onsails/lspkind-nvim")
 	use("norcalli/nvim-colorizer.lua")
-	-- LSP completion
+	-- LSP
 	use("neovim/nvim-lspconfig")
+	use("williamboman/nvim-lsp-installer")
+	-- Completion
 	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
+	use("hrsh7th/cmp-cmdline")
 	use("hrsh7th/cmp-nvim-lua")
 	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/vim-vsnip")
 	use("saadparwaiz1/cmp_luasnip")
+	-- Snippets
 	use("L3MON4D3/LuaSnip")
-	use("onsails/lspkind-nvim")
+	use("rafamadriz/friendly-snippets")
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
