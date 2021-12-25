@@ -36,6 +36,8 @@ cmd open ${{
 
 cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
 
+cmd touch $touch "$(echo $* | tr ' ' '\ ')"
+
 cmd extract ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
@@ -61,6 +63,10 @@ cmd delete ${{
 	printf "delete?[y/N]"
 	read ans
 	[ $ans = "y" ] && mv $fx ~/.Trash
+  }}
+
+cmd purge ${{
+	yes | rm -r $fx
   }}
 
 cmd trash ${{
@@ -122,8 +128,10 @@ map <c-f> $lf -remote "send $id select '$(fzf)'"
 # map J $lf -remote "send $id cd $(cut -d'	' -f2 ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf)"
 
 map D delete
+map <c-d> purge
 map E extract
 map <c-n> push :mkdir<space>
+map a push :touch<space>
 map <c-r> reload
 map . set hidden!
 
@@ -132,7 +140,6 @@ map A rename # at the very end
 # map c push A<c-u> # new rename
 map I push A<c-a> # at the very beginning
 map i push A<a-b><a-b><a-f> # before extention
-map a push A<a-b> # after extention
 map B bulkrename
 
 map b $setbg $f

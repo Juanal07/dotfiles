@@ -27,6 +27,9 @@ HEIGHT="${2}"
 HIGHLIGHT_SIZE_MAX=262143  # 256KiB
 HIGHLIGHT_TABWIDTH=8
 
+# TODO:IMAGE PREVIEW con ueberzug
+# https://github.com/gokcehan/lf/wiki/Previews
+
 handle_mime() {
   local mimetype="${1}"
   case "${mimetype}" in
