@@ -44,7 +44,8 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 	-- Utils
 	use("tpope/vim-surround")
-	use("tpope/vim-fugitive")
+	use("TimUntersberger/neogit")
+	use("sindrets/diffview.nvim")
 	use("mhinz/vim-signify")
 	use("alvan/vim-closetag")
 	use("jiangmiao/auto-pairs")

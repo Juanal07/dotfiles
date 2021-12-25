@@ -10,6 +10,7 @@ require("plugins.which-key")
 require("plugins.lualine")
 require("plugins.treesitter")
 require("plugins.format")
+require("plugins.neogit")
 
 require("colorizer").setup()
 require("Comment").setup()

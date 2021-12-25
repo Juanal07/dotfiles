@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/home/juan/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["diffview.nvim"] = {
+    loaded = true,
+    path = "/home/juan/.local/share/nvim/site/pack/packer/start/diffview.nvim",
+    url = "https://github.com/sindrets/diffview.nvim"
+  },
   ["formatter.nvim"] = {
     loaded = true,
     path = "/home/juan/.local/share/nvim/site/pack/packer/start/formatter.nvim",
@@ -153,6 +158,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/juan/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
     url = "https://github.com/iamcco/markdown-preview.nvim"
+  },
+  neogit = {
+    loaded = true,
+    path = "/home/juan/.local/share/nvim/site/pack/packer/start/neogit",
+    url = "https://github.com/TimUntersberger/neogit"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -233,11 +243,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/juan/.local/share/nvim/site/pack/packer/start/vim-devicons",
     url = "https://github.com/ryanoasis/vim-devicons"
-  },
-  ["vim-fugitive"] = {
-    loaded = true,
-    path = "/home/juan/.local/share/nvim/site/pack/packer/start/vim-fugitive",
-    url = "https://github.com/tpope/vim-fugitive"
   },
   ["vim-signify"] = {
     loaded = true,
