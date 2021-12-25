@@ -1,4 +1,3 @@
--- TODO: no funciona el autoupdate
 local fn = vim.fn
 
 -- Automatically install packer
