@@ -12,7 +12,6 @@ remaps &		# run the remaps script, switching caps/esc and more; check it for mor
 # xcompmgr &		# xcompmgr for transparency
 picom &       # comp for transparency and blur and rounded corners
 dunst &			# dunst for notifications
-
 # xset r rate 300 50 &	# ya esta puesto en remaps Speed xrate up
 xinput set-prop 9 "libinput Accel Profile Enabled" 0 1 & # disabled mouse acceleration
 # xinput set-prop 10 "libinput Accel Profile Enabled" 0 1 &  # disabled mouse acceleration
