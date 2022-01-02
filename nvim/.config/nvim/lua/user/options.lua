@@ -7,7 +7,7 @@
 -- vim.opt.autoread = true -- Default = true
 -- vim.opt.incsearch = true -- Default = true
 -- vim.opt.hlsearch = true -- Default = true
-vim.opt.timeoutlen = 250 -- Needed for wichkey plugin
+vim.opt.timeoutlen = 100 -- Needed for wichkey plugin
 vim.opt.termguicolors = true -- Needed in st terminal
 vim.opt.tabstop = 2
 vim.opt.sts = 2

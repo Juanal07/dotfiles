@@ -42,13 +42,19 @@ packer.init({
 return packer.startup(function(use)
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 	-- Utils
-	use("tpope/vim-surround")
+	-- use("tpope/vim-surround")
+	use({
+		"blackCauldron7/surround.nvim",
+		config = function()
+			require("surround").setup({ mappings_style = "surround" })
+		end,
+	})
 	use("TimUntersberger/neogit")
 	use("sindrets/diffview.nvim")
 	use("mhinz/vim-signify")
-	use("alvan/vim-closetag")
-	use("jiangmiao/auto-pairs")
-	use("Yggdroot/indentLine")
+	use("windwp/nvim-ts-autotag") -- use("alvan/vim-closetag")
+	use("windwp/nvim-autopairs") -- use("jiangmiao/auto-pairs")
+	-- use("Yggdroot/indentLine")
 	use("numToStr/Comment.nvim")
 	use("folke/which-key.nvim")
 	use("nvim-lua/popup.nvim")
@@ -62,8 +68,14 @@ return packer.startup(function(use)
 	use("p00f/nvim-ts-rainbow")
 	use("TovarishFin/vim-solidity")
 	use("mhartington/formatter.nvim")
-	-- TODO: Configurar markdown preview
-	use("iamcco/markdown-preview.nvim")
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		setup = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	})
 	-- GUI
 	use({ "ellisonleao/gruvbox.nvim", requires = { "rktjmp/lush.nvim" } })
 	use("hoob3rt/lualine.nvim")

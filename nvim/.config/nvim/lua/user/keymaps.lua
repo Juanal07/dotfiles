@@ -54,6 +54,7 @@ keymap("n", "<leader>fc", "<cmd>Telescope git_commits<cr>", opts)
 keymap("n", "<leader>fm", "<cmd>Telescope media_files<cr>", opts)
 keymap("n", "<leader>fm", "<cmd>Telescope media_files<cr>", opts)
 keymap("n", "<leader>fo", "<cmd>Telescope colorscheme<cr>", opts)
+keymap("n", "<leader>p", "<cmd>MarkdownPreviewToggle<cr>", opts)
 
 -- TODO: crear un atajo para sourcear toda la config
 -- nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
