@@ -41,20 +41,32 @@ packer.init({
 -- Install your plugins here
 return packer.startup(function(use)
 	use("wbthomason/packer.nvim") -- Have packer manage itself
+	-- Investigar
+	-- mfussenegger/nvim-lint
+	-- https://github.com/nvim-telescope/telescope-media-files.nvim
+	-- https://github.com/glepnir/dashboard-nvim
+	-- Plug 'glepnir/lspsaga.nvim'
+	-- Git
+	use("TimUntersberger/neogit")
+	use("sindrets/diffview.nvim")
+	use({
+		"lewis6991/gitsigns.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
+		config = function()
+			require("gitsigns").setup()
+		end,
+	})
 	-- Utils
-	-- use("tpope/vim-surround")
 	use({
 		"blackCauldron7/surround.nvim",
 		config = function()
 			require("surround").setup({ mappings_style = "surround" })
 		end,
 	})
-	use("TimUntersberger/neogit")
-	use("sindrets/diffview.nvim")
-	use("mhinz/vim-signify")
-	use("windwp/nvim-ts-autotag") -- use("alvan/vim-closetag")
-	use("windwp/nvim-autopairs") -- use("jiangmiao/auto-pairs")
-	-- use("Yggdroot/indentLine")
+	use("windwp/nvim-ts-autotag")
+	use("windwp/nvim-autopairs")
 	use("numToStr/Comment.nvim")
 	use("folke/which-key.nvim")
 	use("nvim-lua/popup.nvim")
@@ -104,10 +116,3 @@ return packer.startup(function(use)
 		require("packer").sync()
 	end
 end)
-
--- " Investigar
--- " mfussenegger/nvim-lint
--- " https://github.com/nvim-telescope/telescope-media-files.nvim
--- " https://github.com/glepnir/dashboard-nvim
--- " TimUntersberger/neogit
--- " Plug 'glepnir/lspsaga.nvim'
