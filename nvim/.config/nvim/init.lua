@@ -12,11 +12,10 @@ require("plugins.lualine")
 require("plugins.treesitter")
 require("plugins.format")
 require("plugins.neogit")
+require("plugins.gitsigns")
+require("plugins.comment")
 
 require("colorizer").setup()
-require("Comment").setup()
 require("nvim-web-devicons").setup({
 	default = true,
 })
-
-vim.g.closetag_filenames = "*.html,*.xhtml,*.phtml,*.js,*.jsx"

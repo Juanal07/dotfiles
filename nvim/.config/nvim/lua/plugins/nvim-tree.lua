@@ -1,15 +1,7 @@
--- vim.cmd("nnoremap <leader>n :NvimTreeToggle<CR>")
-vim.cmd("nnoremap <leader>r :NvimTreeRefresh<CR>")
-vim.cmd("nnoremap <leader>n :NvimTreeFindFile<CR>")
-
-vim.g.nvim_tree_side = "left"
-vim.g.nvim_tree_width = 35
 vim.g.nvim_tree_quit_on_open = 1
-vim.g.nvim_tree_indent_markers = 1
-vim.g.nvim_tree_git_hl = 0
 vim.g.nvim_tree_highlight_opened_files = 1
 vim.g.nvim_tree_show_icons = {
-	git = 0,
+	git = 1,
 	folders = 1,
 	files = 1,
 	folder_arrows = 1,
@@ -19,8 +11,8 @@ vim.g.nvim_tree_icons = {
 	default = "",
 	symlink = "",
 	git = {
-		unstaged = "✗",
-		staged = "✓",
+		unstaged = "U",
+		staged = "S",
 		unmerged = "",
 		renamed = "➜",
 		untracked = "★",
@@ -37,28 +29,69 @@ vim.g.nvim_tree_icons = {
 		symlink = "",
 		symlink_open = "",
 	},
-	lsp = {
-		hint = "",
-		info = "",
-		warning = "",
-		error = "",
-	},
 }
 
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
 require("nvim-tree").setup({
+	disable_netrw = true,
+	hijack_netrw = true,
+	open_on_setup = false,
+	ignore_ft_on_setup = {},
+	auto_close = true,
+	open_on_tab = false,
+	hijack_cursor = false,
+	update_cwd = true,
+	update_to_buf_dir = {
+		enable = true,
+		auto_open = true,
+	},
+	diagnostics = {
+		enable = true,
+		icons = {
+			hint = "",
+			info = "",
+			warning = "",
+			error = "",
+		},
+	},
+	update_focused_file = {
+		enable = true,
+		update_cwd = true,
+		ignore_list = {},
+	},
+	system_open = {
+		cmd = nil,
+		args = {},
+	},
+	filters = {
+		dotfiles = false,
+		custom = {},
+	},
 	git = {
 		enable = true,
-		ignore = false,
+		ignore = true,
 		timeout = 500,
 	},
 	view = {
+		width = 30,
+		height = 30,
+		hide_root_folder = false,
+		side = "left",
+		auto_resize = true,
 		mappings = {
+			custom_only = false,
 			list = {
-				{ key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
+				{ key = { "l", "<CR>" }, cb = tree_cb("edit") },
 				{ key = "h", cb = tree_cb("close_node") },
 				{ key = "v", cb = tree_cb("vsplit") },
 			},
 		},
+		number = false,
+		relativenumber = false,
+		signcolumn = "yes",
+	},
+	trash = {
+		cmd = "trash",
+		require_confirm = true,
 	},
 })

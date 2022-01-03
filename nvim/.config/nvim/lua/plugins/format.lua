@@ -75,9 +75,6 @@ require("formatter").setup({
 		html = {
 			prettier,
 		},
-		json = {
-			prettier,
-		},
 		rust = {
 			rustfmt,
 		},

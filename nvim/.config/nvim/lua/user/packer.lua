@@ -46,6 +46,7 @@ return packer.startup(function(use)
 	-- https://github.com/nvim-telescope/telescope-media-files.nvim
 	-- https://github.com/glepnir/dashboard-nvim
 	-- Plug 'glepnir/lspsaga.nvim'
+
 	-- Git
 	use("TimUntersberger/neogit")
 	use("sindrets/diffview.nvim")
@@ -68,6 +69,7 @@ return packer.startup(function(use)
 	use("windwp/nvim-ts-autotag")
 	use("windwp/nvim-autopairs")
 	use("numToStr/Comment.nvim")
+	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use("folke/which-key.nvim")
 	use("nvim-lua/popup.nvim")
 	use({

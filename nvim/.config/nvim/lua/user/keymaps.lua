@@ -43,7 +43,8 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 -- Move text up and down
 keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
--- keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
+keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
+
 keymap("v", "p", '"_dP', opts) -- al pegar un texto sobre un texto en visual mode no copia lo que habia si no lo que he pegado
 
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
@@ -55,6 +56,12 @@ keymap("n", "<leader>fm", "<cmd>Telescope media_files<cr>", opts)
 keymap("n", "<leader>fm", "<cmd>Telescope media_files<cr>", opts)
 keymap("n", "<leader>fo", "<cmd>Telescope colorscheme<cr>", opts)
 keymap("n", "<leader>p", "<cmd>MarkdownPreviewToggle<cr>", opts)
+keymap("n", "<leader>n", "<cmd>NvimTreeFindFile<CR>", opts)
+keymap("n", "<leader>r", "<cmd>NvimTreeRefresh<CR>", opts)
+
+-- vim.cmd("nnoremap <leader>n :NvimTreeToggle<CR>")
+-- vim.cmd("nnoremap <leader>r :NvimTreeRefresh<CR>")
+-- vim.cmd("nnoremap <leader>n :NvimTreeFindFile<CR>")
 
 -- TODO: crear un atajo para sourcear toda la config
 -- nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
