@@ -81,7 +81,6 @@ return packer.startup(function(use)
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("p00f/nvim-ts-rainbow")
 	use("TovarishFin/vim-solidity")
-	use("mhartington/formatter.nvim")
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
@@ -101,6 +100,8 @@ return packer.startup(function(use)
 	-- LSP
 	use("neovim/nvim-lspconfig")
 	use("williamboman/nvim-lsp-installer")
+	use("jose-elias-alvarez/null-ls.nvim")
+	-- use("mhartington/formatter.nvim")
 	-- Completion
 	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-buffer")
