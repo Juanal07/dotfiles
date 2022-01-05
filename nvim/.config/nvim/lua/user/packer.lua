@@ -101,7 +101,6 @@ return packer.startup(function(use)
 	use("neovim/nvim-lspconfig")
 	use("williamboman/nvim-lsp-installer")
 	use("jose-elias-alvarez/null-ls.nvim")
-	-- use("mhartington/formatter.nvim")
 	-- Completion
 	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-buffer")
