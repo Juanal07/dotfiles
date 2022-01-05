@@ -89,7 +89,6 @@ lfcd () {
         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
     fi
 }
-
 bindkey -s '^o' 'lfcd\n'
 
 # Calculadora
