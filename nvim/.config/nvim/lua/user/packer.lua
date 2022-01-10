@@ -42,11 +42,9 @@ packer.init({
 return packer.startup(function(use)
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 	-- Investigar
-	-- mfussenegger/nvim-lint
-	-- https://github.com/nvim-telescope/telescope-media-files.nvim
 	-- https://github.com/glepnir/dashboard-nvim
 	-- Plug 'glepnir/lspsaga.nvim'
-
+	--  preservim/vim-pencil para escribir prosa
 	-- Git
 	use("TimUntersberger/neogit")
 	use("sindrets/diffview.nvim")
