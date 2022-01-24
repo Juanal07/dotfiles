@@ -28,8 +28,7 @@ alias \
 	l="ls -la" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
-	ccat="highlight --out-format=ansi" \
-  cat="bat"
+  ccat="bat"
 
 # These common commands are just too long! Abbreviate them.
 alias \

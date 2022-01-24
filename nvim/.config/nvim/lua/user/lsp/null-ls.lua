@@ -15,7 +15,7 @@ null_ls.setup({
 		formatting.black,
 		formatting.stylua,
 		diagnostics.eslint_d,
-		diagnostics.flake8,
+		-- diagnostics.flake8,
 	},
 	-- para formatear en el guardado
 	on_attach = function(client)
