@@ -39,11 +39,3 @@ vim.opt.shortmess:append("c") -- para que no aparezcan mensajes de mas cuando es
 
 vim.cmd([[set iskeyword+=-]]) -- que words como hola-mundo vim las considere 1 sola para borrar por ej
 -- vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
-
--- Config para escribir prosa
--- vim.opt.wrap = true
--- vim.opt.linebreak = true
--- vim.opt.columns = 80
--- vim.opt.listchars = { tab = ">~", trail = "·", eol = "↲", space = "·", extends = "#" } --ejemplos
--- vim.api.nvim_set_keymap("n", "j", "gj", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("n", "k", "gk", { noremap = true, silent = true })

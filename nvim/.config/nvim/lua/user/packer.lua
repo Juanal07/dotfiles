@@ -89,6 +89,12 @@ return packer.startup(function(use)
 	})
 	-- GUI
 	use({ "ellisonleao/gruvbox.nvim", requires = { "rktjmp/lush.nvim" } })
+	-- use("gruvbox-community/gruvbox")
+	use({ "Mofiqul/vscode.nvim", requires = { "rktjmp/lush.nvim" } })
+	use({ "navarasu/onedark.nvim", requires = { "rktjmp/lush.nvim" } })
+	use({ "martinsione/darkplus.nvim", requires = { "rktjmp/lush.nvim" } })
+	use("Mofiqul/dracula.nvim")
+
 	use("hoob3rt/lualine.nvim")
 	use("kyazdani42/nvim-web-devicons")
 	use("kyazdani42/nvim-tree.lua")
