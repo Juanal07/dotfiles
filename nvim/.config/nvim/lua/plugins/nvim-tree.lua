@@ -1,4 +1,4 @@
--- Options that will be migrated to setup
+-- Options that will be migrated to setup in the future
 
 -- vim.g.nvim_tree_indent_markers = 1
 -- vim.g.nvim_tree_git_hl = 1
@@ -75,7 +75,7 @@ require("nvim-tree").setup({
 	},
 	git = {
 		enable = true,
-		ignore = true,
+		ignore = false, -- I want to see ignored folders
 		timeout = 500,
 	},
 	view = {
@@ -105,8 +105,8 @@ require("nvim-tree").setup({
 			global = false,
 		},
 		open_file = {
-			-- quit_on_open = true,
-			quit_on_open = false,
+			quit_on_open = true,
+			-- quit_on_open = false,
 		},
 	},
 })

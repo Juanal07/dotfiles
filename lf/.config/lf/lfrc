@@ -140,7 +140,10 @@ map i rename # at the very end
 # map c push A<c-u> # new rename
 # map I push A<c-a> # at the very beginning
 map r push i<a-b><a-b><a-f> # before extention
-# map B bulkrename
+cmd batch ${{
+  batch --editor kak --map 'rename "$1" "$2"' --drop 'trash "$1"' $fx
+}}
+map B bulkrename
 
 map b $setbg $f
 

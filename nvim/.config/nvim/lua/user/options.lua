@@ -1,4 +1,5 @@
 -- DEFAULTS
+
 -- vim.opt.backup = false -- Default = false
 -- vim.opt.showcmd = true -- Default = true
 -- vim.opt.ruler = true -- Default = true
@@ -10,15 +11,16 @@
 
 vim.opt.timeoutlen = 100 -- Needed for wichkey plugin
 vim.opt.termguicolors = true -- Needed in st terminal
-vim.opt.tabstop = 2
 vim.opt.sts = 2
+vim.opt.ts = 2
 vim.opt.sw = 2
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.list = true
-vim.opt.listchars = { tab = ">~", trail = "·", extends = "#" }
--- vim.opt.listchars = { tab = ">~", trail = "·", eol = "↲", space = "·", extends = "#" } --ejemplos
+vim.opt.listchars = { tab = ">·", trail = "·", extends = "~" }
+-- vim.opt.listchars = { tab = ">~", trail = "·", space = "·", extends = "~" }
+-- vim.opt.listchars = { tab = ">~", trail = "·", eol = "↲", space = "·", extends = "~" } --ejemplos
 vim.opt.showmode = false -- que no ponga insert debajo de insert en la lualine
 vim.opt.number = true
 vim.opt.relativenumber = true -- always show line relative numbers
