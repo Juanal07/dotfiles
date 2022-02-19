@@ -5,6 +5,7 @@ require("lualine").setup({
 		theme = "gruvbox",
 		-- theme = "vscode",
 		-- theme = "dracula",
+		-- theme = "onedark",
 		component_separators = { "", "" },
 		section_separators = { "", "" },
 		disabled_filetypes = {},
