@@ -1,12 +1,17 @@
-vim.g.nvim_tree_quit_on_open = 1
-vim.g.nvim_tree_highlight_opened_files = 1
+-- Options that will be migrated to setup
+
+-- vim.g.nvim_tree_indent_markers = 1
+-- vim.g.nvim_tree_git_hl = 1
+vim.g.nvim_tree_add_trailing = 1
+-- vim.g.nvim_tree_group_empty = 1
+vim.g.nvim_tree_create_in_closed_folder = 1
+vim.g.nvim_tree_special_files = {}
 vim.g.nvim_tree_show_icons = {
-	git = 1,
+	-- git = 1,
 	folders = 1,
 	files = 1,
 	folder_arrows = 1,
 }
-
 vim.g.nvim_tree_icons = {
 	default = "",
 	symlink = "",
@@ -31,6 +36,7 @@ vim.g.nvim_tree_icons = {
 	},
 }
 
+-- Options
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
 require("nvim-tree").setup({
 	disable_netrw = true,
@@ -93,5 +99,14 @@ require("nvim-tree").setup({
 	trash = {
 		cmd = "trash",
 		require_confirm = true,
+	},
+	actions = {
+		change_dir = {
+			global = false,
+		},
+		open_file = {
+			-- quit_on_open = true,
+			quit_on_open = false,
+		},
 	},
 })

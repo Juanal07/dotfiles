@@ -56,7 +56,7 @@ keymap("n", "<leader>fm", "<cmd>Telescope media_files<cr>", opts)
 keymap("n", "<leader>fm", "<cmd>Telescope media_files<cr>", opts)
 keymap("n", "<leader>fo", "<cmd>Telescope colorscheme<cr>", opts)
 keymap("n", "<leader>p", "<cmd>MarkdownPreviewToggle<cr>", opts)
-keymap("n", "<leader>n", "<cmd>NvimTreeFindFile<CR>", opts)
+keymap("n", "<leader>n", "<cmd>NvimTreeFindFileToggle<CR>", opts)
 keymap("n", "<leader>r", "<cmd>NvimTreeRefresh<CR>", opts)
 
 -- vim.cmd("nnoremap <leader>n :NvimTreeToggle<CR>")

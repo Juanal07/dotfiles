@@ -1,19 +1,8 @@
--- local colorscheme = "darkplus"
-
--- local colorscheme = "vscode"
--- vim.g.vscode_style = "dark"
--- vim.g.vscode_italic_comment = 1
-
--- require("onedark").setup({
--- 	style = "darker",
--- })
--- require("onedark").load()
-
 local colorscheme = "gruvbox"
-vim.g.background = "medium"
-vim.g.gruvbox_italic = 1
 
--- local colorscheme = "dracula"
+vim.g.background = "dark"
+vim.g.gruvbox_contrast_dark = "hard"
+vim.g.gruvbox_italicize_strings = 1
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then

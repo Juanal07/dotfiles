@@ -9,11 +9,9 @@ local actions = require("telescope.actions")
 
 telescope.setup({
 	defaults = {
-
 		prompt_prefix = " ",
 		selection_caret = " ",
 		path_display = { "smart" },
-
 		mappings = {
 			i = {
 				["<C-j>"] = actions.cycle_history_next,
