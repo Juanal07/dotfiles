@@ -37,7 +37,6 @@ vim.g.nvim_tree_icons = {
 }
 
 -- Options
-local tree_cb = require("nvim-tree.config").nvim_tree_callback
 require("nvim-tree").setup({
 	disable_netrw = true,
 	hijack_netrw = true,
@@ -87,9 +86,9 @@ require("nvim-tree").setup({
 		mappings = {
 			custom_only = false,
 			list = {
-				{ key = { "l", "<CR>" }, cb = tree_cb("edit") },
-				{ key = "h", cb = tree_cb("close_node") },
-				{ key = "v", cb = tree_cb("vsplit") },
+				{ key = { "l", "<CR>" }, action = "edit" },
+				{ key = "h", action = "close_node" },
+				{ key = "v", action = "vsplit" },
 			},
 		},
 		number = false,
