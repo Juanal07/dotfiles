@@ -19,7 +19,7 @@ end
 vim.cmd([[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost packer.lua source <afile> | PackerSync
+    autocmd BufWritePost packer-config.lua source <afile> | PackerSync
   augroup end
 ]])
 
@@ -70,10 +70,8 @@ return packer.startup(function(use)
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use("folke/which-key.nvim")
 	use("nvim-lua/popup.nvim")
-	use({
-		"nvim-telescope/telescope.nvim",
-		requires = { { "nvim-lua/plenary.nvim" } },
-	})
+	use("nvim-lua/plenary.nvim")
+	use("nvim-telescope/telescope.nvim")
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	use("nvim-telescope/telescope-media-files.nvim")
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
@@ -88,12 +86,7 @@ return packer.startup(function(use)
 		ft = { "markdown" },
 	})
 	-- GUI
-	-- use({ "ellisonleao/gruvbox.nvim", requires = { "rktjmp/lush.nvim" } })
 	use("gruvbox-community/gruvbox")
-	use({ "Mofiqul/vscode.nvim", requires = { "rktjmp/lush.nvim" } })
-	use({ "navarasu/onedark.nvim", requires = { "rktjmp/lush.nvim" } })
-	use({ "martinsione/darkplus.nvim", requires = { "rktjmp/lush.nvim" } })
-	use("Mofiqul/dracula.nvim")
 
 	use("hoob3rt/lualine.nvim")
 	use("kyazdani42/nvim-web-devicons")

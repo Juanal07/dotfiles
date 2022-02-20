@@ -9,7 +9,7 @@
 -- vim.opt.incsearch = true -- Default = true
 -- vim.opt.hlsearch = true -- Default = true
 
-vim.opt.timeoutlen = 100 -- Needed for wichkey plugin
+-- vim.opt.timeoutlen = 100 -- Default=1000, Needed for wichkey plugin
 vim.opt.termguicolors = true -- Needed in st terminal
 vim.opt.sts = 2
 vim.opt.ts = 2
@@ -40,4 +40,3 @@ vim.opt.completeopt = { "menuone", "noselect" }
 vim.opt.shortmess:append("c") -- para que no aparezcan mensajes de mas cuando este en completion
 
 vim.cmd([[set iskeyword+=-]]) -- que words como hola-mundo vim las considere 1 sola para borrar por ej
--- vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
