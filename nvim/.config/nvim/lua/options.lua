@@ -17,8 +17,8 @@ vim.opt.sw = 2
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
-vim.opt.list = true
-vim.opt.listchars = { tab = ">·", trail = "·", extends = "~" }
+-- vim.opt.list = true
+-- vim.opt.listchars = { tab = ">·", trail = "·", extends = "~" }
 -- vim.opt.listchars = { tab = ">~", trail = "·", space = "·", extends = "~" }
 -- vim.opt.listchars = { tab = ">~", trail = "·", eol = "↲", space = "·", extends = "~" } --ejemplos
 vim.opt.showmode = false -- que no ponga insert debajo de insert en la lualine
