@@ -1,7 +1,8 @@
 #!/usr/bin/sh
+
 selected=`ls ~/code/workspace | rofi -show -dmenu -i` 
 path="${HOME}/code/workspace/${selected}"
-SESSION=$(tmux list-sessions | grep $selected)
+SESSION=$(tmux list-sessions | grep "${selected}:")
 
 # si no selecciono nada pues q no haga nada
 if [ $path != "$HOME/code/workspace/" ]
