@@ -1,9 +1,3 @@
--- Options that will be migrated to setup in the future
-
--- vim.g.nvim_tree_indent_markers = 1
--- vim.g.nvim_tree_git_hl = 1
-vim.g.nvim_tree_add_trailing = 1
--- vim.g.nvim_tree_group_empty = 1
 vim.g.nvim_tree_create_in_closed_folder = 1
 vim.g.nvim_tree_special_files = {}
 vim.g.nvim_tree_show_icons = {
@@ -42,7 +36,6 @@ require("nvim-tree").setup({
 	hijack_netrw = true,
 	open_on_setup = false,
 	ignore_ft_on_setup = {},
-	auto_close = true,
 	open_on_tab = false,
 	hijack_cursor = false,
 	update_cwd = true,
@@ -74,7 +67,8 @@ require("nvim-tree").setup({
 	},
 	git = {
 		enable = true,
-		ignore = false, -- I want to see ignored folders
+		-- ignore = false, -- I want to see ignored folders
+		ignore = true,
 		timeout = 500,
 	},
 	view = {
@@ -89,6 +83,9 @@ require("nvim-tree").setup({
 				{ key = { "l", "<CR>" }, action = "edit" },
 				{ key = "h", action = "close_node" },
 				{ key = "v", action = "vsplit" },
+				{ key = "y", action = "copy" },
+				{ key = "d", action = "cut" },
+				{ key = "D", action = "remove" },
 			},
 		},
 		number = false,
@@ -105,7 +102,6 @@ require("nvim-tree").setup({
 		},
 		open_file = {
 			quit_on_open = true,
-			-- quit_on_open = false,
 		},
 	},
 })
