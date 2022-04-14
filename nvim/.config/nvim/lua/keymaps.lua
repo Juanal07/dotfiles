@@ -46,6 +46,11 @@ vim.api.nvim_set_keymap("n", "<leader>fo", "<cmd>Telescope colorscheme<cr>", opt
 vim.api.nvim_set_keymap("n", "<leader>n", "<cmd>NvimTreeFindFileToggle<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>r", "<cmd>NvimTreeRefresh<CR>", opts)
 
-vim.api.nvim_set_keymap("n", "<leader>p", "<cmd>MarkdownPreviewToggle<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>m", "<cmd>MarkdownPreviewToggle<cr>", opts)
+
+vim.api.nvim_set_keymap("n", "<leader>p", ":lua require'options'.toggleProse()<cr>", {
+	noremap = true,
+	silent = false,
+})
 
 -- TODO: crear un atajo para sourcear toda la config
