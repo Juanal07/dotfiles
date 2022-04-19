@@ -67,8 +67,8 @@ require("nvim-tree").setup({
 	},
 	git = {
 		enable = true,
-		-- ignore = false, -- I want to see ignored folders
-		ignore = true,
+		ignore = false, -- I want to see ignored folders
+		-- ignore = true,
 		timeout = 500,
 	},
 	view = {
