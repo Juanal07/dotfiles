@@ -30,7 +30,7 @@ vim.opt.swapfile = false
 vim.opt.ignorecase = true
 vim.opt.scrolloff = 8 -- cuando haces scroll deja 8 lineas de margen
 vim.opt.signcolumn = "yes"
-vim.opt.completeopt = { "menuone", "noselect" }
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.splitright = true
 -- vim.opt.list = true
 -- vim.opt.listchars = { tab = ">·", trail = "·", extends = "~" }
@@ -39,7 +39,7 @@ vim.opt.splitright = true
 
 vim.opt.shortmess:append("c") -- para que no aparezcan mensajes de mas cuando este en completion
 
-vim.cmd([[set iskeyword+=-]]) -- que words como hola-mundo vim las considere 1 sola para borrar por ej
+-- vim.cmd([[set iskeyword+=-]]) -- que words como hola-mundo vim las considere 1 sola para borrar por ej
 
 local M = { proseMode = false }
 function M.toggleProse()
