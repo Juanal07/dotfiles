@@ -3,12 +3,12 @@
 -- vim.opt.backup = false -- Default = false
 -- vim.opt.showcmd = true -- Default = true
 -- vim.opt.ruler = true -- Default = true
--- vim.opt.laststatus = 2 -- Default = 2, always display the status bar
 -- vim.opt.hidden = true -- Default = true, permite moverme entre buffers sin guardar
 -- vim.opt.autoread = true -- Default = true
 -- vim.opt.incsearch = true -- Default = true
 -- vim.opt.hlsearch = true -- Default = true
 -- vim.opt.timeoutlen = 100 -- Default=1000, Needed for wichkey plugin
+vim.opt.laststatus = 3
 vim.opt.termguicolors = true -- Needed in st terminal
 vim.opt.sts = 2
 vim.opt.ts = 2
