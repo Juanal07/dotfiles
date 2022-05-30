@@ -32,10 +32,10 @@ vim.opt.scrolloff = 8 -- cuando haces scroll deja 8 lineas de margen
 vim.opt.signcolumn = "yes"
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.splitright = true
--- vim.opt.list = true
--- vim.opt.listchars = { tab = ">·", trail = "·", extends = "~" }
--- vim.opt.listchars = { tab = ">~", trail = "·", space = "·", extends = "~" }
--- vim.opt.listchars = { tab = ">~", trail = "·", eol = "↲", space = "·", extends = "~" } --ejemplos
+vim.opt.list = true
+vim.opt.listchars = { tab = "> ", trail = "·", eol = "↲", extends = "~" }
+-- vim.opt.listchars = { tab = ">·", trail = "·", space = "·", extends = "~" }
+-- vim.opt.listchars = { tab = ">·", trail = "·", eol = "↲", space = "·", extends = "~" } --ejemplos
 
 vim.opt.shortmess:append("c") -- para que no aparezcan mensajes de mas cuando este en completion
 

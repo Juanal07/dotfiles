@@ -16,7 +16,7 @@ dunst & # dunst for notifications
 
 # disabled mouse acceleration
 # logitech
-xinput set-prop 9 "libinput Accel Profile Enabled" 0 1 &
+xinput set-prop 12 "libinput Accel Profile Enabled" 0 1 &
 # vertical mouse
 # xinput set-prop 10 "libinput Accel Profile Enabled" 0 1 &
 

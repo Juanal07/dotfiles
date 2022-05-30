@@ -37,7 +37,7 @@ require("nvim-tree").setup({
 	renderer = {
 		add_trailing = true,
 		group_empty = false,
-		highlight_git = true,
+		highlight_git = false, --
 		highlight_opened_files = "none",
 		root_folder_modifier = ":~",
 		indent_markers = {
