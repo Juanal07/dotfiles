@@ -11,5 +11,4 @@ if not status_ok then
 	return
 end
 
--- Transparency
--- vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+-- vim.cmd("hi Normal guibg=NONE ctermbg=NONE") -- Transparency

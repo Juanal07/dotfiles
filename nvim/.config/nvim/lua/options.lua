@@ -1,14 +1,14 @@
--- DEFAULTS
+-- Defaults
+-- vim.opt.backup = false
+-- vim.opt.showcmd = true
+-- vim.opt.ruler = true
+-- vim.opt.hidden = true
+-- vim.opt.autoread = true
+-- vim.opt.incsearch = true
+-- vim.opt.hlsearch = true
+-- vim.opt.timeoutlen = 100
 
--- vim.opt.backup = false -- Default = false
--- vim.opt.showcmd = true -- Default = true
--- vim.opt.ruler = true -- Default = true
--- vim.opt.hidden = true -- Default = true, permite moverme entre buffers sin guardar
--- vim.opt.autoread = true -- Default = true
--- vim.opt.incsearch = true -- Default = true
--- vim.opt.hlsearch = true -- Default = true
--- vim.opt.timeoutlen = 100 -- Default=1000, Needed for wichkey plugin
-vim.opt.laststatus = 3
+vim.opt.laststatus = 3 -- Solo una status line por window aunque haya mas panes
 vim.opt.termguicolors = true -- Needed in st terminal
 vim.opt.sts = 2
 vim.opt.ts = 2
@@ -33,13 +33,9 @@ vim.opt.signcolumn = "yes"
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.splitright = true
 vim.opt.list = true
-vim.opt.listchars = { tab = "> ", trail = "·", eol = "↲", extends = "~" }
--- vim.opt.listchars = { tab = ">·", trail = "·", space = "·", extends = "~" }
--- vim.opt.listchars = { tab = ">·", trail = "·", eol = "↲", space = "·", extends = "~" } --ejemplos
-
+vim.opt.listchars = { tab = "→ ", trail = "·", eol = "↲", extends = "#" }
+vim.opt.iskeyword:append("-") -- que words como hola-mundo vim las considere 1 sola para borrar por ej
 vim.opt.shortmess:append("c") -- para que no aparezcan mensajes de mas cuando este en completion
-
--- vim.cmd([[set iskeyword+=-]]) -- que words como hola-mundo vim las considere 1 sola para borrar por ej
 
 local M = { proseMode = false }
 function M.toggleProse()
@@ -49,7 +45,7 @@ function M.toggleProse()
 		vim.opt.linebreak = true
 		vim.opt.columns = 80
 		vim.opt.list = true
-		vim.opt.listchars = { tab = ">~", trail = "·", eol = "↲", space = "·", extends = "#" } --ejemplos
+		vim.opt.listchars = { tab = "→ ", trail = "·", eol = "↲", space = "·", extends = "#" } --ejemplos
 		vim.api.nvim_set_keymap("n", "j", "gj", { noremap = true, silent = true })
 		vim.api.nvim_set_keymap("n", "k", "gk", { noremap = true, silent = true })
 	else

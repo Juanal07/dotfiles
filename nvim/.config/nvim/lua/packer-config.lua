@@ -66,7 +66,7 @@ return packer.startup(function(use)
 	})
 	use("windwp/nvim-ts-autotag")
 	use("windwp/nvim-autopairs")
-	use({ "numToStr/Comment.nvim" })
+	use("numToStr/Comment.nvim")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use("folke/which-key.nvim")
 	use("nvim-lua/popup.nvim")
@@ -77,14 +77,6 @@ return packer.startup(function(use)
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("p00f/nvim-ts-rainbow")
 	use("TovarishFin/vim-solidity")
-	use({
-		"iamcco/markdown-preview.nvim",
-		run = "cd app && npm install",
-		setup = function()
-			vim.g.mkdp_filetypes = { "markdown" }
-		end,
-		ft = { "markdown" },
-	})
 	-- GUI
 	use("gruvbox-community/gruvbox")
 

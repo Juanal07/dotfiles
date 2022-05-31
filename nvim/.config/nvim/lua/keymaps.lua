@@ -1,9 +1,7 @@
-local opts = { noremap = true, silent = true }
-local term_opts = { silent = true }
+local opts = { noremap = true, silent = false }
 
 vim.api.nvim_set_keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
 vim.api.nvim_set_keymap("n", "<leader>w", ":w<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>q", ":q<cr>", opts)
@@ -24,8 +22,8 @@ vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", opts)
 
 vim.api.nvim_set_keymap("n", "<C-Up>", ":resize +2<CR>", opts)
 vim.api.nvim_set_keymap("n", "<C-Down>", ":resize -2<CR>", opts)
-vim.api.nvim_set_keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-vim.api.nvim_set_keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+vim.api.nvim_set_keymap("n", "<C-Left>", ":vertical resize +2<CR>", opts)
+vim.api.nvim_set_keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 
 vim.api.nvim_set_keymap("v", "<", "<gv", opts)
 vim.api.nvim_set_keymap("v", ">", ">gv", opts)
@@ -33,7 +31,7 @@ vim.api.nvim_set_keymap("v", ">", ">gv", opts)
 vim.api.nvim_set_keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
 vim.api.nvim_set_keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
 
-vim.api.nvim_set_keymap("v", "p", '"_dP', opts) -- al pegar un texto sobre un texto en visual mode no copia lo que habia si no lo que he pegado
+vim.api.nvim_set_keymap("v", "p", '"_dP', opts)
 
 vim.api.nvim_set_keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
@@ -46,11 +44,6 @@ vim.api.nvim_set_keymap("n", "<leader>fo", "<cmd>Telescope colorscheme<cr>", opt
 vim.api.nvim_set_keymap("n", "<leader>n", "<cmd>NvimTreeFindFileToggle<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>r", "<cmd>NvimTreeRefresh<CR>", opts)
 
-vim.api.nvim_set_keymap("n", "<leader>m", "<cmd>MarkdownPreviewToggle<cr>", opts)
-
-vim.api.nvim_set_keymap("n", "<leader>p", ":lua require'options'.toggleProse()<cr>", {
-	noremap = true,
-	silent = false,
-})
+vim.api.nvim_set_keymap("n", "<leader>p", ":lua require'options'.toggleProse()<cr>", opts)
 
 -- TODO: crear un atajo para sourcear toda la config
