@@ -42,3 +42,6 @@
 	rebase = false
 [init]
   defaultBranch = master
+[safe]
+	directory = /home/juan/.local/src/st-juan
+	directory = /home/juan/.local/src/st-juan

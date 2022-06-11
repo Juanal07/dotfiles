@@ -45,6 +45,12 @@ return packer.startup(function(use)
 	-- https://github.com/glepnir/dashboard-nvim
 	-- Plug 'glepnir/lspsaga.nvim'
 	--  preservim/vim-pencil para escribir prosa
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	})
 	-- Git
 	use("TimUntersberger/neogit")
 	use("sindrets/diffview.nvim")

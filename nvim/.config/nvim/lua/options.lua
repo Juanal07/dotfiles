@@ -33,7 +33,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.splitright = true
 vim.opt.list = true
-vim.opt.listchars = { tab = "→ ", trail = "·", eol = "↲", extends = "#" }
+vim.opt.listchars = { tab = "→ ", trail = "·", eol = "↲", extends = "…" }
 vim.opt.iskeyword:append("-") -- que words como hola-mundo vim las considere 1 sola para borrar por ej
 vim.opt.shortmess:append("c") -- para que no aparezcan mensajes de mas cuando este en completion
 

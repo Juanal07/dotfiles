@@ -1,8 +1,11 @@
-!! HiDPI 
+!! HiDPI (High Dots Per Inch)
 /* Xft.dpi: 110 numero optimo se supone */
-Xft.dpi: 144
+/* Xft.dpi: 144  */
+Xft.dpi: 120 
 
-! These might also be useful depending on your monitor and personal preference:
+!! XScreenSaver
+
+!! These might also be useful depending on your monitor and personal preference:
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintfull
@@ -10,13 +13,14 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-/* !! Transparency (0-1): */
-/* *.alpha: 0.75 */
+!! Transparency (0-1):
+*.alpha: 1
 
-!! Set a default font and font size as below:
-*.font: JetBrainsMono Nerd Font Mono:size=12
+!! Font
+*.font: JetBrainsMono Nerd Font Mono:size=11
 
-!! gruvbox:
+!! Colorscheme
+!! Gruvbox:
 *.color0: #282828
 *.color1: #cc241d
 *.color2: #98971a
@@ -34,7 +38,7 @@ Xft.rgba: rgb
 *.color14: #8ec07c
 *.color15: #ebdbb2
 
-/* !! Dracula Xresources palette */
+!! Dracula
 /* *.foreground: #F8F8F2 */
 /* *.background: #282A36 */
 /* *.color0:     #000000 */

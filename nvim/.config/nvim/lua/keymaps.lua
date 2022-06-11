@@ -33,16 +33,18 @@ vim.api.nvim_set_keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
 
 vim.api.nvim_set_keymap("v", "p", '"_dP', opts)
 
-vim.api.nvim_set_keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>fb", "<cmd>Telescope git_branches<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>fc", "<cmd>Telescope git_commits<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>fm", "<cmd>Telescope media_files<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>fo", "<cmd>Telescope colorscheme<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>fb", ":Telescope git_branches<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>fc", ":Telescope git_commits<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>fm", ":Telescope media_files<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>fo", ":Telescope colorscheme<cr>", opts)
 
-vim.api.nvim_set_keymap("n", "<leader>n", "<cmd>NvimTreeFindFileToggle<CR>", opts)
-vim.api.nvim_set_keymap("n", "<leader>r", "<cmd>NvimTreeRefresh<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>n", ":NvimTreeFindFileToggle<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>r", ":NvimTreeRefresh<CR>", opts)
+
+vim.api.nvim_set_keymap("n", "<C-p>", ":MarkdownPreviewToggle<cr>", opts)
 
 vim.api.nvim_set_keymap("n", "<leader>p", ":lua require'options'.toggleProse()<cr>", opts)
 
