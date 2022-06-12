@@ -1,11 +1,11 @@
 <h1 align="center">Dotfiles ~/</h1>
 
-This repo is a collection of dotfiles (configuration files) of the utilities that I use in my day basis.
+This repo is a collection of dotfiles (configuration files) of the utilities that I use on a daily basis.
 I use it in a Arch Linux system with a tiling window manager.
 
 I am inspired by [Luke Smith](https://github.com/LukeSmithxyz), [Antonio Sarosi](https://github.com/antoniosarosi), and [Christian Chiarulli](https://github.com/ChristianChiarulli) dotfiles among others.
 
-I using [GNU Stow](https://www.gnu.org/software/stow/) as symlink farm manager.
+I am using [GNU Stow](https://www.gnu.org/software/stow/) as symlink farm manager.
 
 ## Install
 
