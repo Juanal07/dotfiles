@@ -1,8 +1,8 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-settings 6.03 for juan on Thu Jun  9 20:33:07 2022.
+# Written by xscreensaver-settings 6.04 for juan on Mon Jun 13 19:57:21 2022.
 # https://www.jwz.org/xscreensaver/
 
-timeout:	0:01:00
+timeout:	0:03:00
 cycle:		0:03:00
 lock:		True
 lockTimeout:	1:00:00
@@ -286,6 +286,8 @@ programs:								      \
 				marbling -root				    \n\
   GL: 				mapscroller -root			    \n\
   GL: 				squirtorus -root			    \n\
+  GL: 				chompytower -root			    \n\
+  GL: 				nakagin -root				    \n\
 
 
 pointerHysteresis:  10

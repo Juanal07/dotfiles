@@ -64,6 +64,7 @@ return packer.startup(function(use)
 		end,
 	})
 	-- Utils
+	use("github/copilot.vim")
 	use({
 		"ur4ltz/surround.nvim",
 		config = function()

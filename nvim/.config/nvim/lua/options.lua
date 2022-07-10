@@ -1,13 +1,4 @@
 -- Defaults
--- vim.opt.backup = false
--- vim.opt.showcmd = true
--- vim.opt.ruler = true
--- vim.opt.hidden = true
--- vim.opt.autoread = true
--- vim.opt.incsearch = true
--- vim.opt.hlsearch = true
--- vim.opt.timeoutlen = 100
-
 vim.opt.laststatus = 3 -- Solo una status line por window aunque haya mas panes
 vim.opt.termguicolors = true -- Needed in st terminal
 vim.opt.sts = 2
@@ -36,6 +27,8 @@ vim.opt.list = true
 vim.opt.listchars = { tab = "→ ", trail = "·", eol = "↲", extends = "…" }
 vim.opt.iskeyword:append("-") -- que words como hola-mundo vim las considere 1 sola para borrar por ej
 vim.opt.shortmess:append("c") -- para que no aparezcan mensajes de mas cuando este en completion
+vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number"
 
 local M = { proseMode = false }
 function M.toggleProse()

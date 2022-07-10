@@ -47,5 +47,3 @@ vim.api.nvim_set_keymap("n", "<leader>r", ":NvimTreeRefresh<CR>", opts)
 vim.api.nvim_set_keymap("n", "<C-p>", ":MarkdownPreviewToggle<cr>", opts)
 
 vim.api.nvim_set_keymap("n", "<leader>p", ":lua require'options'.toggleProse()<cr>", opts)
-
--- TODO: crear un atajo para sourcear toda la config
