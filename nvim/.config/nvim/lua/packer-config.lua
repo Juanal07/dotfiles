@@ -108,6 +108,7 @@ return packer.startup(function(use)
 	-- Snippets
 	use("L3MON4D3/LuaSnip")
 	use("rafamadriz/friendly-snippets")
+	use("xabikos/vscode-javascript")
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
