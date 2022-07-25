@@ -86,6 +86,7 @@ return packer.startup(function(use)
 	use("TovarishFin/vim-solidity")
 	-- GUI
 	use("gruvbox-community/gruvbox")
+	-- use({ "fgheng/winbar.nvim" })
 
 	use("hoob3rt/lualine.nvim")
 	use("kyazdani42/nvim-web-devicons")

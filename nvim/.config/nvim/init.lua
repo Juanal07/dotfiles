@@ -14,6 +14,7 @@ require("plugins.neogit")
 require("plugins.gitsigns")
 require("plugins.comment")
 
+-- require('winbar').setup() -- Requires nvim 0.8
 require("colorizer").setup()
 require("nvim-web-devicons").setup({
 	default = true,

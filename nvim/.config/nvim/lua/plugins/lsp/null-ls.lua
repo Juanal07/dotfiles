@@ -14,14 +14,19 @@ null_ls.setup({
 		formatting.prettier,
 		formatting.black,
 		formatting.stylua,
-		-- diagnostics.eslint_d,
+		diagnostics.eslint_d,
 		-- diagnostics.flake8,
 	},
 	-- Format on save
 	on_attach = function(client)
 		if client.resolved_capabilities.document_formatting then
+			-- vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()")
 			-- vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
-			vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting()")
+			-- vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting()")
+
+			-- prettier tailwind plugin force me to use .formatting() because is too slow
+			vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
+			-- vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting()]])
 		end
 	end,
 })
