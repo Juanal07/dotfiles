@@ -79,11 +79,12 @@ telescope.setup({
 			},
 		},
 	},
-	-- pickers = {
-	-- 	find_files = {
-	-- 		theme = "dropdown",
-	-- 	},
-	-- },
+	pickers = {
+		find_files = {
+			find_command = { "rg", "--files", "--hidden", "-g", "!.git" },
+			--[[ find_cmd = { "fd" }, ]]
+		},
+	},
 	extensions = {
 		media_files = {
 			filetypes = { "jpeg", "ico", "png", "webp", "jpg", "jpeg", "mp4", "webm", "pdf" },

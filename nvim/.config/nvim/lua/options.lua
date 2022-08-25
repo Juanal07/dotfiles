@@ -1,4 +1,3 @@
--- Defaults
 vim.opt.laststatus = 3 -- Solo una status line por window aunque haya mas panes
 vim.opt.termguicolors = true -- Needed in st terminal
 vim.opt.sts = 2
