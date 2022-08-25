@@ -2,7 +2,7 @@ map gh cd ~/
 map gd cd ~/Downloads
 map go cd ~/Documents
 map gp cd ~/Pictures
-map gv cd ~/Videos/Peliculas
+map gv cd ~/Videos
 map gm cd ~/Music 
 map gc cd ~/code
 map gw cd ~/code/workspace

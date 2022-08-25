@@ -10,8 +10,8 @@ set hidden false
 # set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
 set drawbox
 
-set dircounts on
 set info size
+set dircounts on
 
 # Vars that depend on environmental variables
 # $lf -remote "send $id set previewer ${XDG_CONFIG_HOME:-$HOME/.config}/lf/scope"
