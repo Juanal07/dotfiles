@@ -8,10 +8,13 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
 	debug = false,
 	sources = {
-		diagnostics.editorconfig_checker,
+		--[[ diagnostics.editorconfig_checker, ]]
+		--[[ Javascript ]]
 		formatting.prettier,
 		diagnostics.eslint_d,
+		--[[ Lua  ]]
 		formatting.stylua,
+		--[[ Python ]]
 		formatting.black,
 		--[[ diagnostics.flake8, ]]
 	},
@@ -19,13 +22,12 @@ null_ls.setup({
 	on_attach = function(client)
 		if client.resolved_capabilities.document_formatting then
 			--[[ vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()") ]]
-			--[[ vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()") ]]
+			vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
 			--[[ vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting()") ]]
 
 			--[[ prettier tailwind plugin force me to use .formatting() because is too slow ]]
 			-- vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting()]])
-
-			vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
+			-- vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
 		end
 	end,
 })

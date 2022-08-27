@@ -59,12 +59,10 @@ return packer.startup(function(use)
 		requires = {
 			"nvim-lua/plenary.nvim",
 		},
-		config = function()
-			require("gitsigns").setup()
-		end,
 	})
 	-- Utils
 	use("gpanders/editorconfig.nvim")
+	--[[ Copilot uses a lot of ram ]]
 	--[[ use("github/copilot.vim") ]]
 	use({
 		"ur4ltz/surround.nvim",
