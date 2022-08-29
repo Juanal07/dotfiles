@@ -28,8 +28,8 @@ xset dpms 300 300 300 & # time for suspend screen
 mihostname=$(cat /proc/sys/kernel/hostname)
 if [ "$mihostname" = 'archlaptop' ];
 then
-  xrdb -merge ./xresources_laptop
-  xbacklight -set 4 & # Para brillo en portatil
+  xrdb -merge ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources_laptop
+  xbacklight -set 8 & # Para brillo en portatil
   dropbox &
 fi
 
