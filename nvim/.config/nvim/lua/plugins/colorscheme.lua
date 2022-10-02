@@ -15,5 +15,14 @@ if not status_ok then
 	return
 end
 
-vim.cmd("highlight CursorLineNr guibg=none") -- Remove CursorLine background color, only yellow number
--- vim.cmd("highlight Normal guibg=NONE ctermbg=NONE") -- Transparency
+--[[ Remove CursorLine background color, only yellow number ]]
+vim.cmd("hi CursorLineNr guibg=none")
+vim.cmd("hi Keyword cterm=italic gui=italic")
+
+--[[ vim-illuminate ]]
+vim.cmd("hi def IlluminatedWordText guibg=#3c3836")
+vim.cmd("hi def IlluminatedWordRead guibg=#3c3836")
+vim.cmd("hi def IlluminatedWordWrite guibg=#3c3836")
+
+--[[ Transparency ]]
+--[[ vim.cmd("hi Normal guibg=NONE ctermbg=NONE")  ]]

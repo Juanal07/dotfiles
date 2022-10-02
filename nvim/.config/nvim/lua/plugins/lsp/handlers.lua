@@ -13,8 +13,8 @@ M.setup = function()
 	end
 
 	local config = {
-		virtual_text = true,
-		-- virtual_text = false,
+		--[[ virtual_text = true, ]]
+		virtual_text = false,
 		signs = {
 			active = signs,
 		},
@@ -44,7 +44,7 @@ end
 
 local function lsp_highlight_document(client)
 	-- Set autocommands conditional on server_capabilities
-	if client.resolved_capabilities.document_highlight then
+	if client.server_capabilities.document_highlight then
 		vim.api.nvim_exec(
 			[[
       augroup lsp_document_highlight
@@ -87,9 +87,14 @@ end
 
 -- para que no me pregunte con que lsp quiero formatear (siempre usare null-ls hasta que lsp traiga formateadores
 M.on_attach = function(client, bufnr)
-	if client.name == "tsserver" or client.name == "jsonls" or client.name == "html" then
-		client.resolved_capabilities.document_formatting = false
-		client.resolved_capabilities.document_range_formatting = false
+	if
+		client.name == "tsserver"
+		or client.name == "jsonls"
+		or client.name == "html"
+		or client.name == "sumneko_lua"
+	then
+		client.server_capabilities.document_formatting = false
+		client.server_capabilities.document_range_formatting = false
 	end
 	lsp_keymaps(bufnr)
 	lsp_highlight_document(client)

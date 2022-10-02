@@ -13,10 +13,8 @@ require("plugins.treesitter")
 require("plugins.neogit")
 require("plugins.gitsigns")
 require("plugins.comment")
+require("plugins.winbar")
 
-require("editorconfig")
 require("colorizer").setup()
-require("nvim-web-devicons").setup({
-	default = true,
-})
--- require('winbar').setup() -- Requires nvim 0.8
+require("nvim-web-devicons").setup()
+-- require("editorconfig")

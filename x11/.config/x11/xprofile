@@ -10,23 +10,15 @@ remaps &
 picom &
 dunst &
 xscreensaver -no-splash &
-xinput set-prop 12 "libinput Accel Profile Enabled" 0 1 & # logitech, disabled mouse acceleration
+# xinput set-prop 12 "libinput Accel Profile Enabled" 0 1 & # logitech, disabled mouse acceleration
+xinput set-prop "pointer:Logitech MX Master 3" "libinput Accel Profile Enabled" 0 1 &
 xset s 300 300 & # time for suspend screen
 xset dpms 300 300 300 & # time for suspend screen
 unclutter & # Remove mouse when idle
 dwmblocks &
 
-# This line autostarts an instance of Pulseaudio that does not exit on idle.
-# This is "necessary" on Artix due to a current bug between PA and
-# Chromium-based browsers where they fail to start PA and use dummy output.
-pidof -s runit &&
-	! pidof -s pulseaudio >/dev/null 2>&1 &&
-	setsid -f pulseaudio --start --exit-idle-time=-1 >/dev/null 2>&1
-
+# Laptop
 mihostname=$(cat /proc/sys/kernel/hostname)
-if [ "$mihostname" = 'archlaptop' ];
-then
-  xrdb -merge ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources_laptop
-  xbacklight -set 5 &
-  dropbox &
+if [ "$mihostname" = 'archlaptop' ]; then
+  laptop-config
 fi
