@@ -13,7 +13,6 @@ require("plugins.treesitter")
 require("plugins.neogit")
 require("plugins.gitsigns")
 require("plugins.comment")
-require("plugins.winbar")
 
 require("colorizer").setup()
 require("nvim-web-devicons").setup()

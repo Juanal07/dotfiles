@@ -41,10 +41,6 @@ packer.init({
 -- Install your plugins here
 return packer.startup(function(use)
   use("wbthomason/packer.nvim")
-  -- Investigar
-  -- https://github.com/glepnir/dashboard-nvim
-  -- Plug 'glepnir/lspsaga.nvim'
-  --  preservim/vim-pencil para escribir prosa
   use({
     "iamcco/markdown-preview.nvim",
     run = function()

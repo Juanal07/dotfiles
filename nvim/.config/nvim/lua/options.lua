@@ -26,8 +26,9 @@ vim.opt.listchars = { tab = "→ ", trail = "·", eol = "↲", extends = "…" }
 vim.opt.iskeyword:append("-")
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
-vim.opt.ls = 0
-vim.opt.ch = 0
+-- vim.opt.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+-- vim.opt.ls = 0
+-- vim.opt.ch = 0
 
 local M = { proseMode = false }
 function M.toggleProse()

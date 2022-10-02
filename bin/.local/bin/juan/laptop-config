@@ -16,3 +16,12 @@ else
   xrdb -merge ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources_laptop_station
   xinput set-prop 13 "libinput Accel Profile Enabled" 0 1 & # logitech, disabled mouse acceleration
 fi
+
+# Extend
+# xrandr --output HDMI2 --primary --auto --output eDP1 --left-of HDMI2 --auto
+
+# Station
+# xrandr --output eDP1 --auto --output HDMI2 --off
+
+# Station
+# xrandr --output eDP1 --off --output HDMI2 --auto
