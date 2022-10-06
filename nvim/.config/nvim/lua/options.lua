@@ -1,18 +1,15 @@
-vim.opt.laststatus = 3 -- Solo una status line por window aunque haya mas panes
-vim.opt.termguicolors = true -- Needed in st terminal
-vim.opt.sts = 2
-vim.opt.ts = 2
-vim.opt.sw = 2
+vim.opt.laststatus = 3
+vim.opt.termguicolors = true
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
-vim.opt.autoindent = true
 vim.opt.smartindent = true
-vim.opt.showmode = false -- que no ponga insert debajo de insert en la lualine
+vim.opt.showmode = false
 vim.opt.number = true
-vim.opt.relativenumber = true -- always show line relative numbers
+vim.opt.relativenumber = true
 vim.opt.numberwidth = 1
 vim.opt.wrap = false
-vim.opt.encoding = "utf-8"
-vim.opt.showmatch = false
 vim.opt.errorbells = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.swapfile = false
@@ -26,9 +23,9 @@ vim.opt.listchars = { tab = "→ ", trail = "·", eol = "↲", extends = "…" }
 vim.opt.iskeyword:append("-")
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
--- vim.opt.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
--- vim.opt.ls = 0
--- vim.opt.ch = 0
+vim.cmd("set t_Co=256")
+-- vim.opt.do_filetype_lua = true
+-- vim.g.did_load_filetypes = false
 
 local M = { proseMode = false }
 function M.toggleProse()

@@ -1,41 +1,5 @@
 local M = {}
 
--- local navic = require("nvim-navic")
--- navic.setup({
---   icons = {
---     File = " ",
---     Module = " ",
---     Namespace = " ",
---     Package = " ",
---     Class = " ",
---     Method = " ",
---     Property = " ",
---     Field = " ",
---     Constructor = " ",
---     Enum = " ",
---     Interface = " ",
---     Function = " ",
---     Variable = " ",
---     Constant = " ",
---     String = " ",
---     Number = " ",
---     Boolean = " ",
---     Array = " ",
---     Object = " ",
---     Key = " ",
---     Null = " ",
---     EnumMember = " ",
---     Struct = " ",
---     Event = " ",
---     Operator = " ",
---     TypeParameter = " ",
---   },
---   highlight = false,
---   separator = " > ",
---   depth_limit = 0,
---   depth_limit_indicator = "..",
--- })
-
 M.setup = function()
   local signs = {
     { name = "DiagnosticSignError", text = "" },
@@ -110,7 +74,7 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)

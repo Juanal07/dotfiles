@@ -50,16 +50,11 @@ return packer.startup(function(use)
   -- Git
   use("TimUntersberger/neogit")
   use("sindrets/diffview.nvim")
-  use({
-    "lewis6991/gitsigns.nvim",
-    requires = {
-      "nvim-lua/plenary.nvim",
-    },
-  })
+  use("lewis6991/gitsigns.nvim")
   -- Utils
   use("gpanders/editorconfig.nvim")
-  --[[ Copilot uses a lot of ram ]]
-  --[[ use("github/copilot.vim") ]]
+  -- Copilot uses a lot of ram
+  use("github/copilot.vim")
   use({
     "ur4ltz/surround.nvim",
     config = function()
@@ -86,14 +81,12 @@ return packer.startup(function(use)
   use("TovarishFin/vim-solidity")
   -- GUI
   use("gruvbox-community/gruvbox")
-  use("fgheng/winbar.nvim")
-  use("SmiteshP/nvim-navic")
   use("hoob3rt/lualine.nvim")
   use("kyazdani42/nvim-web-devicons")
   use("kyazdani42/nvim-tree.lua")
   use("ryanoasis/vim-devicons")
   use("onsails/lspkind-nvim")
-  use("norcalli/nvim-colorizer.lua")
+  use("brenoprata10/nvim-highlight-colors")
   use("RRethy/vim-illuminate")
   -- LSP
   use("neovim/nvim-lspconfig")

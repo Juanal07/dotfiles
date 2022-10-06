@@ -11,8 +11,8 @@ vim.g.gruvbox_sign_column = "bg0"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
-	vim.notify("colorscheme " .. colorscheme .. " not found!")
-	return
+  vim.notify("colorscheme " .. colorscheme .. " not found!")
+  return
 end
 
 --[[ Remove CursorLine background color, only yellow number ]]
