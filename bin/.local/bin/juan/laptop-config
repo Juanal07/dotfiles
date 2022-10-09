@@ -14,14 +14,13 @@ if xrandr | grep "$extern disconnected"; then
 else
   xrandr --output "$intern" --off --output "$extern" --auto
   xrdb -merge ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources_laptop_station
-  xinput set-prop 13 "libinput Accel Profile Enabled" 0 1 & # logitech, disabled mouse acceleration
 fi
 
-# Extend
-# xrandr --output HDMI2 --primary --auto --output eDP1 --left-of HDMI2 --auto
-
-# Station
+# No station
 # xrandr --output eDP1 --auto --output HDMI2 --off
 
 # Station
 # xrandr --output eDP1 --off --output HDMI2 --auto
+#
+# Extended
+# xrandr --output HDMI2 --primary --auto --output eDP1 --left-of HDMI2 --auto

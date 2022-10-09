@@ -24,8 +24,6 @@ vim.opt.iskeyword:append("-")
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
 vim.cmd("set t_Co=256")
--- vim.opt.do_filetype_lua = true
--- vim.g.did_load_filetypes = false
 
 local M = { proseMode = false }
 function M.toggleProse()

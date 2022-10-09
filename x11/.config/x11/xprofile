@@ -3,18 +3,17 @@
 # This file runs when a DM logs you into a graphical session.
 # If you use startx/xinit like a Chad, this file will also be sourced.
 
-setbg & # set the background with the `setbg` script
-xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources
+setbg &
 mpd &
-remaps &
 picom &
 dunst &
 xscreensaver -no-splash &
-# xinput set-prop 12 "libinput Accel Profile Enabled" 0 1 & # logitech, disabled mouse acceleration
-xinput set-prop "pointer:Logitech MX Master 3" "libinput Accel Profile Enabled" 0 1 &
 xset s 300 300 & # time for suspend screen
-xset dpms 300 300 300 & # time for suspend screen
-unclutter & # Remove mouse when idle
+xset dpms 300 300 300 &
+xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources
+remaps &
+xinput set-prop "pointer:Logitech MX Master 3" "libinput Accel Profile Enabled" 0 1 &
+unclutter &
 dwmblocks &
 
 # Laptop
