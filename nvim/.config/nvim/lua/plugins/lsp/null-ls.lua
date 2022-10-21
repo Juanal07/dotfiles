@@ -28,6 +28,7 @@ null_ls.setup({
         buffer = bufnr,
         callback = function()
           vim.lsp.buf.format({ bufnr = bufnr })
+          -- vim.lsp.buf.format({ bufnr = bufnr, async = true }) -- For prettier-tailwindcss
         end,
       })
     end

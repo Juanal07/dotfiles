@@ -54,7 +54,7 @@ return packer.startup(function(use)
   -- Utils
   use("gpanders/editorconfig.nvim")
   -- Copilot uses a lot of ram
-  use("github/copilot.vim")
+  -- use("github/copilot.vim")
   use({
     "ur4ltz/surround.nvim",
     config = function()
@@ -79,8 +79,11 @@ return packer.startup(function(use)
   })
   use("p00f/nvim-ts-rainbow")
   use("TovarishFin/vim-solidity")
+  -- Colorscheme
+  -- use("gruvbox-community/gruvbox")
+  use("folke/tokyonight.nvim")
+  use("ellisonleao/gruvbox.nvim")
   -- GUI
-  use("gruvbox-community/gruvbox")
   use("hoob3rt/lualine.nvim")
   use("kyazdani42/nvim-web-devicons")
   use("kyazdani42/nvim-tree.lua")

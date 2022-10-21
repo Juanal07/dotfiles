@@ -1,13 +1,29 @@
 local colorscheme = "gruvbox"
--- vim.opt.bg = "light"
--- vim.g.gruvbox_contrast_dark = "hard"
-vim.g.gruvbox_contrast_dark = "medium"
--- vim.g.gruvbox_contrast_dark = "soft"
-vim.g.gruvbox_italic = 1
-vim.g.gruvbox_italicize_strings = 1
-vim.g.gruvbox_sign_column = "bg0"
--- vim.g.gruvbox_invert_indent_guides = 1
--- vim.g.gruvbox_invert_tabline = 1
+require("gruvbox").setup({
+  undercurl = true,
+  underline = true,
+  bold = true,
+  italic = true,
+  strikethrough = true,
+  invert_selection = false,
+  invert_signs = false,
+  invert_tabline = true,
+  invert_intend_guides = false,
+  inverse = true,
+  contrast = "", -- can be "hard", "soft" or empty string (medium)
+  palette_overrides = {},
+  overrides = {
+    SignColumn = { bg = "NONE" },
+    CursorLineNr = { bg = "NONE" },
+    GruvboxRedSign = { bg = "NONE" },
+    GruvboxGreenSign = { bg = "NONE" },
+    GruvboxYellowSign = { bg = "NONE" },
+    GruvboxBlueSign = { bg = "NONE" },
+    GruvboxAquaSign = { bg = "NONE" },
+  },
+  dim_inactive = false,
+  transparent_mode = false,
+})
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
@@ -15,14 +31,7 @@ if not status_ok then
   return
 end
 
---[[ Remove CursorLine background color, only yellow number ]]
-vim.cmd("hi CursorLineNr guibg=none")
-vim.cmd("hi Keyword cterm=italic gui=italic")
-
---[[ vim-illuminate ]]
+-- Vim-Illuminate
 vim.cmd("hi def IlluminatedWordText guibg=#3c3836")
 vim.cmd("hi def IlluminatedWordRead guibg=#3c3836")
 vim.cmd("hi def IlluminatedWordWrite guibg=#3c3836")
-
---[[ Transparency ]]
---[[ vim.cmd("hi Normal guibg=NONE ctermbg=NONE")  ]]
