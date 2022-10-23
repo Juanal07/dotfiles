@@ -23,7 +23,7 @@ vim.opt.listchars = { tab = "→ ", trail = "·", eol = "↲", extends = "…" }
 vim.opt.iskeyword:append("-")
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
-vim.cmd("set t_Co=256")
+-- vim.cmd("set t_Co=256")
 
 local M = { proseMode = false }
 function M.toggleProse()

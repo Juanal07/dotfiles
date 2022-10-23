@@ -13,6 +13,7 @@ require("gruvbox").setup({
   contrast = "", -- can be "hard", "soft" or empty string (medium)
   palette_overrides = {},
   overrides = {
+    Keyword = { fg = "#fb4934", italic = true },
     SignColumn = { bg = "NONE" },
     CursorLineNr = { bg = "NONE" },
     GruvboxRedSign = { bg = "NONE" },
@@ -24,12 +25,7 @@ require("gruvbox").setup({
   dim_inactive = false,
   transparent_mode = false,
 })
-
-local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
-if not status_ok then
-  vim.notify("colorscheme " .. colorscheme .. " not found!")
-  return
-end
+vim.cmd("colorscheme gruvbox")
 
 -- Vim-Illuminate
 vim.cmd("hi def IlluminatedWordText guibg=#3c3836")
