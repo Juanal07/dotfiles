@@ -1,21 +1,16 @@
-local fn = vim.fn
-
--- Automatically install packer
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system({
-    "git",
-    "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
-  })
-  print("Installing packer close and reopen Neovim...")
-  vim.cmd([[packadd packer.nvim]])
+-- Auto install packer if not installed
+local ensure_packer = function()
+	local fn = vim.fn
+	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+	if fn.empty(fn.glob(install_path)) > 0 then
+		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+		vim.cmd([[packadd packer.nvim]])
+		return true
+	end
+	return false
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
+-- Autocommand that update packer plugins whenever you save packer-config.lua file
 vim.cmd([[
   augroup packer_user_config
     autocmd!
@@ -23,95 +18,84 @@ vim.cmd([[
   augroup end
 ]])
 
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-  return
-end
+local packer = require("packer")
 
 -- Have packer use a popup window
 packer.init({
-  display = {
-    open_fn = function()
-      return require("packer.util").float({ border = "rounded" })
-    end,
-  },
+	display = {
+		open_fn = function()
+			return require("packer.util").float({ border = "rounded" })
+		end,
+	},
 })
 
--- Install your plugins here
 return packer.startup(function(use)
-  use("wbthomason/packer.nvim")
-  use({
-    "iamcco/markdown-preview.nvim",
-    run = function()
-      vim.fn["mkdp#util#install"]()
-    end,
-  })
-  -- Git
-  use("TimUntersberger/neogit")
-  use("sindrets/diffview.nvim")
-  use("lewis6991/gitsigns.nvim")
-  -- Utils
-  use("gpanders/editorconfig.nvim")
-  -- Copilot uses a lot of ram
-  -- use("github/copilot.vim")
-  use({
-    "ur4ltz/surround.nvim",
-    config = function()
-      require("surround").setup({ mappings_style = "surround" })
-    end,
-  })
-  use("windwp/nvim-ts-autotag")
-  use("windwp/nvim-autopairs")
-  use("numToStr/Comment.nvim")
-  use("JoosepAlviste/nvim-ts-context-commentstring")
-  use("folke/which-key.nvim")
-  use("nvim-lua/popup.nvim")
-  use("nvim-lua/plenary.nvim")
-  use("nvim-telescope/telescope.nvim")
-  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-  use("nvim-telescope/telescope-media-files.nvim")
-  use({
-    "nvim-treesitter/nvim-treesitter",
-    run = function()
-      require("nvim-treesitter.install").update({ with_sync = true })
-    end,
-  })
-  use("p00f/nvim-ts-rainbow")
-  use("TovarishFin/vim-solidity")
-  -- Colorscheme
-  -- use("gruvbox-community/gruvbox")
-  use("folke/tokyonight.nvim")
-  use("ellisonleao/gruvbox.nvim")
-  -- GUI
-  use("hoob3rt/lualine.nvim")
-  use("kyazdani42/nvim-web-devicons")
-  use("kyazdani42/nvim-tree.lua")
-  use("ryanoasis/vim-devicons")
-  use("onsails/lspkind-nvim")
-  use("brenoprata10/nvim-highlight-colors")
-  use("RRethy/vim-illuminate")
-  -- LSP
-  use("neovim/nvim-lspconfig")
-  use("williamboman/nvim-lsp-installer")
-  use("jose-elias-alvarez/null-ls.nvim")
-  use("j-hui/fidget.nvim")
-  -- Completion
-  use("hrsh7th/nvim-cmp")
-  use("hrsh7th/cmp-buffer")
-  use("hrsh7th/cmp-path")
-  use("hrsh7th/cmp-cmdline")
-  use("hrsh7th/cmp-nvim-lua")
-  use("hrsh7th/cmp-nvim-lsp")
-  use("saadparwaiz1/cmp_luasnip")
-  -- Snippets
-  use("L3MON4D3/LuaSnip")
-  use("rafamadriz/friendly-snippets")
-  use("xabikos/vscode-javascript")
+	-- Packer
+	use("wbthomason/packer.nvim")
+	-- LSP
+	use("neovim/nvim-lspconfig")
+	use("williamboman/nvim-lsp-installer")
+	use("williamboman/mason.nvim")
+	use("jose-elias-alvarez/null-ls.nvim")
+	use("j-hui/fidget.nvim")
+	-- Completion
+	use("hrsh7th/nvim-cmp")
+	use("hrsh7th/cmp-buffer")
+	use("hrsh7th/cmp-path")
+	use("hrsh7th/cmp-cmdline")
+	use("hrsh7th/cmp-nvim-lua")
+	use("hrsh7th/cmp-nvim-lsp")
+	use("saadparwaiz1/cmp_luasnip")
+	-- Snippets
+	use("L3MON4D3/LuaSnip")
+	use("rafamadriz/friendly-snippets")
+	use("xabikos/vscode-javascript")
+	use({ "dsznajder/vscode-es7-javascript-react-snippets", run = "yarn install --frozen-lockfile && yarn compile" })
+	-- Colorscheme
+	use("ellisonleao/gruvbox.nvim")
+	-- GUI
+	use("kyazdani42/nvim-tree.lua")
+	use("hoob3rt/lualine.nvim")
+	use("kyazdani42/nvim-web-devicons")
+	use("ryanoasis/vim-devicons")
+	use("onsails/lspkind-nvim")
+	use("brenoprata10/nvim-highlight-colors")
+	use("RRethy/vim-illuminate")
+	-- Git
+	use("lewis6991/gitsigns.nvim")
+	use("sindrets/diffview.nvim")
+	use("TimUntersberger/neogit")
+	-- Utils
+	use("ur4ltz/surround.nvim")
+	use("windwp/nvim-autopairs")
+	use("windwp/nvim-ts-autotag")
+	use("numToStr/Comment.nvim")
+	use("JoosepAlviste/nvim-ts-context-commentstring")
+	use("folke/which-key.nvim")
+	use("nvim-lua/popup.nvim")
+	use("nvim-lua/plenary.nvim")
+	use("nvim-telescope/telescope.nvim")
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+	use("nvim-telescope/telescope-media-files.nvim")
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = function()
+			require("nvim-treesitter.install").update({ with_sync = true })
+		end,
+	})
+	use("p00f/nvim-ts-rainbow")
+	-- use("TovarishFin/vim-solidity")
+	-- use("gpanders/editorconfig.nvim")
+	-- use("github/copilot.vim") -- Copilot uses a lot of RAM
+	-- use({
+	--   "iamcco/markdown-preview.nvim",
+	--   run = function()
+	--     vim.fn["mkdp#util#install"]()
+	--   end,
+	-- })
 
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if PACKER_BOOTSTRAP then
-    require("packer").sync()
-  end
+	-- Auto install packer if not installed
+	if ensure_packer() then
+		require("packer").sync()
+	end
 end)

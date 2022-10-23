@@ -1,17 +1,18 @@
 require("options")
 require("keymaps")
-require("packer-config") --
+require("packer-config")
 
-require("plugins.lsp") --
-require("plugins.cmp") --
+require("plugins.lsp") -- change to mason
+require("plugins.cmp")
 require("plugins.treesitter")
 require("plugins.lualine")
 require("plugins.nvim-tree")
 require("plugins.telescope")
 require("plugins.colorscheme")
-require("plugins.gitsigns") --
-require("plugins.neogit") --
+require("plugins.gitsigns")
 
+require("neogit").setup()
+require("surround").setup({ mappings_style = "surround" })
 require("fidget").setup()
 require("nvim-autopairs").setup()
 require("nvim-web-devicons").setup()
