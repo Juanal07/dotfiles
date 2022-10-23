@@ -6,18 +6,18 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
   debug = false,
   sources = {
-    --[[ diagnostics.editorconfig_checker, ]]
+    -- diagnostics.editorconfig_checker,
 
-    --[[ Javascript ]]
+    -- Javascript
     formatting.prettier,
-    --[[ diagnostics.eslint_d, ]]
+    -- diagnostics.eslint_d,
 
-    --[[ Lua  ]]
+    -- Lua
     formatting.stylua,
 
-    --[[ Python ]]
+    -- Python
     formatting.black,
-    --[[ diagnostics.flake8, ]]
+    -- diagnostics.flake8,
   },
   -- Format on save
   on_attach = function(client, bufnr)
