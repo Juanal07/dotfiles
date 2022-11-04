@@ -23,25 +23,24 @@ vim.opt.listchars = { tab = "→ ", trail = "·", eol = "↲", extends = "…" }
 vim.opt.iskeyword:append("-")
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
--- vim.cmd("set t_Co=256")
 
 local M = { proseMode = false }
 function M.toggleProse()
-  M.proseMode = not M.proseMode
-  if M.proseMode then
-    vim.opt.wrap = true
-    vim.opt.linebreak = true
-    vim.opt.columns = 80
-    vim.opt.list = true
-    vim.opt.listchars = { tab = "→ ", trail = "·", eol = "↲", space = "·", extends = "#" } --ejemplos
-    vim.api.nvim_set_keymap("n", "j", "gj", { noremap = true, silent = true })
-    vim.api.nvim_set_keymap("n", "k", "gk", { noremap = true, silent = true })
-  else
-    vim.opt.wrap = false
-    vim.opt.linebreak = false
-    vim.opt.columns = 181
-    vim.opt.list = false
-  end
+	M.proseMode = not M.proseMode
+	if M.proseMode then
+		vim.opt.wrap = true
+		vim.opt.linebreak = true
+		vim.opt.columns = 80
+		vim.opt.list = true
+		vim.opt.listchars = { tab = "→ ", trail = "·", eol = "↲", space = "·", extends = "#" } --ejemplos
+		vim.api.nvim_set_keymap("n", "j", "gj", { noremap = true, silent = true })
+		vim.api.nvim_set_keymap("n", "k", "gk", { noremap = true, silent = true })
+	else
+		vim.opt.wrap = false
+		vim.opt.linebreak = false
+		vim.opt.columns = 181
+		vim.opt.list = false
+	end
 end
 
 return M

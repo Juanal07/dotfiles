@@ -9,6 +9,8 @@
 	program = gpg
 [core]
 	editor = nvim
+[push]
+  autoSetupRemote = true
 [alias]
 	a = add --all
 	ai = add -i
