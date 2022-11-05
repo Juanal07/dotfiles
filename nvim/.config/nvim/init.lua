@@ -2,7 +2,8 @@ require("options")
 require("keymaps")
 require("packer-config")
 
-require("plugins.lsp") -- change to mason
+require("plugins.lsp")
+require("plugins.null-ls")
 require("plugins.cmp")
 require("plugins.treesitter")
 require("plugins.lualine")

@@ -34,7 +34,6 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
 	-- LSP
 	use("neovim/nvim-lspconfig")
-	-- use("williamboman/nvim-lsp-installer")
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
@@ -57,6 +56,7 @@ return packer.startup(function(use)
 	-- GUI
 	use("kyazdani42/nvim-tree.lua")
 	use("hoob3rt/lualine.nvim")
+	use("arkav/lualine-lsp-progress")
 	use("kyazdani42/nvim-web-devicons")
 	use("ryanoasis/vim-devicons")
 	use("onsails/lspkind-nvim")
@@ -73,23 +73,20 @@ return packer.startup(function(use)
 			require("nvim-treesitter.install").update({ with_sync = true })
 		end,
 	})
-	-- use({
-	--   "nvim-treesitter/nvim-treesitter",
-	--   run = ":TSUpdate",
-	-- })
 	use("kylechui/nvim-surround")
 	use("windwp/nvim-autopairs")
 	use("windwp/nvim-ts-autotag")
-	use("numToStr/Comment.nvim")
+	use("p00f/nvim-ts-rainbow")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
+	use("numToStr/Comment.nvim")
 	use("folke/which-key.nvim")
 	use("nvim-lua/popup.nvim")
 	use("nvim-lua/plenary.nvim")
+	-- Telescope
 	use("nvim-telescope/telescope.nvim")
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	use("nvim-telescope/telescope-media-files.nvim")
-	use("p00f/nvim-ts-rainbow")
-	-- use("TovarishFin/vim-solidity")
+
 	-- use("gpanders/editorconfig.nvim")
 	-- use("github/copilot.vim") -- Copilot uses a lot of RAM
 	-- use({

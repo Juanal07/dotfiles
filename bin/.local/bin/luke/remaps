@@ -15,3 +15,5 @@ xmodmap -e 'keycode 135 = Super_R'
 xmodmap -e "keycode  33 = p P p P Print Print Print"
 # Turn off the caps lock if on since there is no longer a key for it.
 xset -q | grep "Caps Lock:\s*on" && xdotool key Caps_Lock
+# Mouse sensitivity 
+xinput set-prop "pointer:Logitech MX Master 3" "libinput Accel Profile Enabled" 0 1 &
