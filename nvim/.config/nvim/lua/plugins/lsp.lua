@@ -66,7 +66,6 @@ require("mason-lspconfig").setup_handlers({
 	-- Lua
 	["sumneko_lua"] = function()
 		require("lspconfig").sumneko_lua.setup({
-			on_attach = on_attach,
 			settings = {
 				Lua = {
 					diagnostics = {
@@ -74,12 +73,12 @@ require("mason-lspconfig").setup_handlers({
 					},
 				},
 			},
+			on_attach = on_attach,
 		})
 	end,
 	-- Python
 	["pyright"] = function()
 		require("lspconfig").sumneko_lua.setup({
-			on_attach = on_attach,
 			settings = {
 				python = {
 					analysis = {
@@ -87,6 +86,7 @@ require("mason-lspconfig").setup_handlers({
 					},
 				},
 			},
+			on_attach = on_attach,
 		})
 	end,
 })
