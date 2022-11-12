@@ -55,17 +55,18 @@ local on_attach = function(client, bufnr)
 	lsp_keymaps(bufnr)
 end
 
+local lspconfig = require("lspconfig")
 -- Servers
 require("mason-lspconfig").setup_handlers({
 	-- Default
 	function(server_name)
-		require("lspconfig")[server_name].setup({
+		lspconfig[server_name].setup({
 			on_attach = on_attach,
 		})
 	end,
 	-- Lua
 	["sumneko_lua"] = function()
-		require("lspconfig").sumneko_lua.setup({
+		lspconfig.sumneko_lua.setup({
 			settings = {
 				Lua = {
 					diagnostics = {
@@ -78,7 +79,7 @@ require("mason-lspconfig").setup_handlers({
 	end,
 	-- Python
 	["pyright"] = function()
-		require("lspconfig").sumneko_lua.setup({
+		lspconfig.sumneko_lua.setup({
 			settings = {
 				python = {
 					analysis = {

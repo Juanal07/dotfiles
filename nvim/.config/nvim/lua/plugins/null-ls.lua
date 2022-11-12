@@ -18,6 +18,9 @@ null_ls.setup({
 		-- Python
 		formatting.black,
 		-- diagnostics.flake8,
+
+		-- C, C++
+		-- formatting.clang_format,
 	},
 	-- Format on save
 	on_attach = function(client, bufnr)
@@ -28,7 +31,7 @@ null_ls.setup({
 				buffer = bufnr,
 				callback = function()
 					vim.lsp.buf.format({ bufnr = bufnr })
-					-- vim.lsp.buf.format({ timeout_ms = 2000 }) -- For prettier-tailwindcss ?
+					-- vim.lsp.buf.format({ timeout_ms = 2000 }) -- For prettier-tailwindcss
 					-- vim.lsp.buf.format({ bufnr = bufnr, async = true }) -- For prettier-tailwindcss
 				end,
 			})

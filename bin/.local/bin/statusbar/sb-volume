@@ -28,4 +28,4 @@ fi
 # echo "$icon $vol%"
 
 vol_icon="$icon ^c#f7ca88^$vol%^d^"
-printf "$vol_icon"
+echo "$vol_icon"
