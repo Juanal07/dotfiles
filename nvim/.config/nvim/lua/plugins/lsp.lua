@@ -1,7 +1,5 @@
 require("mason").setup()
-require("mason-lspconfig").setup({
-	ensure_installed = { "sumneko_lua", "pyright", "tsserver", "rust_analyzer" },
-})
+require("mason-lspconfig").setup({})
 
 -- Diagnostic Signs
 local signs = {
@@ -58,12 +56,6 @@ end
 local lspconfig = require("lspconfig")
 -- Servers
 require("mason-lspconfig").setup_handlers({
-	-- Default
-	function(server_name)
-		lspconfig[server_name].setup({
-			on_attach = on_attach,
-		})
-	end,
 	-- Lua
 	["sumneko_lua"] = function()
 		lspconfig.sumneko_lua.setup({
@@ -79,7 +71,7 @@ require("mason-lspconfig").setup_handlers({
 	end,
 	-- Python
 	["pyright"] = function()
-		lspconfig.sumneko_lua.setup({
+		lspconfig.pyright.setup({
 			settings = {
 				python = {
 					analysis = {
@@ -87,6 +79,12 @@ require("mason-lspconfig").setup_handlers({
 					},
 				},
 			},
+			on_attach = on_attach,
+		})
+	end,
+	-- Default
+	function(server_name)
+		lspconfig[server_name].setup({
 			on_attach = on_attach,
 		})
 	end,

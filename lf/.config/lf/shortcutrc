@@ -15,7 +15,7 @@ map gz cd ~/.config/zsh
 map gn cd ~/.config/nvim
 map gf cd ~/.config/lf
 map gs cd ~/.config/shell
-map glb cd "/home/juan/.local/bin" 
+map gb cd "/home/juan/.local/bin" 
 map glsr cd "/home/juan/.local/src" 
 map glsh cd "/home/juan/.local/share" 
 map g/ cd /
