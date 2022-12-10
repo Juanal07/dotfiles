@@ -1,0 +1,67 @@
+#!/bin/bash
+
+intern=eDP1
+extern=HDMI2
+
+file="$HOME/.local/bin/juan/monitor-state.txt"  
+state=$(cat "$file") # Retrieve last index
+state=$((++state % 4))
+echo $state > $file
+
+try_monitor () {
+  # Laptop
+  if xrandr | grep "$extern disconnected"; 
+  then
+    xrandr --output "$extern" --off --output "$intern" --auto
+    xrdb -merge ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources_laptop
+    dunstify "💻 Laptop"
+
+  # Monitor
+  else
+    xrandr --output "$intern" --off --output "$extern" --auto
+    xrdb -merge ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources_laptop_station
+    dunstify "🖥️ Monitor"
+  fi
+}
+
+laptop () {
+  xrandr --output "$extern" --off --output "$intern" --auto
+  xrdb -merge ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources_laptop
+  dunstify "💻 Laptop"
+}
+
+extend () {
+  xrandr --output HDMI2 --primary --auto --output eDP1 --right-of HDMI2 --auto
+  dunstify "🔗 Extend"
+}
+
+duplicate () {
+  xrandr --output "$extern" --auto --same-as "$intern" --auto
+  dunstify "🪞 Duplicate"
+}
+
+case $state in
+  0)
+    laptop
+    ;;
+  1)
+    try_monitor
+    ;;
+  2)
+    extend
+    ;;
+  3)
+    duplicate
+    ;;
+  *)
+    laptop
+    ;;
+esac
+
+# xrandr --output eDP1 --auto --output HDMI2 --off
+
+# Station
+# xrandr --output eDP1 --off --output HDMI2 --auto
+#
+# Extended
+# xrandr --output HDMI2 --primary --auto --output eDP1 --left-of HDMI2 --auto
