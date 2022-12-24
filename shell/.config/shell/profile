@@ -7,7 +7,8 @@
 
 # Adds `~/.local/bin` to $PATH
 export PATH="$PATH:${$(find ~/dotfiles/bin/.local/bin -type d -printf %p:)%%:}"
-# export PATH=$PATH:/home/juan/.local/bin
+
+
 export BAT_THEME="gruvbox-dark"
 
 unsetopt PROMPT_SP
@@ -16,6 +17,9 @@ unsetopt PROMPT_SP
 export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="brave"
+
+# Needed for gpg password sign
+export GPG_TTY=$TTY
 
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -48,7 +52,6 @@ export ELECTRUMDIR="${XDG_DATA_HOME:-$HOME/.local/share}/electrum"
 # Other program settings:
 export DICS="/usr/share/stardict/dic/"
 export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
-export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 export LESS=-R
 export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
 export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"
