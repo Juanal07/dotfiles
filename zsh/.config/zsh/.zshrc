@@ -1,18 +1,12 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n] confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
-
-# Automatically cd into typed directory.
+# cd into typed directory
 setopt autocd
 
-# History in cache directory:
+# History in cache directory
 HISTSIZE=10000000
 SAVEHIST=10000000
-HISTFILE=~/.cache/zsh/history
+HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
 
-# Load aliases and shortcuts if existent.
+# Aliases
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
 
 # Basic auto/tab complete:
@@ -20,18 +14,19 @@ autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
-# Include hidden files.
-_comp_options+=(globdots)
+_comp_options+=(globdots) # Include hidden files.
 
 # VIM MODE
 bindkey -v
 export KEYTIMEOUT=1
+
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
+
 # Change cursor shape for different vi modes.
 function zle-keymap-select () {
     case $KEYMAP in
@@ -48,8 +43,7 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-# LF
-# Ctrl + o -> Open LF in the actual dir
+# LF: Ctrl + o -> Open LF in the actual dir
 lfcd () {
     tmp="$(mktemp)"
     lf-image -last-dir-path="$tmp" "$@"
@@ -65,7 +59,7 @@ bindkey -s '^o' 'lfcd\n'
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-# Powerlevel10k, To customize prompt, run `p10k configure` or edit $ZDOTDIR/.p10k.zsh.
+# Prompt Powerlevel10k: To customize run `p10k configure` or edit $ZDOTDIR/.p10k.zsh. Install -> sudo pacman -S zsh-theme-powerlevel10k
 powerlevel10k=/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 [[ -f $powerlevel10k ]] && source $powerlevel10k
 [[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
@@ -82,11 +76,11 @@ fi
 syntax=/usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 [[ -f $syntax ]] && source $syntax
 
-# Sudo, sudo-plugin-zsh: install -> curl -sL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh -o ~/.sudo.plugin.zsh
-sudo=~/.config/zsh/.sudo.plugin.zsh
-# Ctrl + v -> Add sudo at the start
+# Sudo, sudo-plugin-zsh: install -> curl -sL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh -o $ZDOTDIR/.sudo.plugin.zsh
+sudo=$ZDOTDIR/.sudo.plugin.zsh
 if [[ -f $sudo ]]; then
     source $sudo
+    # Ctrl + v -> Add sudo at the start
     bindkey -M vicmd '^V' sudo-command-line
     bindkey -M viins '^V' sudo-command-line
 fi
@@ -94,7 +88,7 @@ fi
 # Fzf
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --preview "bat --theme=gruvbox-dark --style=numbers,changes --color=always {}"'
 # Ctrl + r -> Last commands TODO: setup to run not echo
-bindkey -s '^r' 'fc -rln 1 | fzf'
+bindkey -s '^r' 'echo -n $(fc -rln 1 | fzf)\n'
 # Ctrl + f -> Goto and open file # TODO: Don't open nvim when cancel, do it in a function
 bindkey -s '^f' 'nvim $(fd . ./ --type f --hidden --follow --exclude .git | fzf)\n'
 # Ctrl + d -> Goto and change directory
