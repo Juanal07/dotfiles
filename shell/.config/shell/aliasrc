@@ -17,7 +17,7 @@ alias n=nvim
 # Git
 alias \
   g="git" \
-  gps='git add . && git commit -m "Wip" && git push'
+  gps='g add . && g commit -m "Wip" && g push'
 
 # With this one we can use our alias with sudo
 alias sudo="sudo "
