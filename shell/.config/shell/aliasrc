@@ -11,31 +11,40 @@ for command in mount umount sv pacman updatedb su ; do
 	alias $command="sudo $command"
 done; unset command
 
-# Neovim
+# Editor
 alias n=nvim
+
+# Python
+alias pip=pip3
+
+# Default open from shell
+alias -s html="$BROWSER"
+alias -s ts=nvim
+alias -s js=nvim
+alias -s py=nvim
 
 # Git
 alias \
   g="git" \
-  gps='g add . && g commit -m "Wip" && g push'
+  gps='git add . && git commit -m "Wip" && git push'
 
 # With this one we can use our alias with sudo
 alias sudo="sudo "
 
-# Colorize commands when possible.
+# Colorize commands
 alias \
 	ls="exa -lhg" \
 	l="ls -a" \
-	diff="diff --color=auto" \
-  cat="bat"
+  cat="bat" \
+	diff="diff --color=auto"
 
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
-	cp="cp -iv" \
-	mv="mv -iv" \
+	cp="cp -vi" \
+	mv="mv -vi" \
 	rm="rm -vI" \
 	bc="bc -ql" \
-	mkd="mkdir -pv" \
+	mkdir="mkdir -vp" \
 	yt="youtube-dl --add-metadata -i" \
 	yta="yt -x -f bestaudio/best" \
 	ffmpeg="ffmpeg -hide_banner"
@@ -46,26 +55,13 @@ alias \
 	trem="transmission-remote" \
 	YT="youtube-viewer" \
 	sdn="sudo shutdown -h now" \
-	e="$EDITOR" \
-	v="$EDITOR" \
 	p="sudo pacman" \
 	xi="sudo xbps-install" \
 	xr="sudo xbps-remove -R" \
 	xq="xbps-query" \
 	z="zathura"
 
-alias \
-	magit="nvim -c MagitOnly" \
-	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
-	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
-
-alias -s html="$BROWSER"
-alias -s ts=nvim
-alias -s js=nvim
-alias -s py=nvim
-alias pip=pip3
-
-# Shortcuts
+# Change directories
 alias \
 ..="cd .. && l" \
 ...="cd ../.. && l" \
@@ -95,11 +91,14 @@ gU="cd /usr && l" \
 gO="cd /opt && l" \
 gL="cd /usr/lib && l" \
 gB="cd /usr/bin && l" \
-gV="cd /var && l" \
+gV="cd /var && l" 
+
+# Open files
+alias \
 gta="$EDITOR "$HOME/.config/shell/aliasrc"" \
 gts="$EDITOR "$HOME/.config/shell/shortcutrc"" \
 gtp="$EDITOR "$HOME/.config/shell/profile"" \
 gtn="$EDITOR "$HOME/.config/nvim/init.lua"" \
 gtz="$EDITOR "$HOME/.config/zsh/.zshrc"" \
 gtfr="$EDITOR "$HOME/.config/lf/lfrc"" \
-gtfs="$EDITOR "$HOME/.config/lf/shortcutrc"" \
+gtfs="$EDITOR "$HOME/.config/lf/shortcutrc""
