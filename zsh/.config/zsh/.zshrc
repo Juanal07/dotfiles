@@ -87,9 +87,10 @@ fi
 
 # Fzf
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --preview "bat --theme=gruvbox-dark --style=numbers,changes --color=always {}"'
-# Ctrl + r -> Last commands TODO: setup to run not echo
+ # TODO: Fix on 3 shortcuts when you cancel
+# Ctrl + r -> Last commands
 bindkey -s '^r' 'echo -n $(fc -rln 1 | fzf)\n'
-# Ctrl + f -> Goto and open file # TODO: Don't open nvim when cancel, do it in a function
+# Ctrl + f -> Goto and open file
 bindkey -s '^f' 'nvim $(fd . ./ --type f --hidden --follow --exclude .git | fzf)\n'
 # Ctrl + d -> Goto and change directory
 bindkey -s '^d' 'cd $(fd . ./ --type d --hidden --follow --exclude .git | fzf)\n'
