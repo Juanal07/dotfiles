@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 readonly ID_PREVIEW="preview"
 main() {
 	case "$1" in
