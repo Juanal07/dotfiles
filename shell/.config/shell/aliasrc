@@ -23,7 +23,7 @@ alias -s ts=nvim
 alias -s js=nvim
 alias -s py=nvim
 
-# Git
+# Git, rest of git alias on ~/.gitconfig
 alias \
   g="git" \
   gps='git add . && git commit -m "Wip" && git push'

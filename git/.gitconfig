@@ -13,37 +13,28 @@
   autoSetupRemote = true
 [alias]
 	a = add --all
+	s = status
+	l = log --oneline
+	lg = log --oneline --graph --decorate
 	ai = add -i
 	r = restore
 	b = branch
-
 	c = commit
 	ca = commit -a
 	cm = commit -m
-
 	cl = clone
-
 	f = fetch
 	fo = fetch origin
 	fu = fetch upstream
-
-	l = log --oneline
-	lg = log --oneline --graph --decorate
-
 	o = checkout
-
 	ps = push
-
 	pso = push origin
-
-    m = merge
+  m = merge
 	pl = pull
-
-	s = status
 [pull]
 	rebase = false
 [init]
-  defaultBranch = master
+  defaultBranch = main
 [safe]
 	directory = /home/juan/.local/src/st-juan
 	directory = /home/juan/.local/src/st-juan

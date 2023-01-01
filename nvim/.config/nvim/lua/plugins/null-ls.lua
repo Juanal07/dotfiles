@@ -33,10 +33,11 @@ null_ls.setup({
 				buffer = bufnr,
 				callback = function()
 					vim.lsp.buf.format({
+						filter = function(client)
+							return client.name == "null-ls"
+						end,
 						bufnr = bufnr,
-						-- filter = function(client)
-						-- 	return client.name == "null-ls"
-						-- end,
+						-- timeout_ms = 2000,
 					})
 				end,
 			})
