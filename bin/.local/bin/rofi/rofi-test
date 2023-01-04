@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# ls | rofi -dmenu -i
+
+find ~/dotfiles/bin -type f -exec ls /bin {} + | rofi -dmenu -i "$@" | ${SHELL:-"/bin/sh"} &
+

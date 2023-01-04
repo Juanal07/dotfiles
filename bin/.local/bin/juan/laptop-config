@@ -9,11 +9,11 @@ dropbox &
 # No station
 if xrandr | grep "$extern disconnected"; then
   xrandr --output "$extern" --off --output "$intern" --auto
-  xrdb -merge ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources_laptop
+  # xrdb -merge ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources_laptop
 # Station
 else
   xrandr --output "$intern" --off --output "$extern" --auto
-  xrdb -merge ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources_laptop_station
+  # xrdb -merge ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources_laptop_station
 fi
 
 # No station
