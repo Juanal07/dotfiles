@@ -7,7 +7,7 @@
 case $BLOCK_BUTTON in
 	1) "$TERMINAL" -e nmtui; pkill -RTMIN+4 dwmblocks ;;
 	3) notify-send "🌐 Internet module" "\- Click to connect
-📡: no wifi connection
+睊: no wifi connection
 : wifi connection with quality
 ❎: no ethernet
  : ethernet working
@@ -17,13 +17,16 @@ case $BLOCK_BUTTON in
 esac
 
 case "$(cat /sys/class/net/w*/operstate 2>/dev/null)" in
-	down) wifiicon="📡 " ;;
+	down) wifiicon="睊 " ;;
 	up) wifiicon="$(awk '/^\s*w/ { print " ^c#f7ca88^", int($3 * 100 / 70) "% " }' /proc/net/wireless)" ;;
 esac
 
 ssid=$(nmcli -t -f name connection show --active | head -n 1)
 
-printf "%s%s^c#f7ca88^%s%s\n" "$wifiicon" "$(sed "s/down/❎/;s/up/ /" /sys/class/net/e*/operstate 2>/dev/null)" "$(sed "s/.*/🔒/" /sys/class/net/tun*/operstate 2>/dev/null)" "$ssid^d^"
+printf "%s%s^c#f7ca88^%s%s\n" "$wifiicon" "$ssid^d^"
 
+# "$(sed "s/down/❎/;s/up/🌐/" /sys/class/net/e*/operstate 2>/dev/null)" "$(sed "s/.*/🔒/" /sys/class/net/tun*/operstate 2>/dev/null)" 
+#
 # ssid=$(nmcli -t -f name connection show --active | head -n 1)
+#
 # printf "$ssid"

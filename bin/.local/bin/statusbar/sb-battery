@@ -39,7 +39,8 @@ for battery in /sys/class/power_supply/BAT?*; do
       then status="  "
       fi 
       ;;
-		"Charging") status="🔌" ;;
+		# "Charging") status="🔌" ;;
+		"Charging") status="" ;;
 		"Not charging") status="🛑" ;;
 		"Unknown") status="♻️" ;;
 	esac
