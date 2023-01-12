@@ -51,6 +51,7 @@ return packer.startup(function(use)
 	use("rafamadriz/friendly-snippets")
 	use("xabikos/vscode-javascript")
 	use({ "dsznajder/vscode-es7-javascript-react-snippets", run = "yarn install --frozen-lockfile && yarn compile" })
+	use("github/copilot.vim")
 	-- Colorscheme
 	use("ellisonleao/gruvbox.nvim")
 	-- GUI
@@ -88,7 +89,6 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope-media-files.nvim")
 
 	-- use("gpanders/editorconfig.nvim")
-	-- use("github/copilot.vim") -- Copilot uses a lot of RAM
 	-- use({
 	--   "iamcco/markdown-preview.nvim",
 	--   run = function()

@@ -1,5 +1,5 @@
 # Basic vars
-set shell bash
+set shell zsh
 set shellopts '-eu'
 set ifs "\n"
 set scrolloff 10
@@ -116,13 +116,17 @@ cmd trash ${{
 #     lf -remote "send clear"
 # }}
 
+# Bindings
+
 cmd setbg "$1"
+map b $setbg $f
+
 cmd bulkrename $vidir
+map B bulkrename
 
 cmd yank-basename-without-extension &basename -a -- $fx | rev | cut -d. -f2- | rev | head -c-1 | xclip -i -selection clipboard
-
 map Y yank-basename-without-extension
-# Bindings
+
 map <enter> shell
 map x $$f #Ejecutar archivo
 map X !$f
@@ -145,16 +149,17 @@ map i rename # at the very end
 # map c push A<c-u> # new rename
 # map I push A<c-a> # at the very beginning
 map r push i<a-b><a-b><a-f> # before extention
+
 cmd batch ${{
   batch --editor kak --map 'rename "$1" "$2"' --drop 'trash "$1"' $fx
 }}
-map B bulkrename
-
-map b $setbg $f
 
 map <c-e> down
 map <c-y> up
 map V push :!nvim<space>
+
+# map <bakcspace> down
+# map <backspace2> up
 
 # Source Bookmarks
 source "~/.config/lf/shortcutrc"
