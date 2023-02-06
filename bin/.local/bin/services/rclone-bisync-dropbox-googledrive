@@ -1,0 +1,7 @@
+#!/bin/sh
+
+rclone bisync /home/juan/Dropbox remote-dropbox:
+# dunstify "🔄 rclone bisync Dropbox"
+
+rclone bisync /home/juan/GoogleDrive remote-googledrive: --drive-export-formats link.html --drive-allow-import-name-change
+# dunstify "🔄 rclone bisync Google Drive"

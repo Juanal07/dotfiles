@@ -27,15 +27,18 @@ export LESSHISTFILE="-"
 export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
 export INPUTRC="${XDG_CONFIG_HOME:-$HOME/.config}/shell/inputrc"
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
-#export ALSA_CONFIG_PATH="$XDG_CONFIG_HOME/alsa/asoundrc"
-#export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
+
+export BAT_THEME="gruvbox-dark"
+
+export ALSA_CONFIG_PATH="$XDG_CONFIG_HOME/alsa/asoundrc"
+# export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
 # export WINEPREFIX="${XDG_DATA_HOME:-$HOME/.local/share}/wineprefixes/default"
 # export KODI_DATA="${XDG_DATA_HOME:-$HOME/.local/share}/kodi"
 # export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/password-store"
 # export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 # export ANDROID_SDK_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/android"
 # export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
-# export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
+export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 # export ANSIBLE_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/ansible.cfg"
 # export UNISON="${XDG_DATA_HOME:-$HOME/.local/share}/unison"
 # export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
@@ -60,7 +63,6 @@ export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 # export AWT_TOOLKIT="MToolkit wmname LG3D"	#May have to install wmname
 # export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
 
-export BAT_THEME="gruvbox-dark"
 
 # This is the list for lf icons:
 export LF_ICONS="di=📁:\

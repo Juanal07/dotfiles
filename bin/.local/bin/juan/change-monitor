@@ -3,7 +3,7 @@
 intern=eDP1
 extern=HDMI2
 
-file="$HOME/.local/bin/juan/monitor-state.txt"  
+file="$HOME/.local/bin/juan/monitor-state.txt"  # Move to /tmp
 state=$(cat "$file") # Retrieve last index
 state=$((++state % 4)) # Range 0-3
 echo $state > $file # Store the new state
@@ -19,7 +19,9 @@ try_monitor() {
 
   # Monitor
   else
-    xrandr --output "$intern" --off --output "$extern" --auto
+    # xrandr --output "$intern" --off --output "$extern" --auto
+    xrandr --output "$intern" --off --output "$extern" --mode 3440x1440
+
     xrdb -merge ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources_laptop_station
     dunstify "🖥️ Monitor" -t 4000
   fi

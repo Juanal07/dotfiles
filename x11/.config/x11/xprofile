@@ -3,22 +3,30 @@
 # This file runs when a DM logs you into a graphical session.
 # If you use startx/xinit like a Chad, this file will also be sourced.
 
-dwmblocks &
+intern=eDP1
+extern=HDMI2
+
+# Default
+if xrandr | grep "$extern disconnected"; then
+  xbacklight -set 5 &
+  xrandr --output "$intern" --primary --auto --output "$extern" --off 
+# External monitor only
+else
+  xrandr --output "$intern" --off --output "$extern" --primary --mode 3440x1440
+fi
+
+xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources
+
 setbg &
+remaps &
+
 mpd &
 picom &
 dunst &
+unclutter &
 xset s 300 300 &
 xset dpms 300 300 300 &
 xscreensaver --no-splash &
-xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources
-remaps &
 xinput set-prop "pointer:Logitech MX Master 3" "libinput Accel Profile Enabled" 0 1 &
 xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1 &
-unclutter &
-
-# Laptop only config: HiDpi, monitors, backlight, etc.
-hostname=$(cat /proc/sys/kernel/hostname)
-if [ "$hostname" = 'archlaptop' ] || [ "$hostname" = 'thinkpad' ]; then
-  laptop-config
-fi
+dwmblocks &
