@@ -16,17 +16,20 @@ case $BLOCK_BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-case "$(cat /sys/class/net/w*/operstate 2>/dev/null)" in
-	down) wifiicon="睊 " ;;
-	up) wifiicon="$(awk '/^\s*w/ { print " ^c#f7ca88^", int($3 * 100 / 70) "% " }' /proc/net/wireless)" ;;
-esac
+ssid=""
+quality=""
 
-ssid=$(nmcli -t -f name connection show --active | head -n 1)
+if [ $(cat /sys/class/net/e*/operstate 2>/dev/null) = "up" ]; then
+  icon=" "
+else
+  if [ $(cat /sys/class/net/w*/operstate 2>/dev/null) = "up" ]; then
+    ssid=$(nmcli -t -f name connection show --active | head -n 1)
+    quality="$(awk '/^\s*w/ { print int($3 * 100 / 70) "% " }' /proc/net/wireless)"
+    icon="  "
+  else
+    icon="睊 "
+  fi
+  # icon="❎ "
+fi
 
-printf "%s%s^c#f7ca88^%s%s\n" "$wifiicon" "$ssid^d^"
-
-# "$(sed "s/down/❎/;s/up/🌐/" /sys/class/net/e*/operstate 2>/dev/null)" "$(sed "s/.*/🔒/" /sys/class/net/tun*/operstate 2>/dev/null)" 
-#
-# ssid=$(nmcli -t -f name connection show --active | head -n 1)
-#
-# printf "$ssid"
+printf "%s^c#f7ca88^%s%s^d^\n" "$icon" "$quality" "$ssid"
