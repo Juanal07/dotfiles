@@ -20,7 +20,7 @@ vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.splitright = true
 vim.opt.list = true
 vim.opt.listchars = { tab = "→ ", trail = "·", extends = "…" }
--- vim.opt.listchars = { tab = "→ ", trail = "·", eol = "↲", extends = "…" }
+-- vim.opt.listchars = { space = "·", tab = "→ ", trail = "·", eol = "↲", extends = "…" }
 vim.opt.iskeyword:append("-")
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"

@@ -1,0 +1,10 @@
+[Unit]
+Description=rclone bisync service timer to sync my clouds every 5 min
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=5m
+Unit=rclone-bisync.service
+
+[Install]
+WantedBy=default.target

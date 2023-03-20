@@ -1,0 +1,5 @@
+[Unit]
+Description=Run battery-notify
+
+[Service]
+ExecStart=/home/juan/.local/bin/services/battery-notify

@@ -1,0 +1,5 @@
+[Unit]
+Description=Run rclone bisync with my clouds service
+
+[Service]
+ExecStart=/home/juan/.local/bin/services/rclone-bisync-dropbox-googledrive

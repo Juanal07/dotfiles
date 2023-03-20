@@ -8,7 +8,7 @@ extern=HDMI2
 
 # Default
 if xrandr | grep "$extern disconnected"; then
-  xbacklight -set 5 &
+  xbacklight -set 1 &
   xrandr --output "$intern" --primary --auto --output "$extern" --off 
 # External monitor only
 else

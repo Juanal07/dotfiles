@@ -1,26 +1,20 @@
 # Basic vars
-set shell zsh
+set shell sh
 set shellopts '-eu'
 set ifs "\n"
-set scrolloff 10
+# set drawbox # Borders
+set info size:time
+set scrolloff 8
 set icons true
 set ignorecase true
-set period 1
 set hidden false
-# set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
-set drawbox
-
-set info size
 set dircounts on
 
-# Vars that depend on environmental variables
-# $lf -remote "send $id set previewer ${XDG_CONFIG_HOME:-$HOME/.config}/lf/scope"
+# Ueberzug
 set previewer ~/.config/lf/previewer.sh
 set cleaner ~/.config/lf/clear_img.sh
 
-# cmds/functions
 cmd open ${{
-  # case $(file --mime-type $f -b) in
   case $(file --mime-type "$(readlink -f $f)" -b) in
     image/vnd.djvu|application/pdf|application/octet-stream) setsid -f zathura $fx >/dev/null 2>&1 ;;
     text/*|application/json|inode/x-empty) $EDITOR $fx;;
@@ -37,8 +31,10 @@ cmd open ${{
 }}
 
 cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
+map <c-n> push :mkdir<space>
 
 cmd touch $touch "$(echo $* | tr ' ' '\ ')"
+map a push :touch<space>
 
 cmd extract ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
@@ -48,15 +44,7 @@ cmd extract ${{
 	read ans
 	[ $ans = "y" ] && ext $fx
 }}
-
-# cmd delete ${{
-# 	clear; tput cup $(($(tput lines)/3)); tput bold
-# 	set -f
-# 	printf "%s\n\t" "$fx"
-# 	printf "delete?[y/N]"
-# 	read ans
-# 	[ $ans = "y" ] && rm -rf -- $fx
-# }}
+map E extract
 
 cmd delete ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
@@ -65,58 +53,13 @@ cmd delete ${{
 	printf "delete?[y/N]"
 	read ans
 	[ $ans = "y" ] && mv $fx ~/.Trash
-  }}
+}}
+map D delete
 
 cmd purge ${{
 	yes | rm -r $fx
-  }}
-
-cmd trash ${{
-    mkdir -p ~/.Trash
-    IFS="`printf '\n\t'`"; mv $fx ~/.Trash
 }}
-
-# cmd moveto ${{
-# 	clear; tput cup $(($(tput lines)/3)); tput bold
-# 	set -f
-# 	clear; echo "Move to where?"
-# 	dest="$(cut -d'	' -f2- ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf | sed 's|~|$HOME|' )" &&
-# 	for x in $fx; do
-# 		eval mv -iv \"$x\" \"$dest\"
-# 	done &&
-# 	notify-send "🚚 File(s) moved." "File(s) moved to $dest."
-# }}
-
-# cmd copyto ${{
-# 	clear; tput cup $(($(tput lines)/3)); tput bold
-# 	set -f
-# 	clear; echo "Copy to where?"
-# 	dest="$(cut -d'	' -f2- ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf | sed 's|~|$HOME|' )" &&
-# 	for x in $fx; do
-# 		eval cp -ivr \"$x\" \"$dest\"
-# 	done &&
-# 	notify-send "📋 File(s) copied." "File(s) copies to $dest."
-# }}
-
-# cmd paste &{{
-#     set -- $(cat ~/.local/share/lf/files)
-#     mode="$1"
-#     shift
-#     case "$mode" in
-#         copy)
-#             rsync -av --ignore-existing --progress -- "$@" . |
-#             stdbuf -i0 -o0 -e0 tr '\r' '\n' |
-#             while IFS= read -r line; do
-#                 lf -remote "send $id echo $line"
-#             done
-#             ;;
-#         move) mv -n -- "$@" .;;
-#     esac
-#     rm ~/.local/share/lf/files
-#     lf -remote "send clear"
-# }}
-
-# Bindings
+map <c-d> purge
 
 cmd setbg "$1"
 map b $setbg $f
@@ -128,38 +71,24 @@ cmd yank-basename-without-extension &basename -a -- $fx | rev | cut -d. -f2- | r
 map Y yank-basename-without-extension
 
 map <enter> shell
-map x $$f #Ejecutar archivo
-map X !$f
-map o &mimeopen $f
-map O $mimeopen --ask $f
-map <space> :toggle
-map <c-f> $lf -remote "send $id select '$(fzf)'"
-# map J $lf -remote "send $id cd $(cut -d'	' -f2 ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf)"
 
-map D delete
-map <c-d> purge
-map E extract
-map <c-n> push :mkdir<space>
-map a push :touch<space>
+map x $$f #Execute file
+map X !$f
+
+map <space> :toggle
+
+map <c-f> $lf -remote "send $id select '$(fzf)'" # Fuzzy Find file
+
 map <c-r> reload
+
 map . set hidden!
 
-# Renames
-map i rename # at the very end
-# map c push A<c-u> # new rename
-# map I push A<c-a> # at the very beginning
-map r push i<a-b><a-b><a-f> # before extention
-
-cmd batch ${{
-  batch --editor kak --map 'rename "$1" "$2"' --drop 'trash "$1"' $fx
-}}
-
-map <c-e> down
-map <c-y> up
 map V push :!nvim<space>
 
-# map <bakcspace> down
-# map <backspace2> up
+# Renames
+map r :rename; cmd-word-back; cmd-left
+map <bakcspace> :rename; cmd-word-back; cmd-left  
+map <backspace2> :rename; cmd-word-back; cmd-left 
 
 # Source Bookmarks
 source "~/.config/lf/shortcutrc"
