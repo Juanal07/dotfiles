@@ -19,6 +19,7 @@ vol="$(wpctl get-volume @DEFAULT_AUDIO_SINK@)"
 [ "$vol" != "${vol%\[MUTED\]}" ] && echo  && exit
 
 vol="${vol#Volume: }"
+
 split() {
 	# For ommiting the . without calling and external program.
 	IFS=$2

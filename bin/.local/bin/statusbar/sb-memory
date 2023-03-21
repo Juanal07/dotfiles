@@ -9,8 +9,5 @@ case $BLOCK_BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-# free --mebi | sed -n '2{p;q}' | awk '{printf (" %2.2f/%2.2f GiB\n", ( $3 / 1024), ($2 / 1024))}'
 mem="`free --mebi | sed -n '2{p;q}' | awk '{printf ("%2.2f/%2.2f GiB\n", ( $3 / 1024), ($2 / 1024))}'`"
-icon=" "
-mem_icon="$icon^c#f7ca88^$mem^d^"
-printf "$mem_icon"
+printf " ^c#f7ca88^$mem^d^"
