@@ -26,17 +26,17 @@ for battery in /sys/class/power_supply/BAT?*; do
         "Full") status="^c#8ec07c^⚡" ;;
         "Discharging")
             status="^c#8ec07c^  "
-            if [ "$capacity" -le 80 ]
-            then status="^c#8ec07c^  "
+            if [ "$capacity" -le 80 ]; then
+                status="^c#8ec07c^  "
             fi
-            if [ "$capacity" -le 60 ]
-            then status="^c#fabd2f^  "
+            if [ "$capacity" -le 60 ]; then
+                status="^c#fabd2f^  "
             fi
-            if [ "$capacity" -le 40 ]
-            then status="^c#fe8019^  "
+            if [ "$capacity" -le 40 ]; then
+                status="^c#fe8019^  "
             fi
-            if [ "$capacity" -le 20 ]
-            then status="^c#fb4934^  "
+            if [ "$capacity" -le 20 ]; then
+                status="^c#fb4934^  "
             fi
             ;;
         "Charging") status=" " ;;
@@ -44,8 +44,7 @@ for battery in /sys/class/power_supply/BAT?*; do
         "Unknown") status=" " ;;
     esac
     # Prints the info
-    if [ -d "/sys/class/power_supply/BAT0" ]
-    then
+    if [ -d "/sys/class/power_supply/BAT0" ]; then
         printf "%s^c#f7ca88^%d%%^d^" "$status" "$capacity"
     fi
 done && exit 0

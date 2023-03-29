@@ -8,11 +8,11 @@ extern=HDMI2
 
 # Default
 if xrandr | grep "$extern disconnected"; then
-  xbacklight -set 1 &
-  xrandr --output "$intern" --primary --auto --output "$extern" --off 
-# External monitor only
+    xbacklight -set 1 &
+    xrandr --output "$intern" --primary --auto --output "$extern" --off
+    # External monitor only
 else
-  xrandr --output "$intern" --off --output "$extern" --primary --mode 3440x1440
+    xrandr --output "$intern" --off --output "$extern" --primary --mode 3440x1440
 fi
 
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources

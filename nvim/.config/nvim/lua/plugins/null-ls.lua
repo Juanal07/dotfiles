@@ -56,6 +56,7 @@ null_ls.setup({
 
     -- Bash
     formatting.beautysh,
+    -- formatting.shfmt,
 
     -- C, C++
     -- formatting.clang_format,

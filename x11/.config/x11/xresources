@@ -13,6 +13,7 @@ Xft.rgba: rgb
 
 !! Transparency (0-1):
 *.alpha: 1
+*.alphaOffset: 0.2
 
 !! Font
 *.font: JetBrainsMono Nerd Font Mono:size=9.5

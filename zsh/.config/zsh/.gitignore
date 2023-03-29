@@ -1,2 +1,3 @@
 # Cache zsh completion
 .zcompdump
+.zsh_history
