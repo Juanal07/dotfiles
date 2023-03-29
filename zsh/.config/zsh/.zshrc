@@ -4,7 +4,7 @@ setopt autocd
 # History in cache directory
 HISTSIZE=10000000
 SAVEHIST=10000000
-HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
+# HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
 
 # Aliases
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
@@ -89,7 +89,7 @@ fi
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --preview "bat --theme=gruvbox-dark --style=numbers,changes --color=always {}"'
  # TODO: Fix on 3 shortcuts when you cancel
 # Ctrl + r -> Last commands
-bindkey -s '^r' 'echo -n $(fc -rln 1 | fzf)\n'
+bindkey -s '^r' '$(fc -rln 1 | fzf)\n'
 # Ctrl + f -> Goto and open file
 bindkey -s '^f' 'nvim $(fd . ./ --type f --hidden --follow --exclude .git | fzf)\n'
 # Ctrl + d -> Goto and change directory

@@ -5,6 +5,9 @@
 # Adds `~/.local/bin` and `~/.local/bin` to $PATH
 export PATH="$PATH:${$(find ~/dotfiles/bin/.local/bin -type d -printf %p:)%%:}"
 
+# Adds cargo commands to $PATH
+source "/home/juan/.local/share/cargo/env"
+
 # Default programs:
 export EDITOR="nvim"
 export TERMINAL="st"
@@ -19,6 +22,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/x11/xinitrc"
 export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc-2.0"
+export HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history" # zsh history
 export LESSHISTFILE="-"
 export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
 export INPUTRC="${XDG_CONFIG_HOME:-$HOME/.config}/shell/inputrc"

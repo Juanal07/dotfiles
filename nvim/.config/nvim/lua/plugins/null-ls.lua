@@ -51,6 +51,12 @@ null_ls.setup({
     formatting.black,
     -- diagnostics.flake8,
 
+    -- Rust
+    formatting.rustfmt,
+
+    -- Bash
+    formatting.beautysh,
+
     -- C, C++
     -- formatting.clang_format,
   },

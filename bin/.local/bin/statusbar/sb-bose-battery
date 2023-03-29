@@ -5,11 +5,12 @@ battery="$(upower -i  /org/freedesktop/UPower/devices/headphones_dev_04_52_C7_0C
 icon="  "
 
 case 1 in
-	$((battery >= 71)) ) icon="  " ;;
-	$((battery >= 41)) ) icon="  " ;;
-	$((battery >= 21)) ) icon="^c#fe8019^  " ;;
-	$((battery >= 1)) ) icon="^c#fb4934^  " ;;
-	* ) echo "󰋐" && exit ;;
+    $((battery >= 81)) ) icon="^c#8ec07c^  " ;;
+$((battery >= 61)) ) icon="^c#8ec07c^  " ;;
+$((battery >= 41)) ) icon="^c#fabd2f^  " ;;
+$((battery >= 21)) ) icon="^c#fe8019^  " ;;
+$((battery >= 1)) ) icon="^c#fb4934^  " ;;
+* ) echo "󰋐" && exit ;;
 esac
 
 printf "%s^c#f7ca88^%s%s^d^" "󰋎 $icon" "$battery" "%"
