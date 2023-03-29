@@ -88,10 +88,54 @@ fi
 
 # Fzf
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --preview "bat --theme=gruvbox-dark --style=numbers,changes --color=always {}"'
-# TODO: Fix on 3 shortcuts when you cancel
+
 # Ctrl + r -> Last commands
-bindkey -s '^r' '$(fc -rln 1 | fzf)\n'
+bindkey -s '^r' 'eval $(fc -rln 1 | fzf)\n'
+
 # Ctrl + f -> Goto and open file
-bindkey -s '^f' 'nvim $(fd . ./ --type f --hidden --follow --exclude .git | fzf)\n'
-# Ctrl + d -> Goto and change directory
-bindkey -s '^d' 'cd $(fd . ./ --type d --hidden --follow --exclude .git | fzf)\n'
+function open_fzf() {
+    local selected_file=$(fd . ./ --type f --hidden --follow --exclude .git | fzf)
+    if [ -n "$selected_file" ]; then
+        local file_extension=$(echo "$selected_file" | awk -F . '{print $NF}')
+        if [ -z "$file_extension" ] || [ "${selected_file:0:1}" = "." ]; then
+            nvim "$selected_file"
+        else
+            case "$file_extension" in
+                "txt" | "md" | "log" | "sh" | "conf" | "json" | "ts" | "js" | "jsx" | "tsx" | "py" | "rb" | "go" | "rs" | "lua" | "html" | "xml" | "yml" | "yaml" | "toml" | "ini")
+                    nvim "$selected_file"
+                    ;;
+                "mp4" | "avi" | "mov" | "mkv")
+                    mpv "$selected_file"
+                    ;;
+                "png" | "jpg" | "jpeg" | "gif")
+                    sxiv "$selected_file"
+                    ;;
+                "pdf")
+                    zathura "$selected_file"
+                    ;;
+                *)
+                    xdg-open "$selected_file"
+                    ;;
+            esac
+        fi
+    fi
+}
+bindkey -s '^f' 'open_fzf\n'
+
+# Ctrl + d -> Change to a directory selected with fzf
+function cd_fzf() {
+    local selected_dir=$(fd . ./ --type d --hidden --follow --exclude .git | fzf || true)
+    if [ -n "$selected_dir" ]; then
+        cd "$selected_dir"
+    fi
+}
+bindkey -s '^d' 'cd_fzf\n'
+
+function live_grep() {
+    local file=$(rg --column --line-number --no-heading --color=always "$1" | fzf --ansi -m --reverse --phony --bind "change:reload:rg --column --line-number --no-heading --color=always {q} || true" | awk -F: '{print $1}')
+    local line=$(echo "$file" | awk -F: '{print $2}')
+    if [ -n "$file" ]; then
+        nvim +$line "$file"
+    fi
+}
+bindkey -s '^g' 'live_grep\n'
