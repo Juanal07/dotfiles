@@ -89,6 +89,7 @@ return packer.startup(function(use)
   use("nvim-telescope/telescope-media-files.nvim")
 
   -- use("gpanders/editorconfig.nvim")
+
   -- use({
   --   "iamcco/markdown-preview.nvim",
   --   run = function()
