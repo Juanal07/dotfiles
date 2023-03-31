@@ -90,34 +90,40 @@ fi
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --preview "bat --theme=gruvbox-dark --style=numbers,changes --color=always {}"'
 
 # Ctrl + r -> Last commands
-bindkey -s '^r' 'eval $(fc -rln 1 | fzf)\n'
+function fzf-history() {
+    local last_commands=$(fc -rln 1 | fzf)
+    # eval $last_commands
+    print -z -- $last_commands
+}
+bindkey -s '^r' 'fzf-history\n'
 
 # Ctrl + f -> Goto and open file
 function open_fzf() {
     local selected_file=$(fd . ./ --type f --hidden --follow --exclude .git | fzf)
     if [ -n "$selected_file" ]; then
         local file_extension=$(echo "$selected_file" | awk -F . '{print $NF}')
-        if [ -z "$file_extension" ] || [ "${selected_file:0:1}" = "." ]; then
-            nvim "$selected_file"
-        else
-            case "$file_extension" in
-                "txt" | "md" | "log" | "sh" | "conf" | "json" | "ts" | "js" | "jsx" | "tsx" | "py" | "rb" | "go" | "rs" | "lua" | "html" | "xml" | "yml" | "yaml" | "toml" | "ini")
+        case "$file_extension" in
+            "txt" | "md" | "log" | "sh" | "conf" | "json" | "ts" | "js" | "jsx" | "tsx" | "py" | "rb" | "go" | "rs" | "lua" | "html" | "xml" | "yml" | "yaml" | "toml" | "ini")
+                nvim "$selected_file"
+                ;;
+            "mp4" | "avi" | "mov" | "mkv")
+                mpv "$selected_file"
+                ;;
+            "png" | "jpg" | "jpeg" | "gif")
+                sxiv "$selected_file"
+                ;;
+            "pdf")
+                zathura "$selected_file"
+                ;;
+            *)
+                if [ -z "$file_extension" ] || [ "${selected_file:0:1}" = "." ]; then
                     nvim "$selected_file"
-                    ;;
-                "mp4" | "avi" | "mov" | "mkv")
-                    mpv "$selected_file"
-                    ;;
-                "png" | "jpg" | "jpeg" | "gif")
-                    sxiv "$selected_file"
-                    ;;
-                "pdf")
-                    zathura "$selected_file"
-                    ;;
-                *)
+                else
                     xdg-open "$selected_file"
-                    ;;
-            esac
-        fi
+
+                fi
+                ;;
+        esac
     fi
 }
 bindkey -s '^f' 'open_fzf\n'

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Get a list of running processes, display them in fzf, and get the selected PID
+pid=$(ps aux | fzf | awk '{print $2}')
+
+# Check if a PID was selected
+if [ -n "$pid" ]; then
+    # Send a SIGTERM signal to the selected process
+    kill -TERM "$pid"
+fi

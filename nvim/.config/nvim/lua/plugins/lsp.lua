@@ -1,14 +1,14 @@
 require("mason").setup({
-    PATH = "append",
+  PATH = "append",
 })
 require("mason-lspconfig").setup({})
 
 -- Diagnostic Signs
 local signs = {
-    { name = "DiagnosticSignError", text = "" },
-    { name = "DiagnosticSignWarn",  text = "" },
-    { name = "DiagnosticSignHint",  text = "" },
-    { name = "DiagnosticSignInfo",  text = "" },
+  { name = "DiagnosticSignError", text = "" },
+  { name = "DiagnosticSignWarn",  text = "" },
+  { name = "DiagnosticSignHint",  text = "" },
+  { name = "DiagnosticSignInfo",  text = "" },
 }
 for _, sign in ipairs(signs) do
   vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
@@ -16,13 +16,13 @@ end
 
 -- Diagnostics
 local config = {
-    virtual_text = false,
-    severity_sort = true,
-    float = {
-        source = "always",
-        header = "",
-        -- prefix = "",
-    },
+  virtual_text = false,
+  severity_sort = true,
+  float = {
+    source = "always",
+    header = "",
+    -- prefix = "",
+  },
 }
 vim.diagnostic.config(config)
 
@@ -31,11 +31,11 @@ local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = false }
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
   vim.api.nvim_buf_set_keymap(
-      bufnr,
-      "n",
-      "gr",
-      '<cmd>lua require"telescope.builtin".lsp_references({ includeDeclaration = false })<CR>',
-      opts
+    bufnr,
+    "n",
+    "gr",
+    '<cmd>lua require"telescope.builtin".lsp_references({ includeDeclaration = false })<CR>',
+    opts
   )
   vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
@@ -58,36 +58,36 @@ end
 local lspconfig = require("lspconfig")
 -- Servers
 require("mason-lspconfig").setup_handlers({
-    -- Lua
-    ["lua_ls"] = function()
-      lspconfig.lua_ls.setup({
-          settings = {
-              Lua = {
-                  diagnostics = {
-                      globals = { "vim" },
-                  },
-              },
+  -- Lua
+  ["lua_ls"] = function()
+    lspconfig.lua_ls.setup({
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { "vim" },
           },
-          on_attach = on_attach,
-      })
-    end,
-    -- Python
-    ["pyright"] = function()
-      lspconfig.pyright.setup({
-          settings = {
-              python = {
-                  analysis = {
-                      typeCheckingMode = "off",
-                  },
-              },
+        },
+      },
+      on_attach = on_attach,
+    })
+  end,
+  -- Python
+  ["pyright"] = function()
+    lspconfig.pyright.setup({
+      settings = {
+        python = {
+          analysis = {
+            typeCheckingMode = "off",
           },
-          on_attach = on_attach,
-      })
-    end,
-    -- Default
-    function(server_name)
-      lspconfig[server_name].setup({
-          on_attach = on_attach,
-      })
-    end,
+        },
+      },
+      on_attach = on_attach,
+    })
+  end,
+  -- Default
+  function(server_name)
+    lspconfig[server_name].setup({
+      on_attach = on_attach,
+    })
+  end,
 })

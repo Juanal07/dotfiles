@@ -40,7 +40,7 @@ null_ls.setup({
     -- Editorconfig
     -- diagnostics.editorconfig_checker,
 
-    -- Javascript
+    -- JS/TS
     formatting.prettier,
     diagnostics.eslint_d,
 
@@ -70,6 +70,12 @@ null_ls.setup({
         buffer = bufnr,
         callback = function()
           async_formatting(bufnr)
+          -- vim.lsp.buf.format({
+          -- 	bufnr = bufnr,
+          -- 	filter = function(client)
+          -- 		return client.name == "null-ls"
+          -- 	end,
+          -- })
         end,
       })
     end

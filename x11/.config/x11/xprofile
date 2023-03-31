@@ -20,13 +20,15 @@ xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources
 setbg &
 remaps &
 
+dwmblocks &
 mpd &
 picom &
 dunst &
 unclutter &
-xset s 300 300 &
-xset dpms 300 300 300 &
-xscreensaver --no-splash &
+# xset s 300 300 &
+# xset dpms 300 300 300 &
+# xscreensaver --no-splash &
 xinput set-prop "pointer:Logitech MX Master 3" "libinput Accel Profile Enabled" 0 1 &
 xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1 &
-dwmblocks &
+
+kill -44 $(pidof dwmblocks)
