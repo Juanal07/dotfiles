@@ -1,11 +1,13 @@
 [Unit]
 Description=XScreenSaver
-; Wants=display-manager.service
+After=graphical.target
 
 [Service]
-; Environment=DISPLAY=:0
-ExecStart=/usr/bin/xscreensaver -nosplash
+User=juan
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/xscreensaver -no-splash
+ExecReload=/usr/bin/xscreensaver-command -restart
 ExecStop=/usr/bin/xscreensaver-command -exit
 
 [Install]
-WantedBy=default.target
+WantedBy=graphical.target

@@ -145,3 +145,5 @@ function live_grep() {
     fi
 }
 bindkey -s '^g' 'live_grep\n'
+
+bindkey -s '^k' 'fzf-kill\n'

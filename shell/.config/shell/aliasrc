@@ -26,6 +26,7 @@ alias -s py=nvim
 # Git, rest of git alias on ~/.gitconfig
 alias \
     g="git" \
+    gl="pretty-log" \
     gps='git add . && git commit -m "Wip" && git push'
 
 # With this one we can use our alias with sudo

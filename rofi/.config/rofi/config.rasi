@@ -3,6 +3,9 @@
 configuration {
     font: "Monospace 18";
     show-icons: true;
+    rofi-sideways-scrollbar: true;
+    rofi-rounded: 10;
+    rofi-padding: 20;
 }
 
 @theme "gruvbox-dark-soft"
