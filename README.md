@@ -31,7 +31,7 @@ I am using [GNU Stow](https://www.gnu.org/software/stow/) as symlink farm manage
 
 ## Extra tools
 
-I use [suckless software](https://suckless.org/) (dwm, dwmblocks, and st) witch doesnt have dotfiles, the config files are in the source code.
+I use [suckless software](https://suckless.org/) (dwm, dwmblocks, and st) which doesn't have dotfiles, the config files are in the source code.
 You can find mine here:
 [dwm](https://github.com/Juanal07/dwm), [dwmblocks](https://github.com/Juanal07/dwmblocks), and st.
 
