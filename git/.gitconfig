@@ -12,25 +12,25 @@
 [push]
   autoSetupRemote = true
 [alias]
-	a = add --all
-	s = status
-	l = log --oneline
-	lg = log --oneline --graph --decorate
-	ai = add -i
-	r = restore
-	b = branch
-	c = commit
-	ca = commit -a
-	cm = commit -m
-	cl = clone
-	f = fetch
-	fo = fetch origin
-	fu = fetch upstream
-	o = checkout
-	ps = push
-	pso = push origin
+  s = status
+  a = add --all
+  l = log --oneline
+  lg = log --oneline --graph --decorate
+  pl = pull
+  cl = clone
+  ai = add -i
   m = merge
-	pl = pull
+  r = restore
+  b = branch
+  c = commit
+  ca = commit -a
+  cm = commit -m
+  f = fetch
+  fo = fetch origin
+  fu = fetch upstream
+  o = checkout
+  ps = push
+  pso = push origin
 [pull]
 	rebase = false
 [init]
