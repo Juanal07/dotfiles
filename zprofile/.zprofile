@@ -4,13 +4,7 @@
 if [ "$(uname)" = "Darwin" ]; then
     eval $(/opt/homebrew/bin/brew shellenv)
 
-
-    export PATH=$(echo "$PATH:$(find ~/dotfiles/bin/.local/bin -type d -exec basename {} \;)" | awk -F: '{
-    for(i=1;i<=NF;i++) {
-        if(!a[$i]++) printf("%s:",$i);
-    }
-    print "";
-    }')
+    export PATH="$PATH:$(find ~/dotfiles/bin/.local/bin -type d -depth 1 | tr '\n' ':' | sed 's/:$//')"
 
     export EDITOR="nvim"
 
