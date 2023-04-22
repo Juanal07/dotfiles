@@ -1,0 +1,40 @@
+[user]
+	name = Juan Alberto Raya
+	email = 22559891+Juanal07@users.noreply.github.com
+	username = Juanal07
+	signingkey = E91A31C83E566CD6
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg
+[core]
+	editor = nvim
+[push]
+  autoSetupRemote = true
+[alias]
+	a = add --all
+	s = status
+	l = log --oneline
+	lg = log --oneline --graph --decorate
+	ai = add -i
+	r = restore
+	b = branch
+	c = commit
+	ca = commit -a
+	cm = commit -m
+	cl = clone
+	f = fetch
+	fo = fetch origin
+	fu = fetch upstream
+	o = checkout
+	ps = push
+	pso = push origin
+  m = merge
+	pl = pull
+[pull]
+	rebase = false
+[init]
+  defaultBranch = main
+[safe]
+	directory = /home/juan/.local/src/st-juan
+	directory = /home/juan/.local/src/st-juan
