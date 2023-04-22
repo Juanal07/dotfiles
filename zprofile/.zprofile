@@ -1,8 +1,7 @@
 #!/bin/zsh
 
 # zprofile file. Runs on login. Environmental variables are set here.
-
-if [ "$(uname)" == "Darwin" ]; then
+if [ "$(uname)" = "Darwin" ]; then
     eval $(/opt/homebrew/bin/brew shellenv)
 
     export PATH="$PATH:${$(find ~/dotfiles/bin/.local/bin -type d -printf %p:)%%:}"
