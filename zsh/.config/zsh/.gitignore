@@ -1,3 +1,4 @@
 # Cache zsh completion
 .zcompdump
 .zsh_history
+.zsh_sessions

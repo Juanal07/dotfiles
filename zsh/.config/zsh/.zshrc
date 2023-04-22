@@ -60,13 +60,21 @@ bindkey -s '^o' 'lfcd\n'
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-# Prompt Powerlevel10k: To customize run `p10k configure` or edit $ZDOTDIR/.p10k.zsh. Install -> sudo pacman -S zsh-theme-powerlevel10k
 powerlevel10k=/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+autosuggestions=/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+syntax=/usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+if [ "$(uname)" = "Darwin" ]; then
+    powerlevel10k=/opt/homebrew/Cellar//powerlevel10k/1.17.0/powerlevel10k.zsh-theme
+    autosuggestions=/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    syntax=/opt/homebrew/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+fi
+
+# Prompt Powerlevel10k: To customize run `p10k configure` or edit $ZDOTDIR/.p10k.zsh. Install -> sudo pacman -S zsh-theme-powerlevel10k
 [[ -f $powerlevel10k ]] && source $powerlevel10k
 [[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
 
 # Autosuggestions, zsh-autosuggestions: install -> sudo pacman -S zsh-syntax-autosuggestions
-autosuggestions=/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 if [[ -f $autosuggestions ]]; then
     source $autosuggestions
     # Ctrl + n -> Accept suggest
@@ -74,7 +82,6 @@ if [[ -f $autosuggestions ]]; then
 fi
 
 # Syntax highlighting, fast-syntax-highlighting: install -> sudo pacman -S zsh-syntax-highlighting
-syntax=/usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 [[ -f $syntax ]] && source $syntax
 
 # Sudo, sudo-plugin-zsh: install -> curl -sL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh -o $ZDOTDIR/.sudo.plugin.zsh
