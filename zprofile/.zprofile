@@ -7,6 +7,8 @@ if [ "$(uname)" = "Darwin" ]; then
     export PATH="$PATH:$(find ~/dotfiles/bin/.local/bin -type d -depth 1 | tr '\n' ':' | sed 's/:$//')"
 
     export EDITOR="nvim"
+    export TERMINAL="alacritty"
+    # export BROWSER="google-chrome"
 
     export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
     export INPUTRC="${XDG_CONFIG_HOME:-$HOME/.config}/shell/inputrc"
