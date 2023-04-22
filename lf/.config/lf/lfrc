@@ -1,8 +1,10 @@
 # Basic vars
-set shell sh
-set shellopts '-eu'
-set ifs "\n"
+
+# set shell sh
+# set shellopts '-eu'
+# set ifs "\n"
 # set drawbox # Borders
+
 set info size:time
 set scrolloff 8
 set icons true
@@ -10,7 +12,6 @@ set ignorecase true
 set hidden false
 set dircounts on
 
-# Ueberzug
 set previewer ~/.config/lf/previewer.sh
 set cleaner ~/.config/lf/clear_img.sh
 

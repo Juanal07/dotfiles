@@ -6,8 +6,8 @@ HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE="${ZDOTDIR}/.zsh_history"
 
-# Aliases
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
+# Alias
+[ -f "${ZDOTDIR}/alias" ] && source "${ZDOTDIR}/alias"
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -45,9 +45,9 @@ echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # LF: Ctrl + o -> Open LF in the actual dir
-lfcd () {
+function lfcd() {
     tmp="$(mktemp)"
-    lf-image -last-dir-path="$tmp" "$@"
+    ~/.config/lf/lf-image.sh -last-dir-path="$tmp" "$@"
     if [ -f "$tmp" ]; then
         dir="$(cat "$tmp")"
         rm -f "$tmp" >/dev/null

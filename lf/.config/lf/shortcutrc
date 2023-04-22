@@ -4,20 +4,22 @@ map go cd ~/Documents
 map gp cd ~/Pictures
 map gv cd ~/Videos
 map gm cd ~/Music 
+
 map gc cd ~/code
 map gw cd ~/code/workspace
 map g. cd ~/dotfiles
-
 map gx cd ~/Dropbox
 
 map gC cd ~/.config
-map gz cd ~/.config/zsh
 map gn cd ~/.config/nvim
+map gz cd ~/.config/zsh
 map gf cd ~/.config/lf
 map gs cd ~/.config/shell
-map gb cd "/home/juan/.local/bin" 
-map glsr cd "/home/juan/.local/src" 
-map glsh cd "/home/juan/.local/share" 
+
+map gb cd "~/.local/bin" 
+map glsr cd "~/.local/src" 
+map glsh cd "~/.local/share" 
+
 map g/ cd /
 map gE cd /etc
 map gB cd /boot
@@ -27,10 +29,10 @@ map gO cd /opt
 map gL cd /usr/lib
 map gB cd /usr/bin
 map gV cd /var
-map gta $$EDITOR "/home/juan/.config/shell/aliasrc" 
-map gts $$EDITOR "/home/juan/.config/shell/shortcutrc"
-map gtp $$EDITOR "/home/juan/.config/shell/profile" 
-map gtn $$EDITOR "/home/juan/.config/nvim/init.vim" 
-map gtz $$EDITOR "/home/juan/.config/zsh/.zshrc" 
-map gtfr $$EDITOR "/home/juan/.config/lf/lfrc" 
-map gtfs $$EDITOR "/home/juan/.config/lf/shortcutrc" 
+
+map gta $$EDITOR "$HOME/.config/shell/aliasrc" 
+map gtp $$EDITOR "$HOME/.config/shell/profile" 
+map gtn $$EDITOR "$HOME/.config/nvim/init.lua" 
+map gtz $$EDITOR "$HOME/.config/zsh/.zshrc" 
+map gtf $$EDITOR "$HOME/.config/lf/lfrc" 
+map gts $$EDITOR "$HOME/.config/lf/shortcutrc" 

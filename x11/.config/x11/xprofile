@@ -4,7 +4,8 @@
 # If you use startx/xinit like a Chad, this file will also be sourced.
 
 intern=eDP1
-extern=HDMI2
+# extern=HDMI2
+extern=DP1
 
 # Default
 if xrandr | grep "$extern disconnected"; then
