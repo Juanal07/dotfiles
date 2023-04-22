@@ -37,5 +37,6 @@ You can find mine here:
 
 ## Setup
 
-Linux: stow -v zprofile zsh nvim lf git tmux xscreensaver alacritty dunst fontconfig gtk-3.0 mpv picom rofi shell systemd x11 zathura logitech bin
-Mac: stow -v zprofile-mac zsh nvim lf git-mac tmux alacritty shell bin
+Linux: `stow -v zprofile zsh nvim lf git tmux xscreensaver alacritty dunst fontconfig gtk-3.0 mpv picom rofi shell systemd x11 zathura logitech bin`
+
+Mac: `stow -v zprofile-mac zsh nvim lf git-mac tmux alacritty shell bin`
