@@ -16,7 +16,7 @@ end
 
 -- Diagnostics
 local config = {
-  virtual_text = false,
+  virtual_text = true,
   severity_sort = true,
   float = {
     source = "always",

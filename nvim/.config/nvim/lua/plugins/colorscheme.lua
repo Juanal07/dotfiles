@@ -3,7 +3,7 @@ require("gruvbox").setup({
   invert_tabline = false,
   invert_intend_guides = false,
   overrides = {
-    Keyword = { fg = "#fb4934", italic = true },
+    -- Keyword = { fg = "#fb4934", italic = true },
     SignColumn = { bg = "NONE" },
     CursorLineNr = { bg = "NONE" },
     GruvboxRedSign = { bg = "NONE" },
@@ -12,7 +12,7 @@ require("gruvbox").setup({
     GruvboxBlueSign = { bg = "NONE" },
     GruvboxAquaSign = { bg = "NONE" },
     -- html tags different from jsx tags
-    Tag = { fg = "#ebdbb2" },
+    -- Tag = { fg = "#ebdbb2" },
   },
 })
 
