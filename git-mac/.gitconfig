@@ -1,4 +1,24 @@
 [user]
-	name = Juan Raya
-	email = jraya@commercehub.com
-	username = JuanRaya07
+  name = Juan Raya
+  email = jraya@commercehub.com
+  username = JuanRaya07
+[alias]
+  s = status
+  a = add --all
+  l = log --oneline
+  lg = log --oneline --graph --decorate
+  pl = pull
+  cl = clone
+  ai = add -i
+  m = merge
+  r = restore
+  b = branch
+  c = commit
+  ca = commit -a
+  cm = commit -m
+  f = fetch
+  fo = fetch origin
+  fu = fetch upstream
+  o = checkout
+  ps = push
+  pso = push origin
