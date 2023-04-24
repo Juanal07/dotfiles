@@ -14,4 +14,12 @@ commit=$(
 
 commit_hash=$(echo ${commit} | grep -o '[a-f0-9]\{7\}')
 
-echo ${commit_hash} | tr -d '\n' | xclip -sel clip
+# Try to use xclip first
+if command -v xclip >/dev/null 2>&1; then
+    echo "${commit_hash}" | xclip -sel clip
+    # echo "Commit hash copied to clipboard using xclip."
+else
+    # If xclip is not available, use pbcopy as fallback
+    echo "${commit_hash}" | pbcopy
+    # echo "xclip not found, falling back to pbcopy to copy commit hash to clipboard."
+fi
