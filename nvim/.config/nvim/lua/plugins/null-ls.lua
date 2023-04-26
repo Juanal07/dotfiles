@@ -42,7 +42,7 @@ null_ls.setup({
 
     -- JS/TS
     formatting.prettier,
-    diagnostics.eslint_d,
+    -- diagnostics.eslint_d,
 
     -- Lua
     formatting.stylua,
