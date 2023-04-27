@@ -154,6 +154,3 @@ function live_grep() {
 bindkey -s '^g' 'live_grep\n'
 
 bindkey -s '^k' 'fzf-kill\n'
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)
