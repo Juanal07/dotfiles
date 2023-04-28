@@ -24,6 +24,9 @@ if [ "$(uname)" = "Darwin" ]; then
     export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
     export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
     export LESSOPEN="| /usr/bin/bat -O ansi %s 2>/dev/null"
+
+    # Load Angular CLI autocompletion.
+    source <(ng completion script)
 else
     # Adds `~/.local/bin` and `~/.local/bin` to $PATH
     export PATH="$PATH:${$(find ~/dotfiles/bin/.local/bin -type d -printf %p:)%%:}"

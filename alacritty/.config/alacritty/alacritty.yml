@@ -1,5 +1,29 @@
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
+import:
+  - ~/.config/alacritty/gruvbox_dark.yaml
+window:
+  padding:
+    x: 0
+    y: 0
+  opacity: 1
+font:
+  normal:
+    family: JetBrainsMono Nerd Font Mono
+  size: 12
+  offset:
+    x: 0
+    y: 0
+normal:
+  black: "#282828"
+  red: "#cc241d"
+  green: "#98971a"
+  yellow: "#d79921"
+  blue: "#458588"
+  magenta: "#b16286"
+  cyan: "#689d6a"
+  white: "#a89984"
+draw_bold_text_with_bright_colors: true
 # Import additional configuration files
 #
 # Imports are loaded in order, skipping all missing files, with the importing
@@ -10,8 +34,6 @@
 # to the user's home directory starting with `~/`.
 #import:
 #  - /path/to/alacritty.yml
-import:
-  - ~/.config/alacritty/gruvbox_dark.yaml
 
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
@@ -50,9 +72,6 @@ import:
 #
 # Blank space added around the window in pixels. This padding is scaled
 # by DPI and the specified value is always added at both opposing sides.
-padding:
-  x: 40
-  y: 40
 
 # Spread additional padding evenly around the terminal content.
 #dynamic_padding: false
@@ -72,8 +91,6 @@ padding:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-window:
-  opacity: 1
 
 # Startup Mode (changes require restart)
 #
@@ -134,10 +151,6 @@ window:
 #   - (macOS) Menlo
 #   - (Linux/BSD) monospace
 #   - (Windows) Consolas
-font:
-  normal:
-    family: JetBrainsMono Nerd Font Mono
-  size: 12
 
 # The `style` can be specified to pick a specific face.
 #style: Regular
@@ -181,9 +194,6 @@ font:
 # Offset is the extra space around each character. `offset.y` can be thought
 # of as modifying the line spacing, and `offset.x` as modifying the letter
 # spacing.
-#offset:
-#  x: 0
-#  y: 0
 
 # Glyph offset determines the locations of the glyphs within their cells with
 # the default being at the bottom. Increasing `x` moves the glyph to the
@@ -200,8 +210,6 @@ font:
 #builtin_box_drawing: true
 
 # If `true`, bold text is drawn using the bright color variants.
-draw_bold_text_with_bright_colors: true
-
 # Colors (Tomorrow Night)
 #colors:
 # Default colors
@@ -299,24 +307,15 @@ draw_bold_text_with_bright_colors: true
 #  background: CellForeground
 
 # Normal colors
-normal:
-  # black: "#1d1f21"
-  # red: "#cc6666"
-  # green: "#b5bd68"
-  # yellow: "#f0c674"
-  # blue: "#81a2be"
-  # magenta: "#b294bb"
-  # cyan: "#8abeb7"
-  # white: "#c5c8c6"
+# black: "#1d1f21"
+# red: "#cc6666"
+# green: "#b5bd68"
+# yellow: "#f0c674"
+# blue: "#81a2be"
+# magenta: "#b294bb"
+# cyan: "#8abeb7"
+# white: "#c5c8c6"
 
-  black: "#282828"
-  red: "#cc241d"
-  green: "#98971a"
-  yellow: "#d79921"
-  blue: "#458588"
-  magenta: "#b16286"
-  cyan: "#689d6a"
-  white: "#a89984"
 # Bright colors
 #bright:
 #  black:   '#666666'
