@@ -69,8 +69,8 @@ null_ls.setup({
 				group = augroup,
 				buffer = bufnr,
 				callback = function()
-						async_formatting(bufnr)
-					-- vim.lsp.buf.format({ bufnr = bufnr })
+					-- async_formatting(bufnr)
+					vim.lsp.buf.format({ bufnr = bufnr })
 					-- local current_formatter = nil
 					-- for _, source in ipairs(null_ls.builtins.formatting) do
 					-- 	if source.name == "prettier" then
