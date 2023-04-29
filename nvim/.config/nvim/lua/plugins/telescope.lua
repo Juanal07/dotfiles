@@ -1,6 +1,7 @@
 local telescope = require("telescope")
 telescope.load_extension("media_files")
 telescope.setup({
+  shorten_path = true,
   defaults = {
     layout_config = { prompt_position = "top" },
     sorting_strategy = "ascending",

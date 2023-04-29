@@ -25,3 +25,14 @@ vim.cmd("hi def IlluminatedWordWrite guibg=#3c3836")
 
 -- Transparency background
 vim.cmd("hi Normal ctermbg=none guibg=none")
+
+-- TODO: Transparency Telescope not working
+vim.cmd("highlight TelescopeTitle ctermbg=none guibg=none")
+vim.cmd("highlight TelescopeNormal ctermbg=none guibg=none")
+vim.cmd("highlight TelescopeBorder ctermbg=none guibg=none")
+vim.cmd("highlight TelescopePromptNormal ctermbg=none guibg=none")
+vim.cmd("highlight TelescopePromptBorder ctermbg=none guibg=none")
+vim.cmd("highlight TelescopePreviewNormal ctermbg=none guibg=none")
+vim.cmd("highlight TelescopePreviewBorder ctermbg=none guibg=none")
+vim.cmd("highlight TelescopeResultsNormal ctermbg=none guibg=none")
+vim.cmd("highlight TelescopeResultsBorder ctermbg=none guibg=none")
