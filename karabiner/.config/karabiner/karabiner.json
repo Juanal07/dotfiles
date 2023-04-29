@@ -98,6 +98,27 @@
                 "type": "basic"
               }
             ]
+          },
+
+          {
+            "description": "Close active window with: hyper + q",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "q",
+                  "modifiers": {
+                    "mandatory": ["left_command", "left_control", "left_option"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "w",
+                    "modifiers": ["left_command"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
           }
         ]
       },
