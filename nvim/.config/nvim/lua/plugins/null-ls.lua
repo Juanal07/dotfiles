@@ -69,20 +69,22 @@ null_ls.setup({
 				group = augroup,
 				buffer = bufnr,
 				callback = function()
-					local current_formatter = nil
-					for _, source in ipairs(null_ls.builtins.formatting) do
-						if source.name == "prettier" then
-							if vim.tbl_contains(source.filetypes, vim.api.nvim_buf_get_option(bufnr, "filetype")) then
-								current_formatter = source
-								break
-							end
-						end
-					end
-					if current_formatter then
 						async_formatting(bufnr)
-					else
-						vim.lsp.buf.format({ bufnr = bufnr })
-					end
+					-- vim.lsp.buf.format({ bufnr = bufnr })
+					-- local current_formatter = nil
+					-- for _, source in ipairs(null_ls.builtins.formatting) do
+					-- 	if source.name == "prettier" then
+					-- 		if vim.tbl_contains(source.filetypes, vim.api.nvim_buf_get_option(bufnr, "filetype")) then
+					-- 			current_formatter = source
+					-- 			break
+					-- 		end
+					-- 	end
+					-- end
+					-- if current_formatter then
+					-- 	async_formatting(bufnr)
+					-- else
+					-- 	vim.lsp.buf.format({ bufnr = bufnr })
+					-- end
 				end,
 			})
 		end
