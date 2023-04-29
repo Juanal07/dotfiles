@@ -17,7 +17,7 @@ require("lualine").setup({
 			"diff",
 			"diagnostics",
 		},
-		lualine_c = { { "filename", path = 1 } }, -- Display path from the root of the project instead of only filename
+		-- lualine_c = { { "filename", path = 1 } }, -- Display path from the root of the project instead of only filename
 		-- lualine_c = { "filename" },
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
 		-- lualine_y = { "progress" },

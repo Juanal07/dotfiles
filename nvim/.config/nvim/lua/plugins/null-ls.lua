@@ -83,8 +83,6 @@ null_ls.setup({
 					else
 						vim.lsp.buf.format({ bufnr = bufnr })
 					end
-          -- async_formatting(bufnr)
-					-- vim.lsp.buf.format({ bufnr = bufnr })
 				end,
 			})
 		end
