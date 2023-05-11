@@ -26,7 +26,7 @@ if [ "$(uname)" = "Darwin" ]; then
     export LESSOPEN="| /usr/bin/bat -O ansi %s 2>/dev/null"
 
     # Load Angular CLI autocompletion.
-    source <(ng completion script)
+    # source <(ng completion script)
 else
     # Adds `~/.local/bin` and `~/.local/bin` to $PATH
     export PATH="$PATH:${$(find ~/dotfiles/bin/.local/bin -type d -printf %p:)%%:}"

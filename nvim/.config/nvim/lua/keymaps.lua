@@ -43,6 +43,7 @@ vim.api.nvim_set_keymap("n", "<leader>fb", ":Telescope buffers<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>fm", ":Telescope media_files<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>fo", ":Telescope colorscheme<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>fs", ":Telescope git_status<cr>", opts)
 
 vim.api.nvim_set_keymap("n", "<leader>n", ":NvimTreeFindFileToggle<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>r", ":NvimTreeRefresh<CR>", opts)

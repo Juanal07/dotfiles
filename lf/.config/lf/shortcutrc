@@ -6,7 +6,7 @@ map gv cd ~/Videos
 map gm cd ~/Music 
 
 map gc cd ~/code
-map gw cd ~/code/workspace
+map gw cd ~/code/commercehub/unified-frontend
 map g. cd ~/dotfiles
 map gx cd ~/Dropbox
 
