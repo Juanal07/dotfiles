@@ -53,7 +53,7 @@ cmd delete ${{
 	printf "%s\n\t" "$fx"
 	printf "delete?[y/N]"
 	read ans
-	[ $ans = "y" ] && mv $fx ~/.Trash
+	[ $ans = "y" ] && mv "$fx" ~/.Trash
 }}
 map D delete
 

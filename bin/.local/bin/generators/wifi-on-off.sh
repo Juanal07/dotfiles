@@ -3,7 +3,7 @@
 
 # Script contents
 SCRIPT="#!/bin/sh
-sleep 2
+sleep 5
 IF=\$1
 STATUS=\$2
 
