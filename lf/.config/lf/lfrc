@@ -1,16 +1,10 @@
 # Basic vars
-
-# set shell sh
-# set shellopts '-eu'
-# set ifs "\n"
-# set drawbox # Borders
-
 set info size:time
+set hidden true
+set dircounts true
 set scrolloff 8
 set icons true
 set ignorecase true
-set hidden false
-set dircounts on
 
 set previewer ~/.config/lf/previewer.sh
 set cleaner ~/.config/lf/clear_img.sh
@@ -58,7 +52,7 @@ cmd delete ${{
 map D delete
 
 cmd purge ${{
-	yes | rm -r $fx
+	yes | rm -r "$fx"
 }}
 map <c-d> purge
 
@@ -85,11 +79,6 @@ map <c-r> reload
 map . set hidden!
 
 map V push :!nvim<space>
-
-# Renames
-map r :rename; cmd-word-back; cmd-left
-map <bakcspace> :rename; cmd-word-back; cmd-left  
-map <backspace2> :rename; cmd-word-back; cmd-left 
 
 # Source Bookmarks
 source "~/.config/lf/shortcutrc"
