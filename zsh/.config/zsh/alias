@@ -28,6 +28,7 @@ alias \
     g="git" \
     gl="pretty-log" \
     gdiff="pretty-diff" \
+    gbranch="pretty-change-branch" \
     gps='git add . && git commit -m "Wip" && git push'
 
 # With this one we can use our alias with sudo
