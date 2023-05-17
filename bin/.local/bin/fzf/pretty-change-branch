@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/bin/sh
 # List all branches and select one
-branch=$(git branch -a | sed 's/.* //g' | fzf)
+branch=$(git branch -a | sed 's/.* //' | command fzf)
 
-if [[ -n "$branch" ]]; then
-  # Checkout the selected branch
-  git checkout "$branch"
+if [ -n "$branch" ]; then
+    # Checkout the selected branch
+    git checkout "$branch"
 else
-  echo "No branch selected."
+    echo "No branch selected."
 fi
-    git log --graph \
+

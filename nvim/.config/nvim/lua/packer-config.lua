@@ -74,7 +74,7 @@ return packer.startup(function(use)
 			require("nvim-treesitter.install").update({ with_sync = true })
 		end,
 	})
-	-- use("nvim-treesitter/nvim-treesitter-angular")
+use({ "elgiano/nvim-treesitter-angular", branch = "topic/jsx-fix" })
 	use("kylechui/nvim-surround")
 	use("windwp/nvim-autopairs")
 	use("windwp/nvim-ts-autotag")
