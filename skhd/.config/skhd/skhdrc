@@ -12,6 +12,9 @@ cmd + ctrl + alt - l : yabai -m window --resize left:20:0 || yabai -m window --r
 # balance size of windows
 cmd + ctrl + alt - 0 : yabai -m space --balance
 
+# Toggle top bar visibility
+# cmd + ctrl + alt + b : /usr/bin/env bash -c 'status=$(defaults read com.apple.finder _FXShowStatusBar); if [ "$status" == "1" ]; then defaults write com.apple.finder _FXShowStatusBar -bool false; else defaults write com.apple.finder _FXShowStatusBar -bool true; fi; killall Finder'
+
 # VIM Arrow Keys
 alt - h : skhd -k "left"
 alt - j : skhd -k "down"
