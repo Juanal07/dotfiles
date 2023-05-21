@@ -171,24 +171,7 @@ element-text, element-icon {
     selected-urgent-foreground:  @urgent-foreground;
 }
 
-/* My config */
-
-* {
-    background: #32302f60;
-    border-radius: 10;
-    normal-background: #32302f00;
-    alternate-normal-background: #32302f00;
-    selected-normal-background:  #282828;
-}
-
-window {
-    width: 1000px;
-    border: 1px;
-}
-
-configuration {
-    font: "Monospace 20";
-}
+/* My config -------------------------------------------------------- */
 
 prompt {
   enabled: false;
@@ -196,25 +179,29 @@ prompt {
 
 textbox-prompt-sep {
     str: ">_";
+    str: "󱓞";
 }
 
 entry {
     placeholder: "";
 }
 
-mainbox {
-    border:  0;
-    padding: 0;
-    background: @normal-background;
+configuration {
+    font: "Monospace 14";
 }
 
-listview {
-    border: 0;
-    padding: 5;
+* {
+    background: #32302f70;
+    border-radius: 10;
+    normal-background: #32302f00;
+    alternate-normal-background: #32302f00;
+    selected-normal-background:  #32302f70;
 }
 
-element {
-    padding: 5;
+window {
+    width: 750px;
+    height: 450px;
+    border: 1px;
 }
 
 inputbar {
@@ -223,10 +210,16 @@ inputbar {
     padding: 10;
 }
 
-element.selected.normal {
-    background-color: @background;
+listview {
+    border: 0;
+    padding: 4;
 }
 
+element {
+    padding: 10;
+}
+
+mainbox,
 listview,
 message,
 textbox,

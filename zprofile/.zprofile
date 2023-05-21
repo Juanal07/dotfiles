@@ -53,7 +53,6 @@ else
     export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
     export ALSA_CONFIG_PATH="$XDG_CONFIG_HOME/alsa/asoundrc"
     export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
-    export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
     export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
     export BAT_THEME="gruvbox-dark"
 
