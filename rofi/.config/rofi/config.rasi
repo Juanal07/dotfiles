@@ -180,6 +180,7 @@ prompt {
 textbox-prompt-sep {
     str: ">_";
     str: "󱓞";
+    font: "Monospace 18";
 }
 
 entry {
