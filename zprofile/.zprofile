@@ -4,6 +4,9 @@
 if [ "$(uname)" = "Darwin" ]; then
     eval $(/opt/homebrew/bin/brew shellenv)
 
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
     PATH="$PATH:$(find ~/dotfiles/bin/.local/bin -type d -depth 1 | tr '\n' ':' | sed 's/:$//')"
     export PATH
 
