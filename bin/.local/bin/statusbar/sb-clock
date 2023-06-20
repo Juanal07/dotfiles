@@ -9,4 +9,4 @@ case $BLOCK_BUTTON in
 esac
 
 hour="$(date +'%H:%M')"
-echo " ^c#f7ca88^$hour^d^"
+echo "󰥔 ^c#f7ca88^$hour^d^"

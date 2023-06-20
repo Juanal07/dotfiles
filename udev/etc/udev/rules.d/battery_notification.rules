@@ -1,0 +1,6 @@
+ACTION=="change", SUBSYSTEM=="power_supply", ATTR{type}=="Mains", ATTR{online}=="1", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/juan/.Xauthority" RUN+="/usr/bin/su juan -c '/home/juan/.local/bin/system/charging-notify 1'"
+ACTION=="change", SUBSYSTEM=="power_supply", ATTR{type}=="Mains", ATTR{online}=="0", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/juan/.Xauthority" RUN+="/usr/bin/su juan -c '/home/juan/.local/bin/system/charging-notify 0'"
+# ACTION=="change", SUBSYSTEM=="power_supply", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/juan/.Xauthority" RUN+="/usr/bin/dunstify test"
+# ACTION=="change", SUBSYSTEM=="power_supply", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/juan/.Xauthority" RUN+="/usr/bin/dunstify test"
+
+# ACTION=="change", SUBSYSTEM=="power_supply", KERNEL=="BAT0", RUN+="/usr/bin/dunstify test"

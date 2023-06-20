@@ -44,7 +44,7 @@ eth_up=$(ip link show | grep "state UP" | grep "enp")
 
 # Check if any Ethernet interface is connected
 if [ "$eth_up" != "" ]; then
-    icon=" "
+    icon="󰌘 "
 else
     # Check if Wi-Fi is connected
     if [ $(cat /sys/class/net/w*/operstate 2>/dev/null) = "up" ]; then

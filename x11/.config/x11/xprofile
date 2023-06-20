@@ -30,6 +30,7 @@ xset s 300 300 &
 xset dpms 300 300 300 &
 xscreensaver --no-splash &
 xinput set-prop "pointer:Logitech MX Master 3" "libinput Accel Profile Enabled" 0 1 &
+xinput set-prop "pointer:Logitech MX Master 3" "Coordinate Transformation Matrix" 0.8, 0, 0, 0, 0.8, 0, 0, 0, 1 &
 xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1 &
 
 kill -44 $(pidof dwmblocks)
