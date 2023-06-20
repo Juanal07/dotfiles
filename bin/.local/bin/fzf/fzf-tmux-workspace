@@ -1,0 +1,16 @@
+#!/bin/sh
+
+selected=`ls ~/code/commercehub | fzf`
+path="${HOME}/code/commercehub/${selected}"
+
+# Check if I cancel selection
+if [ $path != "${HOME}/code/commercehub/" ]
+then
+    SESSION=$(tmux list-sessions | grep "${selected}:")
+    if [ "$SESSION" = "" ]
+    then
+        cd $path; tmux new-session -s $selected -d ';' set-option -g set-titles on ';' set-window-option -g automatic-rename on \; send-keys -t $selected 'nvim .' C-m \; new-window \; select-window -t 1 \; attach -t $selected
+    else
+        tmux attach -t $selected
+    fi
+fi

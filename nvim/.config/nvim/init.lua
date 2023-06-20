@@ -11,19 +11,16 @@ require("plugins.nvim-tree")
 require("plugins.telescope")
 require("plugins.colorscheme")
 require("plugins.gitsigns")
-
 require("neogit").setup()
 require("nvim-surround").setup()
 require("nvim-autopairs").setup()
 require("nvim-web-devicons").setup()
 require("which-key").setup()
-require("fidget").setup(
-  {
-    window = {
-      blend = 0,
-    }
-  }
-)
+require("fidget").setup({
+  window = {
+    blend = 0,
+  },
+})
 require("Comment").setup({
   pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
 })
