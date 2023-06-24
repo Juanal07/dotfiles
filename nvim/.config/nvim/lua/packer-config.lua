@@ -37,7 +37,6 @@ return packer.startup(function(use)
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
-	use({ "j-hui/fidget.nvim", tag = "legacy" })
 	-- Completion
 	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-buffer")
@@ -59,8 +58,8 @@ return packer.startup(function(use)
 	use("hoob3rt/lualine.nvim")
 	use("arkav/lualine-lsp-progress")
 	-- use("kyazdani42/nvim-web-devicons")
-	-- use("ryanoasis/vim-devicons")
 	-- use("nvim-tree/nvim-web-devicons")
+	-- use("ryanoasis/vim-devicons")
 	use("onsails/lspkind-nvim")
 	use("brenoprata10/nvim-highlight-colors")
 	use("RRethy/vim-illuminate")
@@ -95,9 +94,9 @@ return packer.startup(function(use)
 		tag = "*",
 		requires = {
 			"SmiteshP/nvim-navic",
-			"nvim-tree/nvim-web-devicons", -- optional dependency
+			"nvim-tree/nvim-web-devicons",
 		},
-		after = "nvim-web-devicons", -- keep this if you're using NvChad
+		after = "nvim-web-devicons",
 		config = function()
 			require("barbecue").setup()
 		end,
