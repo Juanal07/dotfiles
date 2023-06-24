@@ -1,11 +1,11 @@
 #!/bin/sh
 
-selected=`ls ~/code/commercehub | fzf --height 40% --layout=reverse --border --preview "exa --tree --level=2 --icons ~/code/commercehub/{}"`
+selected=`ls ${WORKSPACE_PATH} | fzf --height 40% --layout=reverse --border --preview "exa --tree --level=2 --icons '${WORKSPACE_PATH}'/{}"`
 
-path="${HOME}/code/commercehub/${selected}"
+path="${WORKSPACE_PATH}/${selected}"
 
 # Check if I cancel selection
-if [ $path != "${HOME}/code/commercehub/" ]
+if [ $path != "${WORKSPACE_PATH}" ]
 then
     SESSION=$(tmux list-sessions | grep "${selected}:")
     if [ "$SESSION" = "" ]

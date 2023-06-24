@@ -11,8 +11,9 @@ if [ "$(uname)" = "Darwin" ]; then
     export PATH
 
     export EDITOR="nvim"
-    # export TERMINAL="alacritty"
-    # export BROWSER="google-chrome"
+    export TERMINAL="kitty"
+    export BROWSER="google-chrome"
+    export WORKSPACE_PATH="$HOME/code/commercehub/"
 
     export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
     export INPUTRC="${XDG_CONFIG_HOME:-$HOME/.config}/shell/inputrc"
@@ -29,8 +30,6 @@ if [ "$(uname)" = "Darwin" ]; then
     export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
     export LESSOPEN="| /usr/bin/bat -O ansi %s 2>/dev/null"
 
-    # Load Angular CLI autocompletion.
-    # source <(ng completion script)
 else
     # Adds `~/.local/bin` and `~/.local/bin` to $PATH
     export PATH="$PATH:${$(find ~/dotfiles/bin/.local/bin -type d -printf %p:)%%:}"
@@ -40,8 +39,9 @@ else
 
     # Default programs:
     export EDITOR="nvim"
-    export TERMINAL="st"
+    export TERMINAL="kitty"
     export BROWSER="brave"
+    export WORKSPACE_PATH="$HOME/code/workspace/"
 
     # Needed for gpg password sign
     export GPG_TTY=$TTY

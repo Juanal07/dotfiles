@@ -7,7 +7,8 @@ SAVEHIST=10000000
 HISTFILE="${ZDOTDIR}/.zsh_history"
 
 # Alias
-[ -f "${ZDOTDIR}/alias" ] && source "${ZDOTDIR}/alias"
+ALIASRC="${ZDOTDIR}/alias"
+[ -f "${ALIASRC}" ] && source "${ALIASRC}"
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -67,7 +68,6 @@ if [ "$(uname)" = "Darwin" ]; then
     powerlevel10k=/opt/homebrew/Cellar/powerlevel10k/1.18.0/powerlevel10k.zsh-theme
     autosuggestions=/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     syntax=/opt/homebrew/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 fi
 
 # Prompt Powerlevel10k: To customize run `p10k configure` or edit $ZDOTDIR/.p10k.zsh. Install -> sudo pacman -S zsh-theme-powerlevel10k
@@ -99,7 +99,6 @@ export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --preview "bat -
 # Ctrl + r -> Last commands
 function fzf-history() {
     local last_commands=$(fc -rln 1 | fzf)
-    # eval $last_commands
     print -z -- $last_commands
 }
 bindkey -s '^r' 'fzf-history\n'

@@ -1,3 +1,11 @@
+local function lsp_client_names()
+  local client_names = {}
+  for _, client in ipairs(vim.lsp.get_active_clients()) do
+    table.insert(client_names, client.name)
+  end
+  return table.concat(client_names, ",")
+end
+
 require("lualine").setup({
   options = {
     theme = "gruvbox",
@@ -17,8 +25,7 @@ require("lualine").setup({
       "diff",
       "diagnostics",
     },
-    lualine_c = { { "filename" }, { "lsp_progress" } },
-    -- lualine_c = { { "filename", path = 1 } }, -- Display path from the root of the project instead of only filename
+    lualine_c = { { "filename" }, { "lsp_progress" }, { lsp_client_names } },
     -- lualine_x = { "encoding", "fileformat", "filetype" },
     -- lualine_y = { "progress" },
     -- lualine_z = { "location" },
