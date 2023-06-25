@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Show wifi 📶 and percent strength or 📡 if none.
-# Show  if connected to ethernet or ❎ if none.
+# Show 󰌘 if connected to ethernet or ❎ if none.
 # Show 🔒 if a vpn connection is active
 
 # case $BLOCK_BUTTON in
@@ -10,10 +10,10 @@
 # 	pkill -RTMIN+4 dwmblocks
 # 	;;
 # 3) notify-send "🌐 Internet module" "\- Click to connect
-# 睊: no wifi connection
+# 󰖪: no wifi connection
 # : wifi connection with quality
 # ❎: no ethernet
-#  : ethernet working
+# 󰌘 : ethernet working
 # 🔒: vpn is active
 # " ;;
 # 6) "$TERMINAL" -e "$EDITOR" "$0" ;;
@@ -23,14 +23,14 @@
 # quality=""
 #
 # if [ $(cat /sys/class/net/e*/operstate 2>/dev/null) = "up" ]; then
-# 	icon=" "
+# 	icon="󰌘 "
 # else
 # 	if [ $(cat /sys/class/net/w*/operstate 2>/dev/null) = "up" ]; then
 # 		ssid=$(nmcli -t -f name connection show --active | head -n 1)
 # 		quality="$(awk '/^\s*w/ { print int($3 * 100 / 70) "% " }' /proc/net/wireless)"
 # 		icon="  "
 # 	else
-# 		icon="睊 "
+# 		icon="󰖪 "
 # 	fi
 # 	# icon="❎ "
 # fi
@@ -52,7 +52,7 @@ else
         quality="$(awk '/^\s*w/ { print int($3 * 100 / 70) "% " }' /proc/net/wireless)"
         icon="  "
     else
-        icon="睊 "
+        icon="󰖪 "
     fi
     # icon="❎ "
 fi
