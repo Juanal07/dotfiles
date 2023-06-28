@@ -22,3 +22,5 @@
   o = checkout
   ps = push
   pso = push origin
+[pull]
+	rebase = false
