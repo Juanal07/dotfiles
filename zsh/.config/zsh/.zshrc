@@ -65,7 +65,7 @@ powerlevel10k=/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 autosuggestions=/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 syntax=/usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 if [ "$(uname)" = "Darwin" ]; then
-    powerlevel10k=/opt/homebrew/Cellar/powerlevel10k/1.18.0/powerlevel10k.zsh-theme
+    powerlevel10k=/opt/homebrew/Cellar/powerlevel10k/1.19.0/powerlevel10k.zsh-theme
     autosuggestions=/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     syntax=/opt/homebrew/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi

@@ -73,7 +73,7 @@ alias \
     gv="cd ~/Videos && l" \
     gm="cd ~/Music && l" \
     gc="cd ~/code && l" \
-    gw="cd ~/code/commercehub/unified-frontend && l" \
+    gw="cd ${WORKSPACE_PATH} && l" \
     g.="cd ~/dotfiles && l" \
     gC="cd ~/.config && l" \
     gz="cd ~/.config/zsh && l" \
