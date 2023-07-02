@@ -57,9 +57,7 @@ return packer.startup(function(use)
 	use("kyazdani42/nvim-tree.lua")
 	use("hoob3rt/lualine.nvim")
 	use("arkav/lualine-lsp-progress")
-	-- use("kyazdani42/nvim-web-devicons")
-	-- use("nvim-tree/nvim-web-devicons")
-	-- use("ryanoasis/vim-devicons")
+	use("nvim-tree/nvim-web-devicons")
 	use("onsails/lspkind-nvim")
 	use("brenoprata10/nvim-highlight-colors")
 	use("RRethy/vim-illuminate")
@@ -70,7 +68,7 @@ return packer.startup(function(use)
 	-- Utils
 	use({
 		"nvim-treesitter/nvim-treesitter",
-		commit = "ab3fb2a285e55a56b732d2f9f40ba7c3a10b87fc",
+		-- commit = "ab3fb2a285e55a56b732d2f9f40ba7c3a10b87fc",
 		run = function()
 			require("nvim-treesitter.install").update({ with_sync = true })
 		end,
