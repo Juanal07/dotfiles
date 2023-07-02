@@ -1,10 +1,10 @@
 #!/bin/zsh
 
-function common() {
+function common_variables() {
     export XDG_CONFIG_HOME="$HOME/.config"
     export XDG_DATA_HOME="$HOME/.local/share"
     export XDG_CACHE_HOME="$HOME/.cache"
-    
+
     export EDITOR="nvim"
     export TERMINAL="kitty"
 
@@ -24,23 +24,23 @@ function common() {
     export LESSOPEN="| /usr/bin/bat -O ansi %s 2>/dev/null"
 }
 
-common
+# Common variables for both macOS and Linux
+common_variables
 
 # zprofile file. Runs on login. Environmental variables are set here.
-if [ "$(uname)" = "Darwin" ]; then
+if [ "$(uname)" = "Darwin" ]; then # macOS
     eval $(/opt/homebrew/bin/brew shellenv)
 
     export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
     export PATH="$PATH:$(find ~/dotfiles/bin/.local/bin -type d -depth 1 | tr '\n' ':' | sed 's/:$//')"
 
     export BROWSER="google-chrome"
     export WORKSPACE_PATH="$HOME/code/commercehub/"
-else
-    # Adds `~/.local/bin` and `~/.local/bin` to $PATH
+else # Linux
     export PATH="$PATH:${$(find ~/dotfiles/bin/.local/bin -type d -printf %p:)%%:}"
-    source "/home/juan/.local/share/cargo/env"
+
 
     export BROWSER="brave"
     export WORKSPACE_PATH="$HOME/code/workspace/"
@@ -55,6 +55,8 @@ else
     export ALSA_CONFIG_PATH="$XDG_CONFIG_HOME/alsa/asoundrc"
     export GOPATH="$XDG_DATA_HOME/go"
     export CARGO_HOME="$XDG_DATA_HOME/cargo"
+
+    source "$CARGO_HOME/env"
 
     # export DISPLAY=:0
     # export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
