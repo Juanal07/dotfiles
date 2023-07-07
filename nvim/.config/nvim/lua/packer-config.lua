@@ -64,11 +64,10 @@ return packer.startup(function(use)
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 	use("sindrets/diffview.nvim")
-	use("TimUntersberger/neogit")
+	use("NeogitOrg/neogit")
 	-- Utils
 	use({
 		"nvim-treesitter/nvim-treesitter",
-		-- commit = "ab3fb2a285e55a56b732d2f9f40ba7c3a10b87fc",
 		run = function()
 			require("nvim-treesitter.install").update({ with_sync = true })
 		end,
@@ -99,9 +98,7 @@ return packer.startup(function(use)
 			require("barbecue").setup()
 		end,
 	})
-
 	-- use("gpanders/editorconfig.nvim")
-
 	-- use({
 	--   "iamcco/markdown-preview.nvim",
 	--   run = function()
