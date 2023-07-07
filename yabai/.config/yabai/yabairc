@@ -6,15 +6,11 @@ yabai -m config left_padding 8
 yabai -m config right_padding 8
 yabai -m config window_gap 8
 
-# Window opacity
-yabai -m config window_opacity on
-yabai -m config active_window_opacity 1.0
-yabai -m config normal_window_opacity 0.9
-
 applications="(QuickTime|System Settings|Karabiner-Elements|Calculator|Logi Options)"
 yabai -m rule --add app="^${applications}$" manage=off
 
-# yabai -m rule --add app="^System Settings$" manage=off
-# yabai -m rule --add app="^Calculator$" manage=off
-# yabai -m rule --add app="^Karabiner-Elements$" manage=off
-# yabai -m rule --add app="^Logi Options$" manage=off
+# TODO: need to make it work with https://github.com/koekeishiya/yabai/issues/1054
+# Window opacity
+yabai -m config window_opacity on
+yabai -m config active_window_opacity 1.0
+yabai -m config normal_window_opacity 0.8
