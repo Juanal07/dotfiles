@@ -16,7 +16,8 @@ Xft.rgba: rgb
 *.alphaOffset: 0.2
 
 !! Font
-*.font: JetBrainsMono Nerd Font Mono:size=9.5
+!! *.font: JetBrainsMono Nerd Font Mono:size=9.5
+!! *.font: Dank Mono:size=14
 
 !! Colorscheme
 !! Gruvbox:
