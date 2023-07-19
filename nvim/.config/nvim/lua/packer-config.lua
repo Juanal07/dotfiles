@@ -66,13 +66,13 @@ return packer.startup(function(use)
 	use("sindrets/diffview.nvim")
 	use("NeogitOrg/neogit")
 	-- Utils
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = function()
-			require("nvim-treesitter.install").update({ with_sync = true })
-		end,
-	})
-	use({ "elgiano/nvim-treesitter-angular", branch = "topic/jsx-fix" })
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = function()
+            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+            ts_update()
+        end,
+    }	use({ "elgiano/nvim-treesitter-angular", branch = "topic/jsx-fix" })
 	use("kylechui/nvim-surround")
 	use("windwp/nvim-autopairs")
 	use("windwp/nvim-ts-autotag")
