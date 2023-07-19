@@ -11,6 +11,15 @@
 	editor = nvim
 [push]
   autoSetupRemote = true
+[init]
+  defaultBranch = main
+[color]
+    ui = true
+[merge]
+    defaultToSquash = true
+[safe]
+	directory = /home/juan/.local/src/st-juan
+	directory = /home/juan/.local/src/st-juan
 [alias]
   s = status
   a = add --all
@@ -31,10 +40,3 @@
   o = checkout
   ps = push
   pso = push origin
-[pull]
-	rebase = false
-[init]
-  defaultBranch = main
-[safe]
-	directory = /home/juan/.local/src/st-juan
-	directory = /home/juan/.local/src/st-juan
