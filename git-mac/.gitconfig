@@ -22,5 +22,11 @@
   o = checkout
   ps = push
   pso = push origin
-[pull]
-	rebase = false
+[core]
+    editor = nvim
+[init]
+    defaultBranch = main
+[color]
+    ui = true
+[merge]
+    defaultToSquash = true
