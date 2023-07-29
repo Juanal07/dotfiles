@@ -24,6 +24,7 @@
   pso = push origin
 [core]
     editor = nvim
+    ignorecase = false
 [init]
     defaultBranch = main
 [color]
