@@ -1,0 +1,15 @@
+#!/bin/sh
+#
+useful_commands=$(cat << EOF
+ls
+l
+cd $HOME
+EOF
+)
+
+chosen_command=$(echo "$useful_commands" | fzf)
+
+if [ -n "$chosen_command" ]; then
+    printf "$chosen_command" | xclip -selection clipboard
+    xdotool key ctrl+shift+v
+fi
