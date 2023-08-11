@@ -1,8 +1,8 @@
 vim.opt.laststatus = 3
 vim.opt.termguicolors = true
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.tabstop = 4
+vim.opt.softtabstop =4
+vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.showmode = false
@@ -23,8 +23,6 @@ vim.opt.listchars = { tab = "→ ", trail = "·", extends = "…" }
 -- vim.opt.listchars = { space = "·", tab = "→ ", trail = "·", eol = "↲", extends = "…" }
 vim.opt.iskeyword:append("-")
 vim.opt.cursorline = true
--- vim.opt.cursorlineopt = "number"
--- vim.opt.foldmethod = 'indent'
 
 local M = { proseMode = false }
 function M.toggleProse()
@@ -46,3 +44,4 @@ function M.toggleProse()
 end
 
 return M
+

@@ -50,9 +50,11 @@ return packer.startup(function(use)
 	use("rafamadriz/friendly-snippets")
 	use("xabikos/vscode-javascript")
 	use({ "dsznajder/vscode-es7-javascript-react-snippets", run = "yarn install --frozen-lockfile && yarn compile" })
-	use("github/copilot.vim")
+	-- use("github/copilot.vim")
 	-- Colorscheme
 	use("ellisonleao/gruvbox.nvim")
+	use("folke/tokyonight.nvim")
+	use("Mofiqul/vscode.nvim")
 	-- GUI
 	use("kyazdani42/nvim-tree.lua")
 	use("hoob3rt/lualine.nvim")
@@ -66,6 +68,7 @@ return packer.startup(function(use)
 	use("sindrets/diffview.nvim")
 	use("NeogitOrg/neogit")
 	-- Utils
+    use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
@@ -100,12 +103,12 @@ return packer.startup(function(use)
 		end,
 	})
 	-- use("gpanders/editorconfig.nvim")
-	-- use({
-	--   "iamcco/markdown-preview.nvim",
-	--   run = function()
-	--     vim.fn["mkdp#util#install"]()
-	--   end,
-	-- })
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	})
 
 	-- Auto install packer if not installed
 	if ensure_packer() then

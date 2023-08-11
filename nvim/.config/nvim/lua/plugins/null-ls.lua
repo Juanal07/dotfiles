@@ -71,16 +71,16 @@ null_ls.setup({
 		-- formatting.clang_format,
 	},
 	-- Format on save
-	on_attach = function(client, bufnr)
-		if client.supports_method("textDocument/formatting") then
-			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-			vim.api.nvim_create_autocmd("BufWritePost", {
-				group = augroup,
-				buffer = bufnr,
-				callback = function()
-					async_formatting(bufnr)
-				end,
-			})
-		end
-	end,
+	-- on_attach = function(client, bufnr)
+	-- 	if client.supports_method("textDocument/formatting") then
+	-- 		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+	-- 		vim.api.nvim_create_autocmd("BufWritePost", {
+	-- 			group = augroup,
+	-- 			buffer = bufnr,
+	-- 			callback = function()
+	-- 				async_formatting(bufnr)
+	-- 			end,
+	-- 		})
+	-- 	end
+	-- end,
 })

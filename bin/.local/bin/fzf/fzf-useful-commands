@@ -1,15 +1,35 @@
 #!/bin/sh
-#
+
 useful_commands=$(cat << EOF
-ls
-l
-cd $HOME
+sxs-cli login
+npm run build && cd build/artifact/ && sls deploy --stage test --function {api/bot name} && cd ../..
+sxs-cli login && cat ~/.aws/credentials | pbcopy
+brew update && brew upgrade
 EOF
 )
 
 chosen_command=$(echo "$useful_commands" | fzf)
 
-if [ -n "$chosen_command" ]; then
-    printf "$chosen_command" | xclip -selection clipboard
-    xdotool key ctrl+shift+v
-fi
+# if [ -n "$chosen_command" ]; then
+#     printf "$chosen_command" | xclip -selection clipboard
+#     xdotool key ctrl+shift+v
+# fi
+# if [ -n "$chosen_command" ]; then
+#     printf "$chosen_command" | sh
+#     osascript -e 'tell application "System Events" to keystroke "v" using {command down, shift down}'
+# fi
+
+case "$(uname -s)" in
+    Darwin)
+        clip_paste="echo $chosen_command"
+        type_cmd="osascript -e 'tell application \"System Events\" to keystroke \"%s\"'"
+        ;;
+    *)
+        clip_paste="xclip -o"
+        type_cmd='xdotool type "%s"'
+        ;;
+esac
+
+text="$($clip_paste)"
+
+printf "$type_cmd" "${text}" | sh

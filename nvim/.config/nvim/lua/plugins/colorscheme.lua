@@ -1,4 +1,6 @@
 local colorscheme = "gruvbox"
+-- local colorscheme = "tokyonight"
+-- local colorscheme = "vscode"
 require("gruvbox").setup({
 	invert_tabline = false,
 	invert_intend_guides = false,
@@ -36,3 +38,9 @@ vim.cmd("hi def TelescopePreviewNormal ctermbg=none guibg=none")
 vim.cmd("hi def TelescopePreviewBorder ctermbg=none guibg=none")
 vim.cmd("hi def TelescopeResultsNormal ctermbg=none guibg=none")
 vim.cmd("hi def TelescopeResultsBorder ctermbg=none guibg=none")
+
+-- require("vscode").setup({
+-- 	italic_comments = true,
+-- 	disable_nvimtree_bg = true,
+-- })
+-- require("vscode").load()
