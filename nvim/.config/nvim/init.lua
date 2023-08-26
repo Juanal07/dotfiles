@@ -1,11 +1,10 @@
 require("options")
 require("keymaps")
-require("packer-config")
+require("lazy-config")
 
 require("plugins.lsp")
 require("plugins.null-ls")
 require("plugins.cmp")
-require("plugins.treesitter")
 require("plugins.lualine")
 require("plugins.nvim-tree")
 require("plugins.telescope")

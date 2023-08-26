@@ -23,8 +23,8 @@ end
 require("lualine").setup({
 	options = {
 		theme = "gruvbox",
-		-- theme = "vscode",
 		-- theme = "tokyonight",
+		-- theme = "vscode",
 	},
 	sections = {
 		-- lualine_a = { "mode" },

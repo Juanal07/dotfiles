@@ -1,6 +1,4 @@
 local colorscheme = "gruvbox"
--- local colorscheme = "tokyonight"
--- local colorscheme = "vscode"
 require("gruvbox").setup({
 	invert_tabline = false,
 	invert_intend_guides = false,
@@ -20,27 +18,5 @@ require("gruvbox").setup({
 
 vim.cmd("colorscheme " .. colorscheme)
 
--- Vim-Illuminate
-vim.cmd("hi def IlluminatedWordText guibg=#3c3836")
-vim.cmd("hi def IlluminatedWordRead guibg=#3c3836")
-vim.cmd("hi def IlluminatedWordWrite guibg=#3c3836")
-
 -- Transparency background
 vim.cmd("hi Normal ctermbg=none guibg=none")
-
--- TODO: Transparency Telescope not working
-vim.cmd("hi def TelescopeTitle ctermbg=none guibg=none")
-vim.cmd("hi def TelescopeNormal ctermbg=none guibg=none")
-vim.cmd("hi def TelescopeBorder ctermbg=none guibg=none")
-vim.cmd("hi def TelescopePromptNormal ctermbg=none guibg=none")
-vim.cmd("hi def TelescopePromptBorder ctermbg=none guibg=none")
-vim.cmd("hi def TelescopePreviewNormal ctermbg=none guibg=none")
-vim.cmd("hi def TelescopePreviewBorder ctermbg=none guibg=none")
-vim.cmd("hi def TelescopeResultsNormal ctermbg=none guibg=none")
-vim.cmd("hi def TelescopeResultsBorder ctermbg=none guibg=none")
-
--- require("vscode").setup({
--- 	italic_comments = true,
--- 	disable_nvimtree_bg = true,
--- })
--- require("vscode").load()

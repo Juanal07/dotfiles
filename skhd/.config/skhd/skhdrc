@@ -12,16 +12,21 @@ cmd + ctrl + alt - l : yabai -m window --resize left:20:0 || yabai -m window --r
 # balance size of windows
 cmd + ctrl + alt - 0 : yabai -m space --balance
 
-cmd + ctrl + alt - d : open -a Raycast 
+# Close window
+cmd + ctrl + alt - q : yabai -m window --close
 
-# Toggle top bar visibility
-# cmd + ctrl + alt + b : /usr/bin/env bash -c 'status=$(defaults read com.apple.finder _FXShowStatusBar); if [ "$status" == "1" ]; then defaults write com.apple.finder _FXShowStatusBar -bool false; else defaults write com.apple.finder _FXShowStatusBar -bool true; fi; killall Finder'
+cmd + ctrl + alt - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
+cmd + ctrl + alt - w : open -a 'Google Chrome' 
+cmd + ctrl + alt - d : open -a Raycast 
 
 # VIM Arrow Keys
 alt - h : skhd -k "left"
 alt - j : skhd -k "down"
 alt - k : skhd -k "up"
 alt - l : skhd -k "right"
+
+# full screen
+cmd + ctrl + alt - f : yabai -m query --windows --space | jq '.[].id' | xargs -I{} yabai -m window {} --toggle zoom-fullscreen
 
 # jump to spaces
 cmd + ctrl + alt + shift - 1 : yabai -m window --space  1; yabai -m space --focus 1
@@ -40,4 +45,3 @@ cmd + ctrl + alt - n : yabai -m space --create && \
                   index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
                   yabai -m window --space "${index}" && \
                   yabai -m space --focus "${index}"
-

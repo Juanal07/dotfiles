@@ -29,5 +29,5 @@
     defaultBranch = main
 [color]
     ui = true
-[merge]
-    defaultToSquash = true
+[pull]
+	rebase = true
