@@ -28,6 +28,7 @@ dunst &
 unclutter &
 xset s 300 300 &
 xset dpms 300 300 300 &
+xset r rate 190 35 &
 xscreensaver --no-splash &
 xinput set-prop "pointer:Logitech MX Master 3" "libinput Accel Profile Enabled" 0 1 &
 xinput set-prop "pointer:Logitech MX Master 3" "Coordinate Transformation Matrix" 0.8, 0, 0, 0, 0.8, 0, 0, 0, 1 &
