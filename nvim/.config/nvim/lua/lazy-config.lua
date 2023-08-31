@@ -12,7 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	"folke/which-key.nvim",
 	-- LSP
 	"neovim/nvim-lspconfig",
 	"williamboman/mason.nvim",
@@ -32,7 +31,6 @@ require("lazy").setup({
 		"dsznajder/vscode-es7-javascript-react-snippets",
 		build = "yarn install --frozen-lockfile && yarn compile",
 	},
-	"github/copilot.vim",
 	{ "ellisonleao/gruvbox.nvim", priority = 1000 },
 	"folke/tokyonight.nvim",
 	"Mofiqul/vscode.nvim",
@@ -44,14 +42,14 @@ require("lazy").setup({
 	"brenoprata10/nvim-highlight-colors",
 	"lewis6991/gitsigns.nvim",
 	"sindrets/diffview.nvim",
-	"NeogitOrg/neogit",
+	{
+		"NeogitOrg/neogit",
+		config = true,
+		commit = "00b4486",
+	},
 	{
 		"kevinhwang91/nvim-ufo",
 		dependencies = "kevinhwang91/promise-async",
-	},
-	{
-		"numToStr/Comment.nvim",
-		lazy = false,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -100,11 +98,23 @@ require("lazy").setup({
 			})
 		end,
 	},
+	{
+		"numToStr/Comment.nvim",
+		lazy = false,
+	},
 	"RRethy/vim-illuminate",
 	"kylechui/nvim-surround",
 	"windwp/nvim-autopairs",
 	"HiPhish/rainbow-delimiters.nvim",
-	"folke/which-key.nvim",
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		init = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+		end,
+		opts = {},
+	},
 	"nvim-lua/popup.nvim",
 	"nvim-lua/plenary.nvim",
 	"nvim-telescope/telescope.nvim",
@@ -121,6 +131,7 @@ require("lazy").setup({
 			"SmiteshP/nvim-navic",
 			"nvim-tree/nvim-web-devicons",
 		},
+		opts = {},
 	},
 	{
 		"iamcco/markdown-preview.nvim",
@@ -129,6 +140,6 @@ require("lazy").setup({
 			vim.fn["mkdp#util#install"]()
 		end,
 	},
-	"github/copilot.vim",
+	-- "github/copilot.vim",
 	-- "gpanders/editorconfig.nvim",
 })
