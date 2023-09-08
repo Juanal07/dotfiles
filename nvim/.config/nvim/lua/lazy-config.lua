@@ -58,6 +58,7 @@ require("lazy").setup({
 		dependencies = {
 			"windwp/nvim-ts-autotag",
 			"JoosepAlviste/nvim-ts-context-commentstring",
+			"nvim-treesitter/nvim-treesitter-textobjects",
 			{
 				"elgiano/nvim-treesitter-angular",
 				branch = "topic/jsx-fix",
