@@ -158,3 +158,4 @@ bindkey -s '^w' 'fzf-tmux-workspace\n'
 
 # bun completions
 [ -s "/Users/jraya/.bun/_bun" ] && source "/Users/jraya/.bun/_bun"
+[ -s "/home/juan/.bun/_bun" ] && source "/home/juan/.bun/_bun"

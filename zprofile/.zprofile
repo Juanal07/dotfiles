@@ -12,6 +12,8 @@ function common_variables() {
     export INPUTRC="${XDG_CONFIG_HOME:-$HOME/.config}/shell/inputrc"
     export BAT_THEME="gruvbox-dark"
 
+    export BUN_INSTALL="$HOME/.bun"
+
     # Color for mannual
     export LESS=-R
     export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
@@ -35,14 +37,13 @@ if [ "$(uname)" = "Darwin" ]; then # macOS
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
     export PATH="$PATH:$(find ~/dotfiles/bin/.local/bin -type d -depth 1 | tr '\n' ':' | sed 's/:$//')"
-
-    export BUN_INSTALL="$HOME/.bun"
     export PATH="$BUN_INSTALL/bin:$PATH"
 
     export BROWSER="google-chrome"
     export WORKSPACE_PATH="$HOME/code/commercehub/"
 else # Linux
     export PATH="$PATH:${$(find ~/dotfiles/bin/.local/bin -type d -printf %p:)%%:}"
+    export PATH="$BUN_INSTALL/bin:$PATH"
 
     export BROWSER="brave"
     export WORKSPACE_PATH="$HOME/code/workspace/"
