@@ -155,3 +155,6 @@ bindkey -s '^g' 'live_grep\n'
 bindkey -s '^k' 'fzf-kill\n'
 
 bindkey -s '^w' 'fzf-tmux-workspace\n'
+
+# bun completions
+[ -s "/Users/jraya/.bun/_bun" ] && source "/Users/jraya/.bun/_bun"

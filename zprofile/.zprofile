@@ -5,6 +5,8 @@ function common_variables() {
     export XDG_DATA_HOME="$HOME/.local/share"
     export XDG_CACHE_HOME="$HOME/.cache"
 
+    export BUN_INSTALL="$HOME/.bun"
+
     export EDITOR="nvim"
     export TERMINAL="kitty"
 
@@ -35,12 +37,13 @@ if [ "$(uname)" = "Darwin" ]; then # macOS
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
     export PATH="$PATH:$(find ~/dotfiles/bin/.local/bin -type d -depth 1 | tr '\n' ':' | sed 's/:$//')"
+    export PATH="$BUN_INSTALL/bin:$PATH"
 
     export BROWSER="google-chrome"
     export WORKSPACE_PATH="$HOME/code/commercehub/"
 else # Linux
     export PATH="$PATH:${$(find ~/dotfiles/bin/.local/bin -type d -printf %p:)%%:}"
-
+    export PATH="$BUN_INSTALL/bin:$PATH"
 
     export BROWSER="brave"
     export WORKSPACE_PATH="$HOME/code/workspace/"
