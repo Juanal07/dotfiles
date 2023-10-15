@@ -18,7 +18,6 @@ zmodload zsh/complist
 _comp_options+=(globdots) # Include hidden files.
 
 # VIM MODE
-# bindkey -v
 export KEYTIMEOUT=1
 
 # Use vim keys in tab complete menu:
@@ -45,7 +44,7 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-# LF: Ctrl + o -> Open LF in the actual dir
+# Ctrl + o -> Open LF in the actual dir
 function lfcd() {
     tmp="$(mktemp)"
     ~/.config/lf/lf-image.sh -last-dir-path="$tmp" "$@"
@@ -157,7 +156,3 @@ bindkey -s '^k' 'fzf-kill\n'
 bindkey -s '^w' 'fzf-tmux-workspace\n'
 
 bindkey -s '^t' 'fzf-useful-commands\n'
-
-# bun completions
-# [ -s "/Users/jraya/.bun/_bun" ] && source "/Users/jraya/.bun/_bun"
-# [ -s "/home/juan/.bun/_bun" ] && source "/home/juan/.bun/_bun"
