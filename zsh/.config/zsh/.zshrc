@@ -156,6 +156,8 @@ bindkey -s '^k' 'fzf-kill\n'
 
 bindkey -s '^w' 'fzf-tmux-workspace\n'
 
+bindkey -s '^t' 'fzf-useful-commands\n'
+
 # bun completions
-[ -s "/Users/jraya/.bun/_bun" ] && source "/Users/jraya/.bun/_bun"
-[ -s "/home/juan/.bun/_bun" ] && source "/home/juan/.bun/_bun"
+# [ -s "/Users/jraya/.bun/_bun" ] && source "/Users/jraya/.bun/_bun"
+# [ -s "/home/juan/.bun/_bun" ] && source "/home/juan/.bun/_bun"
