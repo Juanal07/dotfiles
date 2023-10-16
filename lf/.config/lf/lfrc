@@ -5,6 +5,15 @@ set dircounts true
 set scrolloff 8
 set icons true
 set ignorecase true
+set cursorpreviewfmt "\033[7m"
+set shell zsh
+set shellopts '-euy'
+set ifs "\n"
+set filesep "\n"  # default already
+
+map y %cp -ri -- $fs .
+map d %mv -i -- $fs .
+map p
 
 set previewer ~/.config/lf/previewer.sh
 set cleaner ~/.config/lf/clear_img.sh
