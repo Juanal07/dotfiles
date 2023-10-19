@@ -44,12 +44,13 @@ vim.api.nvim_set_keymap("n", "<leader>fm", ":Telescope media_files<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>fo", ":Telescope colorscheme<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>fs", ":Telescope git_status<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>fd", ":Telescope diagnostics<cr>", { desc = "[S]earch [D]iagnostics" })
+vim.api.nvim_set_keymap("n", "<leader>fd", ":Telescope diagnostics<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>fp", ":Telescope neoclip<cr>", opts)
 
 vim.api.nvim_set_keymap("n", "<leader>n", ":NvimTreeFindFileToggle<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>r", ":NvimTreeRefresh<CR>", opts)
 
-vim.api.nvim_set_keymap("n", "<C-p>", ":MarkdownPreviewToggle<cr>", opts)
+-- vim.api.nvim_set_keymap("n", "<C-p>", ":MarkdownPreviewToggle<cr>", opts)
 
 vim.api.nvim_set_keymap("n", "<leader>p", ":lua require'options'.toggleProse()<cr>", opts)
 

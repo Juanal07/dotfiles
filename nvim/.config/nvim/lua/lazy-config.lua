@@ -5,7 +5,7 @@ if not vim.loop.fs_stat(lazypath) then
 		"clone",
 		"--filter=blob:none",
 		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
+		"--branch=stable",
 		lazypath,
 	})
 end
@@ -31,6 +31,7 @@ require("lazy").setup({
 		"dsznajder/vscode-es7-javascript-react-snippets",
 		build = "yarn install --frozen-lockfile && yarn compile",
 	},
+	-- GUI
 	{ "ellisonleao/gruvbox.nvim", priority = 1000 },
 	"folke/tokyonight.nvim",
 	"Mofiqul/vscode.nvim",
@@ -45,7 +46,6 @@ require("lazy").setup({
 	{
 		"NeogitOrg/neogit",
 		config = true,
-		commit = "00b4486",
 	},
 	{
 		"kevinhwang91/nvim-ufo",
@@ -133,6 +133,12 @@ require("lazy").setup({
 			"nvim-tree/nvim-web-devicons",
 		},
 		opts = {},
+	},
+	{
+		"AckslD/nvim-neoclip.lua",
+		config = function()
+			require("neoclip").setup()
+		end,
 	},
 	{
 		"iamcco/markdown-preview.nvim",

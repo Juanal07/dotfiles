@@ -77,7 +77,7 @@ end
 require("nvim-tree").setup({
 	on_attach = on_attach,
 	view = {
-		-- side = 'right',
+		-- side = "right",
 		width = {},
 	},
 	renderer = {
@@ -99,6 +99,9 @@ require("nvim-tree").setup({
 		open_file = {
 			quit_on_open = true,
 		},
+	},
+	filters = {
+		custom = { ".DS_Store" },
 	},
 })
 

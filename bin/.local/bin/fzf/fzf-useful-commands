@@ -2,22 +2,18 @@
 
 useful_commands=$(cat << EOF
 sxs-cli login
-npm run build && cd build/artifact/ && sls deploy --stage test --function {api/bot name} && cd ../..
 sxs-cli login && cat ~/.aws/credentials | pbcopy
+npm run build && cd build/artifact/ && sls deploy --stage test --function {api/bot name} && cd ../..
 brew update && brew upgrade
+rm -rf ./node_modules
+rm -rf ./angular
+ssh -T git@github.com
+ssh-add --apple-use-keychain ~/.ssh/{key}
+git checkout main -- path/to/example.txt
 EOF
 )
 
 chosen_command=$(echo "$useful_commands" | fzf)
-
-# if [ -n "$chosen_command" ]; then
-#     printf "$chosen_command" | xclip -selection clipboard
-#     xdotool key ctrl+shift+v
-# fi
-# if [ -n "$chosen_command" ]; then
-#     printf "$chosen_command" | sh
-#     osascript -e 'tell application "System Events" to keystroke "v" using {command down, shift down}'
-# fi
 
 case "$(uname -s)" in
     Darwin)

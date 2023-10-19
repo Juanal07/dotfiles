@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Get the current branch name
+branch_name=$(git rev-parse --abbrev-ref HEAD)
+
+# Check if the branch name is not empty (i.e., you're not in a detached HEAD state)
+if [ -n "$branch_name" ]; then
+    # Remove characters before '/' in the branch name (if '/' exists)
+    branch_name=${branch_name##*/}
+
+    # Use a regular expression to split the input into three parts: the prefix, the number, and the description.
+    if [[ $branch_name =~ ^([A-Z]+)-([0-9]+)-(.+)$ ]]; then
+        prefix="${BASH_REMATCH[1]}"
+        number="${BASH_REMATCH[2]}"
+        description="${BASH_REMATCH[3]}"
+        first_letter="${description:0:1}"
+        rest="${description:1}"
+        description="$(tr '[:lower:]' '[:upper:]' <<< "$first_letter")$rest"
+        commit_message="$prefix-$number: ${description//[-]/ }"
+    else
+        commit_message="Wip"
+    fi
+else
+    # Use a generic commit message if the branch name is empty
+    commit_message="Wip"
+fi
+
+# Add all changes, commit with the updated message, and push
+echo "Commit: $commit_message"
+git add .
+git commit -m "$commit_message"
+git push

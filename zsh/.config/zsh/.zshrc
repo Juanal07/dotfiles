@@ -72,6 +72,7 @@ fi
 # Prompt Powerlevel10k: To customize run `p10k configure` or edit $ZDOTDIR/.p10k.zsh. Install -> sudo pacman -S zsh-theme-powerlevel10k
 [[ -f $powerlevel10k ]] && source $powerlevel10k
 [[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
+# eval "$(starship init zsh)"
 
 # Autosuggestions, zsh-autosuggestions: install -> sudo pacman -S zsh-syntax-autosuggestions
 if [[ -f $autosuggestions ]]; then
@@ -93,7 +94,7 @@ if [[ -f $sudo ]]; then
 fi
 
 # Fzf
-export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --preview "bat --theme=gruvbox-dark --style=numbers,changes --color=always {}"'
+export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border --preview "bat --theme=gruvbox-dark --style=numbers,changes --color=always {}"'
 
 # Ctrl + r -> Last commands
 function fzf-history() {
