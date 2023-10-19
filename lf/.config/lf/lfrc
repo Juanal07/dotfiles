@@ -11,11 +11,6 @@ set shellopts '-euy'
 set ifs "\n"
 set filesep "\n"
 
-# Doesn't work on mac
-# map y %cp -ri -- $fs .
-# map d %mv -i -- $fs .
-# map p
-
 set previewer ~/.config/lf/previewer.sh
 set cleaner ~/.config/lf/clear_img.sh
 
@@ -77,12 +72,14 @@ map Y yank-basename-without-extension
 
 map <enter> shell
 
-map x $$f #Execute file
+#Execute file
+map x $$f
 map X !$f
 
 map <space> :toggle
 
-map <c-f> $lf -remote "send $id select '$(fzf)'" # Fuzzy Find file
+# Fuzzy Find file
+map <c-f> $lf -remote "send $id select '$(fzf)'"
 
 map <c-r> reload
 

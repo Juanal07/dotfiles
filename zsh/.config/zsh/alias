@@ -31,7 +31,6 @@ alias \
     gbranch="fzf-change-branch" \
     gdelete="fzf-delete-branch" \
     gps='gps-with-branch-name'
-# gps='git add . && git commit -m "Wip" && git push'
 
 # With this one we can use our alias with sudo
 alias sudo="sudo "

@@ -15,17 +15,19 @@ EOF
 
 chosen_command=$(echo "$useful_commands" | fzf)
 
-case "$(uname -s)" in
-    Darwin)
-        clip_paste="echo $chosen_command"
-        type_cmd="osascript -e 'tell application \"System Events\" to keystroke \"%s\"'"
-        ;;
-    *)
-        clip_paste="xclip -o"
-        type_cmd='xdotool type "%s"'
-        ;;
-esac
-
-text="$($clip_paste)"
-
-printf "$type_cmd" "${text}" | sh
+if [ -n "$chosen_command" ]; then
+    case "$(uname -s)" in
+        Darwin)
+            clip_paste="echo $chosen_command"
+            type_cmd="osascript -e 'tell application \"System Events\" to keystroke \"%s\"'"
+            ;;
+        *)
+            clip_paste="xclip -o"
+            type_cmd='xdotool type "%s"'
+            ;;
+    esac
+    text="$($clip_paste)"
+    printf "$type_cmd" "${text}" | sh
+else
+    echo "No command selected."
+fi

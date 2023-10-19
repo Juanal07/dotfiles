@@ -1,6 +1,5 @@
 #!/bin/sh
 # List all branches and select one
-# branch=$(git branch -a | sed 's/.* //' | fzf)
 branch=$(git branch | sed 's/.* //' | fzf)
 
 if [ -n "$branch" ]; then
@@ -9,4 +8,3 @@ if [ -n "$branch" ]; then
 else
     echo "No branch selected."
 fi
-

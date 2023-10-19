@@ -53,6 +53,10 @@ end
 -- On attach function
 local on_attach = function(client, bufnr)
 	lsp_keymaps(bufnr)
+	-- Fix for double lsp rename in angular
+	if client.name == "angularls" then
+		client.server_capabilities.renameProvider = false
+	end
 end
 
 local lspconfig = require("lspconfig")
