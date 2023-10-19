@@ -11,6 +11,12 @@ set shellopts '-euy'
 set ifs "\n"
 set filesep "\n"
 
+cmd edit-config ${{
+    $EDITOR ~/.config/lf/lfrc
+    lf -remote "send $id source ~/.config/lf/lfrc"
+}}
+map C edit-config
+
 set previewer ~/.config/lf/previewer.sh
 set cleaner ~/.config/lf/clear_img.sh
 
@@ -66,6 +72,15 @@ map b $setbg $f
 
 cmd bulkrename $vidir
 map B bulkrename
+
+# unmap the default rename keybinding
+map r
+
+map i rename
+map I :rename; cmd-home
+map A :rename; cmd-end
+map c :rename; cmd-delete-home
+map C :rename; cmd-end; cmd-delete-home
 
 cmd yank-basename-without-extension &basename -a -- $fx | rev | cut -d. -f2- | rev | head -c-1 | xclip -i -selection clipboard
 map Y yank-basename-without-extension
