@@ -1,6 +1,6 @@
 #!/bin/sh
 # List all branches and select one
-branch=$(git branch | sed 's/.* //' | fzf)
+branch=$(git branch | sed 's/.* //' | fzf --border --preview "git log --graph --color=always --date=human --format='%C(auto)%h%d %s %C(white)%C(bold)%ad by %an' {}")
 
 if [ -n "$branch" ]; then
     # Checkout the selected branch

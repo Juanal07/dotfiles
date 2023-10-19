@@ -3,7 +3,7 @@ commit=$(
     git log --graph \
         --color=always \
         --date=human \
-        --format="%C(auto)%h%d %s %C(black)%C(bold)%ad by %an" |
+        --format="%C(auto)%h%d %s %C(white)%C(bold)%ad by %an" |
     fzf --ansi --no-sort \
         --preview '
         __commit="$(echo {} | grep -o "[a-f0-9]\{7\}")";

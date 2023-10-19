@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Function to interact with ChatGPT
+generate_commit_comment() {
+    local input_text="$1"
+    curl -s -X POST -H "Authorization: Bearer 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" -H "Content-Type: application/json" -d '{
+        "prompt": "'"${input_text}"'",
+        "max_tokens": 50
+    }' https://api.openai.com/v1/engines/davinci-codex/completions | jq -r .choices[0].text
+}
+
+# Get the commit differences (diff)
+commit_diff=$(git diff)
+
+# Generate a prompt for ChatGPT with the commit differences
+prompt="Create a commit comment for the following changes:\n\n${commit_diff}\n\nComment: "
+
+# Get a commit comment from ChatGPT
+commit_comment=$(generate_commit_comment "$prompt")
+
+# Commit with the generated comment
+git commit -m "${commit_comment}"
+
+echo "Commit with comment: ${commit_comment}"
