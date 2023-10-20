@@ -34,7 +34,6 @@ vim.api.nvim_set_keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
 vim.api.nvim_set_keymap("v", "p", '"_dP', opts)
 
 vim.api.nvim_set_keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
--- vim.api.nvim_set_keymap("n", "<C-p>", ":Telescope find_files<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>fc", ":Telescope git_commits<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>fu", ":Telescope git_bcommits<cr>", opts)

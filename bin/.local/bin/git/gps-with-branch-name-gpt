@@ -3,7 +3,7 @@
 # Function to interact with ChatGPT
 generate_commit_comment() {
     local input_text="$1"
-    curl -s -X POST -H "Authorization: Bearer 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" -H "Content-Type: application/json" -d '{
+    curl -s -X POST -H "Authorization: Bearer {put key here}" -H "Content-Type: application/json" -d '{
         "prompt": "'"${input_text}"'",
         "max_tokens": 50
     }' https://api.openai.com/v1/engines/davinci-codex/completions | jq -r .choices[0].text
