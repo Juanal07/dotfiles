@@ -26,7 +26,6 @@ else
 fi
 
 # Add all changes, commit with the updated message, and push
-echo "Commit: $commit_message"
 git add .
 git commit -m "$commit_message"
 git push
