@@ -1,15 +1,15 @@
 #!/bin/sh
 
 useful_commands=$(cat << EOF
-sxs-cli login
-sxs-cli login && cat ~/.aws/credentials | pbcopy
+yes 'yes' | rm -vRI ./.angular && yes 'yes' | rm -vRI ./node_modules && npm install && npm start
 npm run build && cd build/artifact/ && sls deploy --stage test --function {api/bot name} && cd ../..
 brew update && brew upgrade
-rm -rf ./node_modules
-rm -rf ./angular
+sxs-cli login
+sxs-cli login && cat ~/.aws/credentials | pbcopy
 ssh -T git@github.com
 ssh-add --apple-use-keychain ~/.ssh/{key}
 git checkout main -- path/to/example.txt
+find . -type f ( -name '.js' -o -name '.jsx' -o -name '.ts' -o -name '.tsx' ) -not -path './node_modules/' -not -path './dist/' -exec prettier --write {}
 EOF
 )
 
