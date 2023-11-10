@@ -1,8 +1,9 @@
 local function lsp_client_names()
 	local client_icons = {
 		-- ["tsserver"] = "",
-		-- ["copilot"] = "",
+		-- ["angularls"] = "",
 		-- ["lua_ls"] = "",
+		-- ["copilot"] = "",
 	}
 
 	local active_clients = vim.lsp.get_active_clients()
@@ -31,12 +32,12 @@ require("lualine").setup({
 		lualine_b = {
 			{
 				"branch",
-				fmt = function(str)
-					if vim.api.nvim_strwidth(str) > 30 then
-						return ("%s…"):format(str:sub(1, 29))
-					end
-					return str
-				end,
+				-- fmt = function(str)
+				-- 	if vim.api.nvim_strwidth(str) > 30 then
+				-- 		return ("%s…"):format(str:sub(1, 29))
+				-- 	end
+				-- 	return str
+				-- end,
 			},
 			"diff",
 			"diagnostics",
