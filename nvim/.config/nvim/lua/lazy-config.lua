@@ -57,7 +57,6 @@ require("lazy").setup({
 		build = ":TSUpdate",
 		dependencies = {
 			"windwp/nvim-ts-autotag",
-			"JoosepAlviste/nvim-ts-context-commentstring",
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			{
 				"elgiano/nvim-treesitter-angular",
@@ -90,18 +89,22 @@ require("lazy").setup({
 				highlight = { enable = true },
 				indent = { enable = true },
 				autotag = { enable = true },
-				context_commentstring = {
-					enable = true,
-					enable_autocmd = false,
-				},
 				-- sync_install = false,
 				auto_install = true,
 			})
 		end,
 	},
+	"JoosepAlviste/nvim-ts-context-commentstring",
 	{
 		"numToStr/Comment.nvim",
 		lazy = false,
+		config = function()
+			require("Comment").setup({
+				pre_hook = function()
+					return vim.bo.commentstring
+				end,
+			})
+		end,
 	},
 	"RRethy/vim-illuminate",
 	"kylechui/nvim-surround",
@@ -134,12 +137,12 @@ require("lazy").setup({
 		},
 		opts = {},
 	},
-	{
-		"AckslD/nvim-neoclip.lua",
-		config = function()
-			require("neoclip").setup()
-		end,
-	},
+	-- {
+	-- 	"AckslD/nvim-neoclip.lua",
+	-- 	config = function()
+	-- 		require("neoclip").setup()
+	-- 	end,
+	-- },
 	{
 		"iamcco/markdown-preview.nvim",
 		ft = "markdown",

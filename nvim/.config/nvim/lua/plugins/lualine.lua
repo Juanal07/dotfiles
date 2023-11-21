@@ -30,7 +30,12 @@ require("lualine").setup({
 	sections = {
 		-- lualine_a = { "mode" },
 		lualine_b = {
-			{
+{ "filename" }
+			,
+			"diff",
+			"diagnostics",
+		},
+		lualine_c = {
 				"branch",
 				-- fmt = function(str)
 				-- 	if vim.api.nvim_strwidth(str) > 30 then
@@ -39,9 +44,6 @@ require("lualine").setup({
 				-- 	return str
 				-- end,
 			},
-			"diff",
-			"diagnostics",
-		},
 		-- lualine_c = { "filename" },
 		lualine_x = { { "lsp_progress" }, { lsp_client_names }, "encoding", "fileformat", "filetype" },
 		-- lualine_y = { "progress" },
