@@ -22,7 +22,6 @@ set cleaner ~/.config/lf/clear_img.sh
 
 cmd open ${{
 case $(file --mime-type "$(readlink -f "$f")" -b) in
-    image/vnd.djvu|application/pdf|application/octet-stream) setsid -f zathura "$fx" >/dev/null 2>&1 ;;
     text/*|application/json|inode/x-empty) $EDITOR "$fx" ;;
     image/x-xcf) setsid -f gimp "$f" >/dev/null 2>&1 ;;
     image/svg+xml) display -- "$f" ;;
@@ -30,8 +29,10 @@ case $(file --mime-type "$(readlink -f "$f")" -b) in
     audio/*) mpv --audio-display=no "$f" ;;
     video/*) setsid -f mpv "$f" -quiet >/dev/null 2>&1 ;;
     application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) libreoffice "$fx" >/dev/null 2>&1;;
+	application/vnd.openxmlformats-officedocument.wordprocessingml.document) libreoffice "$fx" >/dev/null 2>&1;;
     application/pdf|application/vnd*|application/epub*) setsid -f zathura "$fx" >/dev/null 2>&1 ;;
     application/pgp-encrypted) $EDITOR "$fx" ;;
+    image/vnd.djvu|application/pdf|application/octet-stream) setsid -f zathura "$fx" >/dev/null 2>&1 ;;
     *) for f in "$fx"; do setsid -f $OPENER "$f" >/dev/null 2>&1; done;;
 esac
 }}
@@ -52,6 +53,7 @@ cmd extract ${{
 }}
 map E extract
 
+# TODO: fix
 cmd delete ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
@@ -74,13 +76,12 @@ cmd bulkrename $vidir
 map B bulkrename
 
 # unmap the default rename keybinding
-map r
-
-map i rename
-map I :rename; cmd-home
-map A :rename; cmd-end
-map c :rename; cmd-delete-home
-map C :rename; cmd-end; cmd-delete-home
+# map r
+# map i rename
+# map I :rename; cmd-home
+# map A :rename; cmd-end
+# map c :rename; cmd-delete-home
+# map C :rename; cmd-end; cmd-delete-home
 
 cmd yank-basename-without-extension &basename -a -- $fx | rev | cut -d. -f2- | rev | head -c-1 | xclip -i -selection clipboard
 map Y yank-basename-without-extension
