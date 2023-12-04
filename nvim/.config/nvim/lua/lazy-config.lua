@@ -24,7 +24,13 @@ require("lazy").setup({
 	"hrsh7th/cmp-nvim-lua",
 	"hrsh7th/cmp-nvim-lsp",
 	"saadparwaiz1/cmp_luasnip",
+{
 	"L3MON4D3/LuaSnip",
+	-- follow latest release.
+	version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+	-- install jsregexp (optional!).
+	build = "make install_jsregexp"
+},
 	"rafamadriz/friendly-snippets",
 	"xabikos/vscode-javascript",
 	{
@@ -152,4 +158,5 @@ require("lazy").setup({
 	},
 	-- "github/copilot.vim",
 	-- "gpanders/editorconfig.nvim",
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }
 })

@@ -93,7 +93,7 @@ require("nvim-tree").setup({
 		show_on_dirs = true,
 	},
 	git = {
-		ignore = false,
+		ignore = true,
 	},
 	actions = {
 		open_file = {

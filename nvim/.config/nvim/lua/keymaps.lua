@@ -38,7 +38,12 @@ vim.api.nvim_set_keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>fc", ":Telescope git_commits<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>fu", ":Telescope git_bcommits<cr>", opts)
 -- vim.api.nvim_set_keymap("n", "<leader>fb", ":Telescope git_branches<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>fb", ":Telescope buffers<cr>", opts)
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>fb",
+	[[<cmd>lua require('telescope.builtin').buffers({ sort_lastused = true })<CR>]],
+	opts
+)
 vim.api.nvim_set_keymap("n", "<leader>fm", ":Telescope media_files<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>fo", ":Telescope colorscheme<cr>", opts)
