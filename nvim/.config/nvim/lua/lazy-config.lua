@@ -24,13 +24,11 @@ require("lazy").setup({
 	"hrsh7th/cmp-nvim-lua",
 	"hrsh7th/cmp-nvim-lsp",
 	"saadparwaiz1/cmp_luasnip",
-{
-	"L3MON4D3/LuaSnip",
-	-- follow latest release.
-	version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-	-- install jsregexp (optional!).
-	build = "make install_jsregexp"
-},
+	{
+		"L3MON4D3/LuaSnip",
+		version = "v2.*",
+		build = "make install_jsregexp",
+	},
 	"rafamadriz/friendly-snippets",
 	"xabikos/vscode-javascript",
 	{
@@ -69,48 +67,11 @@ require("lazy").setup({
 				branch = "topic/jsx-fix",
 			},
 		},
-		config = function()
-			local treesitter = require("nvim-treesitter.configs")
-			treesitter.setup({
-				-- ensure_installed = "all",
-				ensure_installed = {
-					"json",
-					"javascript",
-					"typescript",
-					"tsx",
-					"yaml",
-					"html",
-					"css",
-					"prisma",
-					"markdown",
-					"markdown_inline",
-					"svelte",
-					"graphql",
-					"bash",
-					"lua",
-					"vim",
-					"dockerfile",
-					"gitignore",
-				},
-				highlight = { enable = true },
-				indent = { enable = true },
-				autotag = { enable = true },
-				-- sync_install = false,
-				auto_install = true,
-			})
-		end,
 	},
 	"JoosepAlviste/nvim-ts-context-commentstring",
 	{
 		"numToStr/Comment.nvim",
 		lazy = false,
-		config = function()
-			require("Comment").setup({
-				pre_hook = function()
-					return vim.bo.commentstring
-				end,
-			})
-		end,
 	},
 	"RRethy/vim-illuminate",
 	"kylechui/nvim-surround",
@@ -158,5 +119,5 @@ require("lazy").setup({
 	},
 	-- "github/copilot.vim",
 	-- "gpanders/editorconfig.nvim",
-	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 })
