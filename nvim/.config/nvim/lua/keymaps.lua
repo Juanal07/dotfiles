@@ -56,7 +56,7 @@ vim.api.nvim_set_keymap("n", "<leader>r", ":NvimTreeRefresh<CR>", opts)
 
 -- vim.api.nvim_set_keymap("n", "<C-p>", ":MarkdownPreviewToggle<cr>", opts)
 
-vim.api.nvim_set_keymap("n", "<leader>p", ":lua require'options'.toggleProse()<cr>", opts)
+-- vim.api.nvim_set_keymap("n", "<leader>p", ":lua require'options'.toggleProse()<cr>", opts)
 
 vim.api.nvim_set_keymap("n", "<leader>dvo", ":DiffviewOpen<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>dvc", ":DiffviewClose<cr>", opts)
