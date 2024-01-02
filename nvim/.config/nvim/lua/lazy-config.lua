@@ -56,6 +56,7 @@ require("lazy").setup({
 			},
 		},
 		opts = {
+			background_colour = "#000",
 			timeout = 3000,
 			max_height = function()
 				return math.floor(vim.o.lines * 0.75)
@@ -150,26 +151,19 @@ require("lazy").setup({
 			vim.fn["mkdp#util#install"]()
 		end,
 	},
-	-- "github/copilot.vim",
 	-- "gpanders/editorconfig.nvim",
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
-	{
-		"zbirenbaum/copilot.lua",
-		-- cmd = "Copilot",
-		-- event = "InsertEnter",
-		-- config = function()
-		-- 	require("copilot").setup({})
-		-- end,
-	},
+	-- "github/copilot.vim",
+	"zbirenbaum/copilot.lua",
 	"AndreM222/copilot-lualine",
-{
-  "nvim-pack/nvim-spectre",
-  build = false,
-  cmd = "Spectre",
-  opts = { open_cmd = "noswapfile vnew" },
-  -- stylua: ignore
-  keys = {
-    { "<leader>sr", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
-  },
-}
+	{
+		"nvim-pack/nvim-spectre",
+		build = false,
+		cmd = "Spectre",
+		opts = { open_cmd = "noswapfile vnew" },
+		-- stylua: ignore
+		keys = {
+			{ "<leader>sr", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
+		},
+	},
 })

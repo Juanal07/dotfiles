@@ -69,8 +69,9 @@ end
 require("nvim-tree").setup({
 	on_attach = on_attach,
 	view = {
-		-- side = "right",
-		width = {},
+		side = "right",
+		width = 100,
+		-- width = {},
 	},
 	renderer = {
 		root_folder_label = false,

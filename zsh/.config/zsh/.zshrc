@@ -66,7 +66,7 @@ syntax=/usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.
 if [ "$(uname)" = "Darwin" ]; then
     powerlevel10k=/opt/homebrew/Cellar/powerlevel10k/1.19.0/powerlevel10k.zsh-theme
     autosuggestions=/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    syntax=/opt/homebrew/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    syntax=/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 # Prompt Powerlevel10k: To customize run `p10k configure` or edit $ZDOTDIR/.p10k.zsh. Install -> sudo pacman -S zsh-theme-powerlevel10k

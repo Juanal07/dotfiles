@@ -41,3 +41,6 @@ require("copilot").setup({
 	copilot_node_command = "node", -- Node.js version must be > 18.x
 	server_opts_overrides = {},
 })
+if vim.fn.has("mac") == 1 then
+  vim.api.nvim_command("Copilot disable")
+end
