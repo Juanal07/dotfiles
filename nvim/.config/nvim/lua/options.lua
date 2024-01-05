@@ -1,9 +1,8 @@
-vim.opt.laststatus = 3
+vim.opt.laststatus = 2
 vim.opt.termguicolors = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
--- vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.showmode = false
 vim.opt.number = true
@@ -32,7 +31,7 @@ function M.toggleProse()
 		vim.opt.linebreak = true
 		vim.opt.columns = 80
 		vim.opt.list = true
-		vim.opt.listchars = { tab = "→ ", trail = "·", eol = "↲", space = "·", extends = "#" } --ejemplos
+		vim.opt.listchars = { tab = "→ ", trail = "·", eol = "↲", extends = "…" }
 		vim.api.nvim_set_keymap("n", "j", "gj", { noremap = true, silent = true })
 		vim.api.nvim_set_keymap("n", "k", "gk", { noremap = true, silent = true })
 	else

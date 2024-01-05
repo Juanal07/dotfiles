@@ -89,6 +89,7 @@ require("lazy").setup({
 		"kevinhwang91/nvim-ufo",
 		dependencies = "kevinhwang91/promise-async",
 	},
+	"luukvbaal/statuscol.nvim",
 	{
 		"nvim-treesitter/nvim-treesitter",
 		event = { "BufReadPre", "BufNewFile" },
@@ -153,7 +154,6 @@ require("lazy").setup({
 	},
 	-- "gpanders/editorconfig.nvim",
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
-	-- "github/copilot.vim",
 	"zbirenbaum/copilot.lua",
 	"AndreM222/copilot-lualine",
 	{
@@ -164,6 +164,15 @@ require("lazy").setup({
 		-- stylua: ignore
 		keys = {
 			{ "<leader>sr", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
+		},
+	},
+	{
+		"nvim-neotest/neotest",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"antoinemadec/FixCursorHold.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-neotest/neotest-jest",
 		},
 	},
 })
