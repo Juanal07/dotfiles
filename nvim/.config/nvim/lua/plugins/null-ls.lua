@@ -51,7 +51,7 @@ null_ls.setup({
 
 		-- JS/TS
 		formatting.prettier,
-		-- diagnostics.eslint_d,
+		diagnostics.eslint_d,
 
 		-- Lua
 		formatting.stylua,
@@ -78,7 +78,8 @@ null_ls.setup({
 				group = augroup,
 				buffer = bufnr,
 				callback = function()
-					async_formatting(bufnr)
+					-- async_formatting(bufnr) -- Needed for prettier + tailwindcss plugin
+					vim.lsp.buf.format({ bufnr = bufnr })
 				end,
 			})
 		end

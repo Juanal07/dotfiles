@@ -8,7 +8,7 @@ telescope.setup({
 		prompt_prefix = " ",
 		selection_caret = " ",
 		path_display = { "smart" },
-		file_ignore_patterns = { "node_modules", ".next", "dist" },
+		file_ignore_patterns = { "node_modules", ".next", "dist", "package%-lock.json" },
 		winblend = 10,
 	},
 	pickers = {
