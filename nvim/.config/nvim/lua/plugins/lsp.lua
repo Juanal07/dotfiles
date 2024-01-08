@@ -1,4 +1,4 @@
-                      require("mason").setup({ PATH = "append" })
+require("mason").setup({ PATH = "append" })
 require("mason-lspconfig").setup({})
 
 -- Diagnostic Signs
@@ -23,6 +23,27 @@ local config = {
 	},
 }
 vim.diagnostic.config(config)
+
+-- local border = {
+-- 	{ "🭽", "FloatBorder" },
+-- 	{ "▔", "FloatBorder" },
+-- 	{ "🭾", "FloatBorder" },
+-- 	{ "▕", "FloatBorder" },
+-- 	{ "🭿", "FloatBorder" },
+-- 	{ "▁", "FloatBorder" },
+-- 	{ "🭼", "FloatBorder" },
+-- 	{ "▏", "FloatBorder" },
+-- }
+
+-- LSP settings (for overriding per client)
+-- local handlers = {
+-- 	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+-- 	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+-- }
+local handlers = {
+	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
+	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+}
 
 vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx, config)
 	config = config or {}
@@ -87,6 +108,7 @@ require("mason-lspconfig").setup_handlers({
 				},
 			},
 			on_attach = on_attach,
+			-- handlers = handlers,
 		})
 	end,
 	-- Python
@@ -100,12 +122,14 @@ require("mason-lspconfig").setup_handlers({
 				},
 			},
 			on_attach = on_attach,
+			-- handlers = handlers,
 		})
 	end,
 	-- Default
 	function(server_name)
 		lspconfig[server_name].setup({
 			on_attach = on_attach,
+			-- handlers = handlers,
 		})
 	end,
 })

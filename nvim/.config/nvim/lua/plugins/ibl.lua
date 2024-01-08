@@ -23,5 +23,5 @@
 -- end)
 -- hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
 
--- vim.api.nvim_set_hl(0, "CurrentScope", { fg = "#a89984" })
--- require("ibl").setup({ scope = { highlight = "CurrentScope" } })
+vim.api.nvim_set_hl(0, "CurrentScope", { fg = "#a89984" })
+require("ibl").setup({ scope = { highlight = "CurrentScope" } })
