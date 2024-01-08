@@ -3,7 +3,7 @@ local function lsp_client_names()
 		-- ["tsserver"] = "",
 		-- ["angularls"] = "",
 		-- ["lua_ls"] = "",
-		-- ["copilot"] = "",
+		["copilot"] = "",
 	}
 
 	local active_clients = vim.lsp.get_active_clients()

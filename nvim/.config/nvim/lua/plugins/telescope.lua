@@ -9,6 +9,7 @@ telescope.setup({
 		selection_caret = " ",
 		path_display = { "smart" },
 		file_ignore_patterns = { "node_modules", ".next", "dist" },
+		winblend = 10,
 	},
 	pickers = {
 		find_files = {
