@@ -16,6 +16,8 @@ vim.cmd("colorscheme " .. colorscheme)
 
 -- vim.cmd("highlight Normal ctermbg='none' guibg='none'")
 vim.cmd("highlight FoldColumn guibg='none'")
+vim.cmd("highlight NormalFloat guibg='none'")
+vim.cmd("highlight FloatBorder guibg='none'")
 
 vim.opt.pumblend = 10
 vim.opt.winblend = 10
@@ -24,12 +26,10 @@ require("cmp").setup({
 	window = {
 		completion = {
 			border = "rounded",
-			-- winhighlight = "Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None",
 			winhighlight = "Normal:None",
 		},
 		documentation = {
 			border = "rounded",
-			-- winhighlight = "Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None",
 			winhighlight = "Normal:None",
 		},
 	},

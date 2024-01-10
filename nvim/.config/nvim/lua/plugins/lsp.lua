@@ -16,33 +16,25 @@ end
 local config = {
 	virtual_text = true,
 	severity_sort = true,
+	underline = false,
 	float = {
 		source = "always",
+		border = "rounded",
 		header = "",
 		-- prefix = "",
 	},
 }
 vim.diagnostic.config(config)
 
--- local border = {
--- 	{ "🭽", "FloatBorder" },
--- 	{ "▔", "FloatBorder" },
--- 	{ "🭾", "FloatBorder" },
--- 	{ "▕", "FloatBorder" },
--- 	{ "🭿", "FloatBorder" },
--- 	{ "▁", "FloatBorder" },
--- 	{ "🭼", "FloatBorder" },
--- 	{ "▏", "FloatBorder" },
--- }
-
--- LSP settings (for overriding per client)
--- local handlers = {
--- 	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
--- 	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
--- }
-local handlers = {
-	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
-	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+local border_config = {
+	{ "╭", "FloatBorder" },
+	{ "─", "FloatBorder" },
+	{ "╮", "FloatBorder" },
+	{ "│", "FloatBorder" },
+	{ "╯", "FloatBorder" },
+	{ "─", "FloatBorder" },
+	{ "╰", "FloatBorder" },
+	{ "│", "FloatBorder" },
 }
 
 vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx, config)
@@ -58,7 +50,14 @@ vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx, config)
 		-- vim.notify('No information available')
 		return
 	end
+
+	config.border = border_config
+
 	return vim.lsp.util.open_floating_preview(markdown_lines, "markdown", config)
+end
+
+vim.lsp.handlers["textDocument/signatureHelp"] = function()
+	return vim.lsp.with(vim.lsp.handlers.signature_help, { border = border_config })
 end
 
 -- LSP keymaps
@@ -74,14 +73,13 @@ local function lsp_keymaps(bufnr)
 	)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<S-R>", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts) -- Mapping conflict with diff view: take changes from all (mine and theirs)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 end
 
