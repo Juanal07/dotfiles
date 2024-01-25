@@ -106,7 +106,6 @@ require("mason-lspconfig").setup_handlers({
 				},
 			},
 			on_attach = on_attach,
-			-- handlers = handlers,
 		})
 	end,
 	-- Python
@@ -120,14 +119,12 @@ require("mason-lspconfig").setup_handlers({
 				},
 			},
 			on_attach = on_attach,
-			-- handlers = handlers,
 		})
 	end,
 	-- Default
 	function(server_name)
 		lspconfig[server_name].setup({
 			on_attach = on_attach,
-			-- handlers = handlers,
 		})
 	end,
 })

@@ -39,8 +39,14 @@ cmp.setup({
 		end,
 	},
 	window = {
-		-- completion = cmp.config.window.bordered(),
-		-- documentation = cmp.config.window.bordered(),
+		completion = {
+			border = "rounded",
+			winhighlight = "Normal:None",
+		},
+		documentation = {
+			border = "rounded",
+			winhighlight = "Normal:None",
+		},
 	},
 	mapping = cmp.mapping.preset.insert({
 		["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -57,18 +63,20 @@ cmp.setup({
 		{ name = "path" },
 	},
 	formatting = {
-		fields = { "kind", "abbr", "menu" },
-		format = function(entry, vim_item)
-			vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-			vim_item.menu = ({
+		fields = { "abbr", "kind", "menu" },
+		format = require("lspkind").cmp_format({
+			preset = "default",
+			mode = "symbol_text",
+			maxwidth = 30,
+			ellipsis_char = "...",
+			menu = {
 				nvim_lsp = "[LSP]",
 				nvim_lua = "[NVIM_LUA]",
 				luasnip = "[Snippet]",
 				buffer = "[Buffer]",
 				path = "[Path]",
-			})[entry.source.name]
-			return vim_item
-		end,
+			},
+		}),
 	},
 	cmp.setup.cmdline({ "/", "?" }, {
 		mapping = cmp.mapping.preset.cmdline(),
@@ -85,4 +93,3 @@ cmp.setup({
 		}),
 	}),
 })
-

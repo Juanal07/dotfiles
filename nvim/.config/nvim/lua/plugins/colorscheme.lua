@@ -21,16 +21,3 @@ vim.cmd("highlight FloatBorder guibg='none'")
 
 vim.opt.pumblend = 10
 vim.opt.winblend = 10
-
-require("cmp").setup({
-	window = {
-		completion = {
-			border = "rounded",
-			winhighlight = "Normal:None",
-		},
-		documentation = {
-			border = "rounded",
-			winhighlight = "Normal:None",
-		},
-	},
-})
