@@ -1,0 +1,21 @@
+#!/bin/bash
+
+chosen_stash=$(git stash list "$@" | fzf --ansi --no-sort --reverse --print-query --query="$query" --preview="echo {} | cut -d':' -f1 | xargs git stash show -p --color=always")
+command="git stash pop ${chosen_stash%%:*}"
+
+if [ -n "$command" ]; then
+    case "$(uname -s)" in
+        Darwin)
+            clip_paste="echo $command"
+            type_cmd="osascript -e 'tell application \"System Events\" to keystroke \"%s\"'"
+            ;;
+        *)
+            clip_paste="xclip -o"
+            type_cmd='xdotool type "%s"'
+            ;;
+    esac
+    text="$($clip_paste)"
+    printf "$type_cmd" "${text}" | sh
+else
+    echo "No command selected."
+fi
