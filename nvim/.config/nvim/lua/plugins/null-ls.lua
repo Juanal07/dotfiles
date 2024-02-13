@@ -5,8 +5,6 @@ local diagnostics = null_ls.builtins.diagnostics
 
 local async_formatting = function(bufnr)
 	bufnr = bufnr or vim.api.nvim_get_current_buf()
-
-	-- Check if lua_ls is active
 	local active_clients = vim.lsp.get_active_clients()
 	for _, client in ipairs(active_clients) do
 		if client.name == "lua_ls" then
@@ -14,7 +12,6 @@ local async_formatting = function(bufnr)
 			return
 		end
 	end
-
 	vim.lsp.buf_request(
 		bufnr,
 		"textDocument/formatting",
@@ -22,16 +19,12 @@ local async_formatting = function(bufnr)
 		function(err, res, ctx)
 			if err then
 				local err_msg = type(err) == "string" and err or err.message
-				-- you can modify the log message / level (or ignore it completely)
 				vim.notify("formatting: " .. err_msg, vim.log.levels.WARN)
 				return
 			end
-
-			-- don't apply results if buffer is unloaded or has been modified
 			if not vim.api.nvim_buf_is_loaded(bufnr) or vim.api.nvim_buf_get_option(bufnr, "modified") then
 				return
 			end
-
 			if res then
 				local client = vim.lsp.get_client_by_id(ctx.client_id)
 				vim.lsp.util.apply_text_edits(res, bufnr, client and client.offset_encoding or "utf-16")
@@ -43,6 +36,15 @@ local async_formatting = function(bufnr)
 	)
 end
 
+local sync_formatting = function(bufnr)
+	vim.lsp.buf.format({
+		filter = function(client)
+			return client.name == "null-ls"
+		end,
+		bufnr = bufnr,
+	})
+end
+
 null_ls.setup({
 	debug = false,
 	sources = {
@@ -51,7 +53,7 @@ null_ls.setup({
 
 		-- JS/TS
 		formatting.prettier,
-		-- diagnostics.eslint_d,
+		diagnostics.eslint_d,
 
 		-- Lua
 		formatting.stylua,
@@ -78,8 +80,8 @@ null_ls.setup({
 				group = augroup,
 				buffer = bufnr,
 				callback = function()
-					-- async_formatting(bufnr) -- Needed for prettier + tailwindcss plugin
-					vim.lsp.buf.format({ bufnr = bufnr })
+					async_formatting(bufnr)
+					-- sync_formatting(bufnr)
 				end,
 			})
 		end
