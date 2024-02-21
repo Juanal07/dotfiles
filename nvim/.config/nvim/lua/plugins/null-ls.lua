@@ -48,6 +48,9 @@ end
 null_ls.setup({
 	debug = false,
 	sources = {
+		-- Spellchecking
+		diagnostics.misspell,
+
 		-- Editorconfig
 		-- diagnostics.editorconfig_checker,
 
