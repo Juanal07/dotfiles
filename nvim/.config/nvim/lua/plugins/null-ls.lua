@@ -49,14 +49,14 @@ null_ls.setup({
 	debug = false,
 	sources = {
 		-- Spellchecking
-		diagnostics.misspell,
+		-- diagnostics.misspell,
 
 		-- Editorconfig
 		-- diagnostics.editorconfig_checker,
 
 		-- JS/TS
 		formatting.prettier,
-		diagnostics.eslint_d,
+		-- diagnostics.eslint_d,
 
 		-- Lua
 		formatting.stylua,
@@ -66,10 +66,10 @@ null_ls.setup({
 		-- diagnostics.flake8,
 
 		-- Rust
-		formatting.rustfmt,
+		-- formatting.rustfmt,
 
 		-- Bash
-		formatting.beautysh,
+		-- formatting.beautysh,
 		-- formatting.shfmt,
 
 		-- C, C++

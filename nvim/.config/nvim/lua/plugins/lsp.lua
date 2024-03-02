@@ -93,6 +93,9 @@ local on_attach = function(client, bufnr)
 end
 
 local lspconfig = require("lspconfig")
+lspconfig.eslint.setup({})
+require'lspconfig'.rust_analyzer.setup{}
+
 -- Servers
 require("mason-lspconfig").setup_handlers({
 	-- Lua
