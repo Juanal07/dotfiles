@@ -28,9 +28,8 @@ case $(file --mime-type "$(readlink -f "$f")" -b) in
     image/*) rotdir "$f" | grep -i "\.\(png\|jpg\|jpeg\|gif\|webp\|tif\|ico\)\(_large\)*$" | sxiv -aio 2>/dev/null | ~/.config/lf-select ;;
     audio/*) mpv --audio-display=no "$f" ;;
     video/*) setsid -f mpv "$f" -quiet >/dev/null 2>&1 ;;
-    application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) libreoffice "$fx" >/dev/null 2>&1;;
-	application/vnd.openxmlformats-officedocument.wordprocessingml.document) libreoffice "$fx" >/dev/null 2>&1;;
-    application/pdf|application/vnd*|application/epub*) setsid -f zathura "$fx" >/dev/null 2>&1 ;;
+    application/vnd*) libreoffice "$fx" >/dev/null 2>&1;;
+    application/pdf|application/epub*) setsid -f zathura "$fx" >/dev/null 2>&1 ;;
     application/pgp-encrypted) $EDITOR "$fx" ;;
     image/vnd.djvu|application/pdf|application/octet-stream) setsid -f zathura "$fx" >/dev/null 2>&1 ;;
     *) for f in "$fx"; do setsid -f $OPENER "$f" >/dev/null 2>&1; done;;
