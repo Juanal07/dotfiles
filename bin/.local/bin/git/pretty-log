@@ -14,6 +14,9 @@ commit=$(
 
 commit_hash=$(echo ${commit} | grep -o '[a-f0-9]\{7\}')
 
+git checkout ${commit_hash}
+exit
+
 # Try to use xclip first
 if command -v xclip >/dev/null 2>&1; then
     echo "${commit_hash}" | xclip -sel clip

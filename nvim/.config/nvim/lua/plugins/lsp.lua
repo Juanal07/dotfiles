@@ -1,5 +1,12 @@
 require("mason").setup({ PATH = "append" })
-require("mason-lspconfig").setup({})
+local servers = {
+	"angularls@17.0.0",
+	"pyright",
+	"lua_ls",
+	"eslint",
+	"tsserver",
+}
+require("mason-lspconfig").setup({ ensure_installed = servers, automatic_installation = true })
 
 -- Diagnostic Signs
 local signs = {
@@ -94,7 +101,7 @@ end
 
 local lspconfig = require("lspconfig")
 lspconfig.eslint.setup({})
-require'lspconfig'.rust_analyzer.setup{}
+require("lspconfig").rust_analyzer.setup({})
 
 -- Servers
 require("mason-lspconfig").setup_handlers({
