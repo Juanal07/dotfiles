@@ -154,8 +154,6 @@ require("lazy").setup({
 	},
 	-- "gpanders/editorconfig.nvim",
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
-	"zbirenbaum/copilot.lua",
-	"AndreM222/copilot-lualine",
 	{
 		"nvim-pack/nvim-spectre",
 		build = false,
@@ -175,4 +173,7 @@ require("lazy").setup({
 			"nvim-neotest/neotest-jest",
 		},
 	},
+	"zbirenbaum/copilot.lua",
+	"AndreM222/copilot-lualine",
+	-- https://github.com/Exafunction/codeium.nvim -- free copilot
 })
