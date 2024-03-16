@@ -41,7 +41,7 @@ cmd + ctrl + alt + shift - 9 : yabai -m window --space  9; yabai -m space --focu
 
 # TODO: fix, not working, need to be root
 # create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
-cmd + ctrl + alt - n : yabai -m space --create && \
-                  index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
-                  yabai -m window --space "${index}" && \
-                  yabai -m space --focus "${index}"
+# cmd + ctrl + alt - n : yabai -m space --create && \
+#                   index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
+#                   yabai -m window --space "${index}" && \
+#                   yabai -m space --focus "${index}"
