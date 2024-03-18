@@ -12,6 +12,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	ui = {
+		border = "rounded",
+	},
 	-- LSP
 	"neovim/nvim-lspconfig",
 	"williamboman/mason.nvim",
@@ -173,7 +176,13 @@ require("lazy").setup({
 			"nvim-neotest/neotest-jest",
 		},
 	},
-	"zbirenbaum/copilot.lua",
-	"AndreM222/copilot-lualine",
-	-- https://github.com/Exafunction/codeium.nvim -- free copilot
+	{
+		"Exafunction/codeium.vim",
+		event = "BufEnter",
+	},
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = { signs = false },
+	},
 })

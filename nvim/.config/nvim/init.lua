@@ -13,7 +13,6 @@ require("plugins.colorscheme")
 require("plugins.gitsigns")
 require("plugins.ufo")
 require("plugins.ibl")
-require("plugins.copilot")
 require("plugins.neotest")
 
 require("nvim-surround").setup()

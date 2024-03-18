@@ -37,7 +37,6 @@ vim.api.nvim_set_keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>fc", ":Telescope git_commits<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>fu", ":Telescope git_bcommits<cr>", opts)
--- vim.api.nvim_set_keymap("n", "<leader>fb", ":Telescope git_branches<cr>", opts)
 vim.api.nvim_set_keymap(
 	"n",
 	"<leader>fb",
@@ -68,3 +67,30 @@ vim.api.nvim_set_keymap("n", "<Leader>mo", ':lua require("neotest").output.open(
 vim.api.nvim_set_keymap("n", "<Leader>mO", ':lua require("neotest").output.open({enter = true})<CR>', opts)
 vim.api.nvim_set_keymap("n", "<Leader>mi", ':lua require("neotest").summary.toggle()<CR>', opts)
 vim.api.nvim_set_keymap("n", "<Leader>mf", ':lua require("neotest").run.run(vim.fn.expand("%"))<CR>', opts)
+
+changed_on_branch = function()
+	local previewers = require("telescope.previewers")
+	local pickers = require("telescope.pickers")
+	local sorters = require("telescope.sorters")
+	local finders = require("telescope.finders")
+	pickers
+		.new({
+			results_title = "Modified on current branch",
+			finder = finders.new_oneshot_job({
+				"/home/juan/.local/bin/git/git-branch-modified",
+				"list",
+			}),
+			sorter = sorters.get_fuzzy_file(),
+			previewer = previewers.new_termopen_previewer({
+				get_command = function(entry)
+					return {
+				"/home/juan/.local/bin/git/git-branch-modified",
+						"diff",
+						entry.value,
+					}
+				end,
+			}),
+		})
+		:find()
+end
+vim.api.nvim_set_keymap("n", "<leader>fa", ":lua changed_on_branch()<cr>", opts)

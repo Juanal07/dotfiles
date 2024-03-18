@@ -33,16 +33,16 @@ local config = {
 }
 vim.diagnostic.config(config)
 
-local border_config = {
-	{ "╭", "FloatBorder" },
-	{ "─", "FloatBorder" },
-	{ "╮", "FloatBorder" },
-	{ "│", "FloatBorder" },
-	{ "╯", "FloatBorder" },
-	{ "─", "FloatBorder" },
-	{ "╰", "FloatBorder" },
-	{ "│", "FloatBorder" },
-}
+-- local border_config = {
+-- 	{ "╭", "FloatBorder" },
+-- 	{ "─", "FloatBorder" },
+-- 	{ "╮", "FloatBorder" },
+-- 	{ "│", "FloatBorder" },
+-- 	{ "╯", "FloatBorder" },
+-- 	{ "─", "FloatBorder" },
+-- 	{ "╰", "FloatBorder" },
+-- 	{ "│", "FloatBorder" },
+-- }
 
 vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx, config)
 	config = config or {}
@@ -58,19 +58,27 @@ vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx, config)
 		return
 	end
 
-	config.border = border_config
+	config.border = "rounded"
 
 	return vim.lsp.util.open_floating_preview(markdown_lines, "markdown", config)
 end
 
 vim.lsp.handlers["textDocument/signatureHelp"] = function()
-	return vim.lsp.with(vim.lsp.handlers.signature_help, { border = border_config })
+	return vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
 end
 
 -- LSP keymaps
 local function lsp_keymaps(bufnr)
 	local opts = { noremap = true, silent = false }
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+	vim.api.nvim_buf_set_keymap(
+		bufnr,
+		"n",
+		"ds",
+		"<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>",
+		opts
+	)
+	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(
 		bufnr,
 		"n",
@@ -101,7 +109,7 @@ end
 
 local lspconfig = require("lspconfig")
 lspconfig.eslint.setup({})
-require("lspconfig").rust_analyzer.setup({})
+lspconfig.rust_analyzer.setup({})
 
 -- Servers
 require("mason-lspconfig").setup_handlers({
@@ -110,6 +118,15 @@ require("mason-lspconfig").setup_handlers({
 		lspconfig.lua_ls.setup({
 			settings = {
 				Lua = {
+					-- runtime = { version = "LuaJIT" },
+					-- workspace = {
+					-- 	checkTyping = true,
+					-- 	library = {
+					-- 		"{3rd}/luv/library",
+					-- 		unpack(vim.api.nvim_get_runtime_file("", true)),
+					-- 	},
+					-- },
+					-- completion = { callSnippet = "Replace" },
 					diagnostics = {
 						globals = { "vim" },
 					},

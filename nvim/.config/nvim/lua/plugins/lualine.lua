@@ -3,7 +3,7 @@ local function lsp_client_names()
 		-- ["tsserver"] = "",
 		-- ["angularls"] = "",
 		-- ["lua_ls"] = "",
-		["copilot"] = "",
+		-- ["copilot"] = "",
 	}
 
 	local active_clients = vim.lsp.get_active_clients()
@@ -48,28 +48,9 @@ require("lualine").setup({
 			{ "lsp_progress" },
 			{ lsp_client_names },
 			{
-				"copilot",
-				-- Default values
-				symbols = {
-					status = {
-						icons = {
-							enabled = " ",
-							disabled = " ",
-							warning = " ",
-							unknown = " ",
-						},
-						hl = {
-							enabled = "#50FA7B",
-							disabled = "#6272A4",
-							warning = "#FFB86C",
-							unknown = "#FF5555",
-						},
-					},
-					spinners = require("copilot-lualine.spinners").dots,
-					spinner_color = "#6272A4",
-				},
-				show_colors = false,
-				show_loading = true,
+				function()
+					return vim.fn["codeium#GetStatusString"]()
+				end,
 			},
 			"encoding",
 			"fileformat",
