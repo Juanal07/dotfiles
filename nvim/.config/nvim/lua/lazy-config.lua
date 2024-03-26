@@ -12,14 +12,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	ui = {
-		border = "rounded",
-	},
 	-- LSP
 	"neovim/nvim-lspconfig",
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
-	-- "jose-elias-alvarez/null-ls.nvim",
 	"nvimtools/none-ls.nvim",
 	"hrsh7th/nvim-cmp",
 	"hrsh7th/cmp-buffer",
@@ -72,12 +68,7 @@ require("lazy").setup({
 			end,
 		},
 		init = function()
-			-- when noice is not enabled, install notify on VeryLazy
-			-- if not Util.has("noice.nvim") then
-			--   Util.on_very_lazy(function()
 			vim.notify = require("notify")
-			--   end)
-			-- end
 		end,
 	},
 	"onsails/lspkind-nvim",
@@ -170,6 +161,7 @@ require("lazy").setup({
 	{
 		"nvim-neotest/neotest",
 		dependencies = {
+			"nvim-neotest/nvim-nio",
 			"nvim-lua/plenary.nvim",
 			"antoinemadec/FixCursorHold.nvim",
 			"nvim-treesitter/nvim-treesitter",
@@ -179,10 +171,17 @@ require("lazy").setup({
 	{
 		"Exafunction/codeium.vim",
 		event = "BufEnter",
+		enabled = function()
+			return vim.fn.has("mac") ~= 1
+		end,
 	},
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = { signs = false },
+	},
+}, {
+	ui = {
+		border = "rounded",
 	},
 })

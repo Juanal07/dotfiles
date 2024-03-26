@@ -1,6 +1,12 @@
-require("mason").setup({ PATH = "append" })
+require("mason").setup({
+	PATH = "append",
+	ui = {
+		height = 0.8,
+		border = "rounded",
+	},
+})
 local servers = {
-	"angularls@17.0.0",
+	-- "angularls@17.0.0",
 	"pyright",
 	"lua_ls",
 	"eslint",
@@ -64,7 +70,7 @@ vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx, config)
 end
 
 vim.lsp.handlers["textDocument/signatureHelp"] = function()
-	return vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
+	return vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 end
 
 -- LSP keymaps

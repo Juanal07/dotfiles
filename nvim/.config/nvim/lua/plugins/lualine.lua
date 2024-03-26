@@ -3,7 +3,6 @@ local function lsp_client_names()
 		-- ["tsserver"] = "",
 		-- ["angularls"] = "",
 		-- ["lua_ls"] = "",
-		-- ["copilot"] = "",
 	}
 
 	local active_clients = vim.lsp.get_active_clients()
@@ -30,12 +29,13 @@ require("lualine").setup({
 	sections = {
 		-- lualine_a = { "mode" },
 		lualine_b = {
-			{ "filename" },
+			"branch",
 			"diff",
 			"diagnostics",
 		},
+		-- lualine_c = { "filename" },
 		lualine_c = {
-			"branch",
+			{ "filename" },
 			-- fmt = function(str)
 			-- 	if vim.api.nvim_strwidth(str) > 30 then
 			-- 		return ("%s…"):format(str:sub(1, 29))
@@ -43,7 +43,6 @@ require("lualine").setup({
 			-- 	return str
 			-- end,
 		},
-		-- lualine_c = { "filename" },
 		lualine_x = {
 			{ "lsp_progress" },
 			{ lsp_client_names },

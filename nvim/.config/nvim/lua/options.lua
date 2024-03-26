@@ -1,4 +1,4 @@
-vim.opt.laststatus = 2
+vim.opt.laststatus = 3
 vim.opt.termguicolors = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -23,9 +23,9 @@ vim.opt.listchars = { tab = "→ ", trail = "·", extends = "…" }
 vim.opt.iskeyword:append("-")
 vim.opt.cursorline = true
 
-vim.api.nvim_create_autocmd('TextYankPost', {
-	desc = 'Highlight when yanking text',
-	group = vim.api.nvim_create_augroup('highlight-yank', { clear = true}),
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "Highlight when yanking text",
+	group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
 	callback = function()
 		vim.highlight.on_yank()
 	end,
