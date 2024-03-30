@@ -19,7 +19,6 @@
     defaultToSquash = true
 [safe]
 	directory = /home/juan/.local/src/st-juan
-	directory = /home/juan/.local/src/st-juan
 [alias]
   s = status
   a = add --all

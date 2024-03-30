@@ -124,15 +124,6 @@ require("mason-lspconfig").setup_handlers({
 		lspconfig.lua_ls.setup({
 			settings = {
 				Lua = {
-					-- runtime = { version = "LuaJIT" },
-					-- workspace = {
-					-- 	checkTyping = true,
-					-- 	library = {
-					-- 		"{3rd}/luv/library",
-					-- 		unpack(vim.api.nvim_get_runtime_file("", true)),
-					-- 	},
-					-- },
-					-- completion = { callSnippet = "Replace" },
 					diagnostics = {
 						globals = { "vim" },
 					},
