@@ -27,7 +27,7 @@ alias -s py=nvim
 alias \
     g="git" \
     gl="pretty-log" \
-    gdiff="pretty-diff" \
+    gdiff="pretty-diff-from-HEAD" \
     gbranch="fzf-change-branch" \
     gdelete="fzf-delete-branch" \
     gstash="fzf-stash" \
