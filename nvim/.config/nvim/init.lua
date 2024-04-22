@@ -14,6 +14,7 @@ require("plugins.gitsigns")
 require("plugins.ufo")
 require("plugins.ibl")
 require("plugins.neotest")
+require("plugins.dap")
 
 require("nvim-surround").setup()
 require("nvim-autopairs").setup()

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+preview_command="git diff HEAD --color=always -- {-1} | sed 1,4d"
+
+git -c color.status=always status --short |
+fzf --height 100% --ansi --preview "$preview_command" --preview-window right:65% |
+cut -c4- |
+sed 's/.* -> //' |
+tr -d '\n'

@@ -101,10 +101,9 @@ function fzf-history() {
     local last_commands=$(fc -rln 1 | fzf)
     print -z -- $last_commands
 }
-bindkey -s '^r' 'fzf-history\n'
 
 # Ctrl + f -> Goto and open file
-function open_fzf() {
+function open_fzf_files() {
     local selected_file=$(fd . ./ --type f --hidden --follow --exclude .git | fzf)
     if [ -n "$selected_file" ]; then
         local file_extension=$(echo "$selected_file" | awk -F . '{print $NF}')
@@ -132,7 +131,6 @@ function open_fzf() {
         esac
     fi
 }
-bindkey -s '^f' 'open_fzf\n'
 
 # Ctrl + d -> Change to a directory selected with fzf
 function cd_fzf() {
@@ -141,7 +139,6 @@ function cd_fzf() {
         cd "$selected_dir"
     fi
 }
-bindkey -s '^d' 'cd_fzf\n'
 
 function live_grep() {
     local file=$(rg --column --line-number --no-heading --color=always "$1" | fzf --ansi -m --reverse --phony --bind "change:reload:rg --column --line-number --no-heading --color=always {q} || true" | awk -F: '{print $1}')
@@ -150,10 +147,13 @@ function live_grep() {
         nvim +$line "$file"
     fi
 }
+
 bindkey -s '^g' 'live_grep\n'
-
+bindkey -s '^d' 'cd_fzf\n'
+bindkey -s '^f' 'open_fzf_files\n'
+bindkey -s '^r' 'fzf-history\n'
+bindkey -s '^b' 'pretty-diff-from-HEAD\n'
+bindkey -s '^h' 'pretty-diff-from-diverged\n'
 bindkey -s '^k' 'fzf-kill\n'
-
 bindkey -s '^w' 'fzf-tmux-workspace\n'
-
 bindkey -s '^t' 'fzf-useful-commands\n'

@@ -1,11 +1,15 @@
 #!/bin/bash
 
-my_branch=$(git branch --show-current)
-git diff $(git merge-base main $my_branch)..$my_branch
+git add . >/dev/null 2>&1
+git commit -m "Temporary commit from custom command" >/dev/null 2>&1
+actual_branch=$(git symbolic-ref --short HEAD)
+common_ancestor=$(git merge-base main $actual_branch)
+preview_command="git diff $common_ancestor..$actual_branch --color=always -- {1} | sed 1,4d"
 
-# my_branch=$(git branch --show-current)
-# git -c color.status=always status --short |
-# fzf --height 100% --ansi --preview "(git diff \$(git merge-base main $my_branch)..$my_branch --color=always -- {1} | sed '1,4d')" --preview-window right:65% |
-# cut -c4- |
-# sed 's/.* -> //' |
-# tr -d '\n'
+git diff --name-only $common_ancestor..$actual_branch |
+fzf --height 100% --ansi --preview "$preview_command" --preview-window right:65% |
+cut -c4- |
+sed 's/.* -> //' |
+tr -d '\n'
+
+git reset HEAD~1 >/dev/null 2>&1

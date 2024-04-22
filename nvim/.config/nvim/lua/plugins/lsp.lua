@@ -76,13 +76,6 @@ end
 -- LSP keymaps
 local function lsp_keymaps(bufnr)
 	local opts = { noremap = true, silent = false }
-	vim.api.nvim_buf_set_keymap(
-		bufnr,
-		"n",
-		"ds",
-		"<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>",
-		opts
-	)
 	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(

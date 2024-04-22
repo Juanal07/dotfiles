@@ -150,12 +150,16 @@ require("lazy").setup({
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 	{
 		"nvim-pack/nvim-spectre",
-		build = false,
 		cmd = "Spectre",
 		opts = { open_cmd = "noswapfile vnew" },
-		-- stylua: ignore
 		keys = {
-			{ "<leader>sr", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
+			{
+				"<leader>sr",
+				function()
+					require("spectre").open()
+				end,
+				desc = "Replace in files (Spectre)",
+			},
 		},
 	},
 	{
@@ -179,6 +183,45 @@ require("lazy").setup({
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = { signs = false },
+	},
+	-- DAP
+	{ "folke/neodev.nvim", opts = {} },
+	{
+		"mfussenegger/nvim-dap",
+		lazy = true,
+		dependencies = {
+			"rcarriga/nvim-dap-ui",
+			"nvim-neotest/nvim-nio",
+		},
+		keys = {
+			{
+				"<leader>d",
+				function()
+					require("dap").toggle_breakpoint()
+				end,
+			},
+			{
+				"<leader>c",
+				function()
+					require("dap").continue()
+				end,
+			},
+			{
+				"<leader>o",
+				function()
+					require("dap").step_over()
+				end,
+			},
+			{
+				"<leader>i",
+				function()
+					require("dap").step_into()
+				end,
+			},
+		},
+		config = function()
+			require("dapui").setup()
+		end,
 	},
 }, {
 	ui = {
