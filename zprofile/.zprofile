@@ -24,6 +24,9 @@ function common_variables() {
     export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
     export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
     export LESSOPEN="| /usr/bin/bat -O ansi %s 2>/dev/null"
+
+	export MANPAGER="nvim +Man\! -c ':set signcolumn number relativenumber'"
+	export MANWIDTH=999
 }
 
 # Common variables for both macOS and Linux

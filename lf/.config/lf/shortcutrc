@@ -1,6 +1,6 @@
 map gh cd ~/
 map gd cd ~/Downloads
-map go cd ~/Documents
+map gD cd ~/Documents
 map gp cd ~/Pictures
 map gv cd ~/Videos
 map gm cd ~/Music 
