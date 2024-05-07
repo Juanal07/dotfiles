@@ -94,7 +94,7 @@ require("nvim-tree").setup({
 		},
 	},
 	filters = {
-		custom = { ".DS_Store", "node_modules", ".angular" },
+		custom = { ".DS_Store", "node_modules", "^.angular$" },
 	},
 })
 

@@ -1,7 +1,10 @@
 #!/bin/bash
 
-git add . >/dev/null 2>&1
-git commit -m "Temporary commit from custom command" >/dev/null 2>&1
+if ! git diff --quiet; then
+	git add . >/dev/null 2>&1
+	git commit -m "Temporary commit from custom command" >/dev/null 2>&1
+fi
+
 actual_branch=$(git symbolic-ref --short HEAD)
 common_ancestor=$(git merge-base main $actual_branch)
 preview_command="git diff $common_ancestor..$actual_branch --color=always -- {1} | sed 1,4d"
@@ -12,4 +15,31 @@ cut -c4- |
 sed 's/.* -> //' |
 tr -d '\n'
 
-git reset HEAD~1 >/dev/null 2>&1
+
+if ! git diff --quiet; then
+	git reset HEAD~1 >/dev/null 2>&1
+fi
+
+# if ! git diff --quiet; then
+# 	git add . >/dev/null 2>&1
+# 	git commit -m "Temporary commit from custom command" >/dev/null 2>&1
+# fi
+#
+# actual_branch=$(git symbolic-ref --short HEAD)
+# common_ancestor=$(git merge-base main $actual_branch)
+# preview_command="git diff $common_ancestor..$actual_branch --color=always -- {1} | sed 1,4d"
+#
+# selected_file=$(git diff --name-only $common_ancestor..$actual_branch |
+#     fzf --height 100% --ansi --preview "$preview_command" --preview-window right:65% ||
+#     (echo "FZF canceled"; exit 1)
+# )
+# if [ $? -eq 0 ]; then
+#     selected_file=$(echo "$selected_file" | cut -c4- | sed 's/.* -> //' | tr -d '\n')
+#     echo "$selected_file"
+# else
+#     echo "FZF canceled"
+#     # Run your last IF block here
+#     if ! git diff --quiet; then
+#         git reset HEAD~1 >/dev/null 2>&1
+#     fi
+# fi
