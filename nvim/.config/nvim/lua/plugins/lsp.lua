@@ -6,7 +6,6 @@ require("mason").setup({
 	},
 })
 local servers = {
-	-- "angularls@17.0.0",
 	"pyright",
 	"lua_ls",
 	"eslint",
@@ -39,18 +38,7 @@ local config = {
 }
 vim.diagnostic.config(config)
 
--- local border_config = {
--- 	{ "╭", "FloatBorder" },
--- 	{ "─", "FloatBorder" },
--- 	{ "╮", "FloatBorder" },
--- 	{ "│", "FloatBorder" },
--- 	{ "╯", "FloatBorder" },
--- 	{ "─", "FloatBorder" },
--- 	{ "╰", "FloatBorder" },
--- 	{ "│", "FloatBorder" },
--- }
-
-vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx, config)
+vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx)
 	config = config or {}
 	config.focus_id = ctx.method
 	if not (result and result.contents) then
@@ -76,9 +64,7 @@ end
 -- LSP keymaps
 local function lsp_keymaps(bufnr)
 	local opts = { noremap = true, silent = false }
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>", opts)
-	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(
 		bufnr,
 		"n",
@@ -101,8 +87,7 @@ end
 -- On attach function
 local on_attach = function(client, bufnr)
 	lsp_keymaps(bufnr)
-	-- Fix for double lsp rename in angular
-	if client.name == "angularls" then
+	if client.name == "angularls" then -- Fix for double lsp rename in angular
 		client.server_capabilities.renameProvider = false
 	end
 end
@@ -118,9 +103,6 @@ require("mason-lspconfig").setup_handlers({
 		lspconfig.lua_ls.setup({
 			settings = {
 				Lua = {
-					-- runtime = {
-					-- 	version = "LuaJIT"
-					-- },
 					diagnostics = {
 						globals = { "vim" },
 					},

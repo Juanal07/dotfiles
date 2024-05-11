@@ -46,7 +46,7 @@ require("ufo").setup({
 		win_config = {
 			border = { "", "─", "", "", "", "─", "", "" },
 			winhighlight = "Normal:Folded",
-			winblend = 0,
+			winblend = 10,
 		},
 		mappings = {
 			scrollU = "<C-u>",

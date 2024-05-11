@@ -15,11 +15,9 @@ require("plugins.ufo")
 require("plugins.ibl")
 require("plugins.neotest")
 require("plugins.dap")
+require("plugins.which-key")
 
 require("nvim-surround").setup()
 require("nvim-autopairs").setup()
 require("nvim-web-devicons").setup()
 require("nvim-highlight-colors").setup({ enable_tailwind = true })
-require("Comment").setup({
-	pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
-})

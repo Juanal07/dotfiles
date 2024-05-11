@@ -83,7 +83,7 @@ null_ls.setup({
 
 		-- JS/TS
 		formatting.prettier,
-		-- diagnostics.eslint_d,
+		-- Eslint is on native lspconfig
 
 		-- Lua
 		formatting.stylua,

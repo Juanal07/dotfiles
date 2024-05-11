@@ -101,6 +101,12 @@ require("lazy").setup({
 	{
 		"numToStr/Comment.nvim",
 		lazy = false,
+		config = function()
+			---@diagnostic disable-next-line: missing-fields
+			require("Comment").setup({
+				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+			})
+		end,
 	},
 	"RRethy/vim-illuminate",
 	"kylechui/nvim-surround",
@@ -113,6 +119,14 @@ require("lazy").setup({
 			vim.o.timeout = true
 			vim.o.timeoutlen = 300
 		end,
+		-- config = function()
+		-- 	local wk = require("which-key")
+		-- 	wk.register({
+		-- 		f = {
+		-- 			name = "Telescope",
+		-- 		},
+		-- 	}, { prefix = "<leader>"} )
+		-- end,
 		opts = {},
 	},
 	"nvim-lua/popup.nvim",
@@ -184,44 +198,18 @@ require("lazy").setup({
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = { signs = false },
 	},
-	-- DAP
 	{ "folke/neodev.nvim", opts = {} },
+	-- DAP
 	{
 		"mfussenegger/nvim-dap",
 		lazy = true,
 		dependencies = {
 			"rcarriga/nvim-dap-ui",
 			"nvim-neotest/nvim-nio",
+			"theHamsta/nvim-dap-virtual-text",
+			"David-Kunz/jester",
+			"mxsdev/nvim-dap-vscode-js",
 		},
-		keys = {
-			{
-				"<leader>d",
-				function()
-					require("dap").toggle_breakpoint()
-				end,
-			},
-			{
-				"<leader>c",
-				function()
-					require("dap").continue()
-				end,
-			},
-			{
-				"<leader>o",
-				function()
-					require("dap").step_over()
-				end,
-			},
-			{
-				"<leader>i",
-				function()
-					require("dap").step_into()
-				end,
-			},
-		},
-		config = function()
-			require("dapui").setup()
-		end,
 	},
 }, {
 	ui = {
