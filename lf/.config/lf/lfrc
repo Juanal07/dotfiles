@@ -46,27 +46,28 @@ cmd extract ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
 	printf "%s\n\t" "$fx"
-	printf "extract?[y/N]"
+	printf "extract? [y/N] "
 	read ans
 	[ $ans = "y" ] && ext $fx
 }}
 map E extract
 
-# TODO: fix
 cmd delete ${{
-	clear; tput cup $(($(tput lines)/3)); tput bold
-	set -f
-	printf "%s\n\t" "$fx"
-	printf "delete?[y/N]"
-	read ans
-	[ $ans = "y" ] && mv "$fx" ~/.Trash
+	filenames=""
+	for x in $fx; do
+		mv $x ~/.Trash
+		filename=$(basename "$x")
+		filenames="$filenames $filename\n"
+	done &&
+	dunstify "File(s) moved to 🗑️" "$filenames"
 }}
 map D delete
 
-cmd purge ${{
-	yes | rm -r "$fx"
-}}
-map <c-d> purge
+# cmd purge ${{
+# 	yes | rm -r "$fx" &&
+# 	dunstify "File deleted" "$fx"
+# }}
+# map <c-d> purge
 
 cmd setbg "$1"
 map b $setbg $f

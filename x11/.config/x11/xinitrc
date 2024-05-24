@@ -15,4 +15,6 @@ else
 fi
 
 # exec dwm
-ssh-agent dwm
+# ssh-agent dwm
+dbus-update-activation-environment --all
+dbus-launch ssh-agent dwm

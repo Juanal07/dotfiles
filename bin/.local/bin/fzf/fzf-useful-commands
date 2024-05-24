@@ -1,33 +1,36 @@
 #!/bin/sh
 
-useful_commands=$(cat << EOF
-yes 'yes' | rm -vRI ./.angular && yes 'yes' | rm -vRI ./node_modules && npm install && npm start
-npm run build && cd build/artifact/ && sls deploy --stage test --function {api/bot name} && cd ../..
-brew update && brew upgrade
-sxs-cli login
-sxs-cli login && cat ~/.aws/credentials | pbcopy
-ssh -T git@github.com
-ssh-add --apple-use-keychain ~/.ssh/{key}
-git checkout main -- path/to/example.txt
-find . -type f ( -name '.js' -o -name '.jsx' -o -name '.ts' -o -name '.tsx' ) -not -path './node_modules/' -not -path './dist/' -exec prettier --write {}
+useful_commands=$(
+	cat <<EOF
+yes 'yes' | rm -vRI ./.angular && yes 'yes' | rm -vRI ./node_modules && npm install && npm start: Remove directories and reinstall npm dependencies, then start the application
+npm run build && cd build/artifact/ && sls deploy --stage test --function {api/bot name} && cd ../..: Build the project, deploy using Serverless framework, then return to root directory
+brew update && brew upgrade: Update and upgrade Homebrew and installed packages
+sxs-cli login: Login to sxs-cli
+sxs-cli login && cat ~/.aws/credentials | pbcopy: Login to sxs-cli and copy AWS credentials to clipboard
+ssh -T git@github.com: Test SSH connection to GitHub
+ssh-add --apple-use-keychain ~/.ssh/{key}: Add SSH key to Apple keychain
+git checkout main -- path/to/example.txt: Checkout a specific file from the main branch
+find . -type f \( -name '.js' -o -name '.jsx' -o -name '.ts' -o -name '.tsx' \) -not -path './node_modules/' -not -path './dist/' -exec prettier --write {} \;: Format JavaScript and TypeScript files excluding node_modules and dist directories
 EOF
 )
 
-chosen_command=$(echo "$useful_commands" | fzf)
+chosen_command=$(echo "$useful_commands" | fzf --delimiter=':' --preview='echo {} | cut -d ":" -f 2' | cut -d ':' -f 1)
 
 if [ -n "$chosen_command" ]; then
-    case "$(uname -s)" in
-        Darwin)
-            clip_paste="echo $chosen_command"
-            type_cmd="osascript -e 'tell application \"System Events\" to keystroke \"%s\"'"
-            ;;
-        *)
-            clip_paste="xclip -o"
-            type_cmd='xdotool type "%s"'
-            ;;
-    esac
-    text="$($clip_paste)"
-    printf "$type_cmd" "${text}" | sh
+	case "$(uname -s)" in
+	Darwin)
+		clip_paste="echo $chosen_command"
+		type_cmd="osascript -e 'tell application \"System Events\" to keystroke \"%s\"'"
+		text="$($clip_paste)"
+		printf "$type_cmd" "${chosen_command}" | sh
+		;;
+	Linux)
+		xdotool type --delay 1 "$chosen_command" >/dev/null 2>&1
+		;;
+	*)
+		echo "Unsupported OS"
+		;;
+	esac
 else
-    echo "No command selected."
+	echo "No command selected."
 fi

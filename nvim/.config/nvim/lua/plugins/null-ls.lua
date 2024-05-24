@@ -96,8 +96,7 @@ null_ls.setup({
 		-- formatting.rustfmt,
 
 		-- Bash
-		-- formatting.beautysh,
-		-- formatting.shfmt,
+		formatting.shfmt,
 
 		-- C, C++
 		-- formatting.clang_format,
