@@ -1,4 +1,7 @@
 require("gitsigns").setup({
+ preview_config = {
+	border = "rounded",
+	},
 	signs = {
 		-- add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
 		-- add = { hl = "GitSignsAdd", text = "+", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
