@@ -7,9 +7,10 @@
 [ -f "$XINITRC" ] && alias startx="startx $XINITRC"
 
 # sudo not required for some system commands
-for command in mount umount sv pacman updatedb su ; do
-    alias $command="sudo $command"
-done; unset command
+for command in mount umount sv pacman updatedb su; do
+	alias $command="sudo $command"
+done
+unset command
 
 # Editor
 alias n=nvim
@@ -25,82 +26,83 @@ alias -s py=nvim
 
 # Git, rest of git alias on ~/.gitconfig
 alias \
-    g="git" \
-    gl="pretty-log" \
-    gdiff="pretty-diff-from-HEAD" \
-    gbranch="fzf-change-branch" \
-    gdelete="fzf-delete-branch" \
-    gstash="fzf-stash" \
-    gps='gps-with-branch-name'
+	g="git" \
+	gl="pretty-log" \
+	gdiff="pretty-diff-from-HEAD" \
+	gbranch="fzf-change-branch" \
+	gdelete="fzf-delete-branch" \
+	gstash="fzf-stash" \
+	gps='gps-with-branch-name'
 
 # With this one we can use our alias with sudo
 alias sudo="sudo "
 
 # Colorize commands
 alias \
-    l="exa -lahg --icons" \
-    diff="diff --color=auto"
+	\
+	l="eza -la --icons --no-time --no-user" \
+	diff="diff --color=auto" # l="eza -lahg --icons" \
 
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
-    cp="cp -vi" \
-    rm="rm -vI" \
-    bc="bc -ql" \
-    mkdir="mkdir -vp" \
-    yt="youtube-dl --add-metadata -i" \
-    yta="yt -x -f bestaudio/best" \
-    ffmpeg="ffmpeg -hide_banner"
+	cp="cp -vi" \
+	rm="rm -vI" \
+	bc="bc -ql" \
+	mkdir="mkdir -vp" \
+	yt="youtube-dl --add-metadata -i" \
+	yta="yt -x -f bestaudio/best" \
+	ffmpeg="ffmpeg -hide_banner"
 
 # These common commands are just too long! Abbreviate them.
 alias \
-    ka="killall" \
-    trem="transmission-remote" \
-    YT="youtube-viewer" \
-    sdn="sudo shutdown -h now" \
-    p="sudo pacman" \
-    xi="sudo xbps-install" \
-    xr="sudo xbps-remove -R" \
-    xq="xbps-query" \
-    z="zathura"
+	ka="killall" \
+	trem="transmission-remote" \
+	YT="youtube-viewer" \
+	sdn="sudo shutdown -h now" \
+	p="sudo pacman" \
+	xi="sudo xbps-install" \
+	xr="sudo xbps-remove -R" \
+	xq="xbps-query" \
+	z="zathura"
 
 # Change directories
 alias \
-    ..="cd .. && l" \
-    ...="cd ../.. && l" \
-    ....="cd ../../.. && l" \
-    gh="cd ~ && l" \
-    gd="cd /home/juan/Downloads && l" \
-    go="cd /home/juan/Documents && l" \
-    gp="cd /home/juan/Pictures && l" \
-    gv="cd ~/Videos && l" \
-    gm="cd ~/Music && l" \
-    gc="cd ~/code && l" \
-    gw="cd ${WORKSPACE_PATH} && l" \
-    g.="cd ~/dotfiles && l" \
-    gC="cd ~/.config && l" \
-    gz="cd ~/.config/zsh && l" \
-    gn="cd ~/.config/nvim && l" \
-    gf="cd ~/.config/lf && l" \
-    gs="cd ~/.config/shell && l" \
-    gb="cd "$HOME/.local/bin" && l" \
-    glsr="cd "$HOME/.local/src" && l" \
-    glsh="cd "$HOME/.local/share" && l" \
-    g/="cd / && l" \
-    gE="cd /etc && l" \
-    gB="cd /boot && l" \
-    gM="cd /mnt && l" \
-    gU="cd /usr && l" \
-    gO="cd /opt && l" \
-    gL="cd /usr/lib && l" \
-    gB="cd /usr/bin && l" \
-    gV="cd /var && l"
+	..="cd .. && l" \
+	...="cd ../.. && l" \
+	....="cd ../../.. && l" \
+	gh="cd ~ && l" \
+	gd="cd /home/juan/Downloads && l" \
+	go="cd /home/juan/Documents && l" \
+	gp="cd /home/juan/Pictures && l" \
+	gv="cd ~/Videos && l" \
+	gm="cd ~/Music && l" \
+	gc="cd ~/code && l" \
+	gw="cd ${WORKSPACE_PATH} && l" \
+	g.="cd ~/dotfiles && l" \
+	gC="cd ~/.config && l" \
+	gz="cd ~/.config/zsh && l" \
+	gn="cd ~/.config/nvim && l" \
+	gf="cd ~/.config/lf && l" \
+	gs="cd ~/.config/shell && l" \
+	gb="cd "$HOME/.local/bin" && l" \
+	glsr="cd "$HOME/.local/src" && l" \
+	glsh="cd "$HOME/.local/share" && l" \
+	g/="cd / && l" \
+	gE="cd /etc && l" \
+	gB="cd /boot && l" \
+	gM="cd /mnt && l" \
+	gU="cd /usr && l" \
+	gO="cd /opt && l" \
+	gL="cd /usr/lib && l" \
+	gB="cd /usr/bin && l" \
+	gV="cd /var && l"
 
 # Open files
 alias \
-    gta="$EDITOR "$HOME/.config/shell/aliasrc"" \
-    gts="$EDITOR "$HOME/.config/shell/shortcutrc"" \
-    gtp="$EDITOR "$HOME/.config/shell/profile"" \
-    gtn="$EDITOR "$HOME/.config/nvim/init.lua"" \
-    gtz="$EDITOR "$HOME/.config/zsh/.zshrc"" \
-    gtfr="$EDITOR "$HOME/.config/lf/lfrc"" \
-    gtfs="$EDITOR "$HOME/.config/lf/shortcutrc""
+	gta="$EDITOR "$HOME/.config/shell/aliasrc"" \
+	gts="$EDITOR "$HOME/.config/shell/shortcutrc"" \
+	gtp="$EDITOR "$HOME/.config/shell/profile"" \
+	gtn="$EDITOR "$HOME/.config/nvim/init.lua"" \
+	gtz="$EDITOR "$HOME/.config/zsh/.zshrc"" \
+	gtfr="$EDITOR "$HOME/.config/lf/lfrc"" \
+	gtfs="$EDITOR "$HOME/.config/lf/shortcutrc""

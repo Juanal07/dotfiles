@@ -134,7 +134,7 @@ function open_fzf_files() {
 
 # Ctrl + d -> Change to a directory selected with fzf
 function cd_fzf() {
-    local selected_dir=$(fd . ./ --type d --hidden --follow --exclude .git | fzf || true)
+    local selected_dir=$(fd . ./ --type d --hidden --follow --exclude .git | fzf --preview 'eza --color=always --tree --level=2 {}' || true)
     if [ -n "$selected_dir" ]; then
         cd "$selected_dir"
     fi
