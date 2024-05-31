@@ -40,7 +40,7 @@ alias sudo="sudo "
 # Colorize commands
 alias \
 	\
-	l="eza -la --icons --no-time --no-user" \
+	l="eza -la --icons --no-time --no-user --no-permissions" \
 	diff="diff --color=auto" # l="eza -lahg --icons" \
 
 # Verbosity and settings that you pretty much just always are going to want.
