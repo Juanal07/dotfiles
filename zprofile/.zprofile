@@ -43,7 +43,7 @@ if [ "$(uname)" = "Darwin" ]; then # macOS
     export PATH="$BUN_INSTALL/bin:$PATH"
 
     export BROWSER="google-chrome"
-    export WORKSPACE_PATH="$HOME/code/commercehub/"
+    export WORKSPACE_PATH="$HOME/code/rithum/"
 else # Linux
     export PATH="$PATH:${$(find ~/dotfiles/bin/.local/bin -type d -printf %p:)%%:}"
     export PATH="$BUN_INSTALL/bin:$PATH"

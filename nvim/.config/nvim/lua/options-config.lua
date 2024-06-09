@@ -31,6 +31,15 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+	desc = "Documentation help with linenumbers",
+	group = vim.api.nvim_create_augroup("help-linenumbers", { clear = true }),
+	callback = function()
+		vim.opt_local.number = true
+		vim.opt_local.relativenumber = true
+	end,
+})
+
 local M = { proseMode = false }
 function M.toggleProse()
 	M.proseMode = not M.proseMode

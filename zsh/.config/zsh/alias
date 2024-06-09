@@ -39,9 +39,9 @@ alias sudo="sudo "
 
 # Colorize commands
 alias \
-	\
-	l="eza -la --icons --no-time --no-user --no-permissions" \
-	diff="diff --color=auto" # l="eza -lahg --icons" \
+	l="eza -la --icons --no-time --no-user" \
+	lst="eza --tree --level=2 --icons --git" \
+	diff="diff --color=auto"
 
 # Verbosity and settings that you pretty much just always are going to want.
 alias \

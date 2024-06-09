@@ -1,17 +1,16 @@
 #!/bin/sh
 
-selected=`ls ${WORKSPACE_PATH} | fzf --height 50% --layout=reverse --border --preview "exa --tree --level=2 --icons '${WORKSPACE_PATH}'/{}"`
+selected=$(ls ${WORKSPACE_PATH} | fzf --height 50% --layout=reverse --border --preview "eza --color=always --tree --level=2 --icons '${WORKSPACE_PATH}'/{}")
 
 path="${WORKSPACE_PATH}/${selected}"
 
 # Check if I cancel selection
-if [ "$selected" != "" ]
-then
-    sesion=$(tmux list-sessions | grep "${selected}:")
-    if [ "$sesion" = "" ]
-    then
-        cd $path; tmux new-session -s $selected -d ';' set-option -g set-titles on ';' set-window-option -g automatic-rename on \; send-keys -t $selected 'nvim .' C-m \; new-window \; select-window -t 1 \; attach -t $selected
-    else
-        tmux attach -t $selected
-    fi
+if [ "$selected" != "" ]; then
+	sesion=$(tmux list-sessions | grep "${selected}:")
+	if [ "$sesion" = "" ]; then
+		cd $path
+		tmux new-session -s $selected -d ';' set-option -g set-titles on ';' set-window-option -g automatic-rename on \; send-keys -t $selected 'nvim .' C-m \; new-window \; select-window -t 1 \; attach -t $selected
+	else
+		tmux attach -t $selected
+	fi
 fi
