@@ -41,6 +41,7 @@ if [ "$(uname)" = "Darwin" ]; then # macOS
 
     export PATH="$PATH:$(find ~/dotfiles/bin/.local/bin -type d -depth 1 | tr '\n' ':' | sed 's/:$//')"
     export PATH="$BUN_INSTALL/bin:$PATH"
+    export PATH=$PATH:/Users/jraya/Library/Python/3.9/bin
 
     export BROWSER="google-chrome"
     export WORKSPACE_PATH="$HOME/code/rithum/"
