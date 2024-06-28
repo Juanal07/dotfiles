@@ -36,6 +36,14 @@ require("lazy").setup({
 		build = "yarn install --frozen-lockfile && yarn compile",
 	},
 	-- GUI
+	{
+		"lukas-reineke/virt-column.nvim",
+		opts = {
+			char = { "┆" },
+			virtcolumn = "120",
+			highlight = { "NonText" },
+		},
+	},
 	{ "ellisonleao/gruvbox.nvim", priority = 1000 },
 	"folke/tokyonight.nvim",
 	"Mofiqul/vscode.nvim",

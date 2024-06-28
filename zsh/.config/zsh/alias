@@ -17,6 +17,7 @@ alias n=nvim
 
 # Python
 alias pip=pip3
+alias python=python3
 
 # Default open from shell
 alias -s html="$BROWSER"
