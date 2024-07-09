@@ -22,6 +22,7 @@
   o = checkout
   ps = push
   pso = push origin
+  undo = reset --soft HEAD^
 [core]
     editor = nvim
     ignorecase = false

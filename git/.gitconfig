@@ -39,6 +39,7 @@
   o = checkout
   ps = push
   pso = push origin
+  undo = reset --soft HEAD^
 [core]
     pager = delta
 [interactive]

@@ -1,4 +1,3 @@
-local colorscheme = "gruvbox"
 require("gruvbox").setup({
 	invert_tabline = false,
 	invert_intend_guides = false,
@@ -12,7 +11,7 @@ require("gruvbox").setup({
 		GruvboxAquaSign = { bg = "NONE" },
 	},
 })
-vim.cmd("colorscheme " .. colorscheme)
+vim.cmd("colorscheme gruvbox")
 
 -- vim.cmd("highlight Normal ctermbg='none' guibg='none'")
 vim.cmd("highlight FoldColumn guibg='none'")

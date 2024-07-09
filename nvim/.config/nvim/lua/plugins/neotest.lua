@@ -1,4 +1,7 @@
 require("neotest").setup({
+	summary = {
+		open = "botright vsplit | vertical resize 120",
+	},
 	adapters = {
 		require("neotest-jest")({
 			jestCommand = "npm test --",
