@@ -36,13 +36,14 @@ common_variables
 if [ "$(uname)" = "Darwin" ]; then # macOS
     eval $(/opt/homebrew/bin/brew shellenv)
 
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
     export PATH="$PATH:$(find ~/dotfiles/bin/.local/bin -type d -depth 1 | tr '\n' ':' | sed 's/:$//')"
     export PATH="$BUN_INSTALL/bin:$PATH"
-    # export PATH=$PATH:/Users/jraya/Library/Python/3.9/bin
-	export PATH=$PATH:/opt/homebrew/opt/python/libexec/bin
+	export PATH=$PATH:$(brew --prefix python)/libexec/bin
+
+    # export NVM_DIR="$HOME/.nvm"
+    # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+	# source $(brew --prefix nvm)/nvm.sh
 
     export BROWSER="google-chrome"
     export WORKSPACE_PATH="$HOME/code/rithum/"
@@ -72,8 +73,3 @@ else # Linux
     # Run startx with all the startup scripts
     [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC"
 fi
-
-# Setting PATH for Python 3.12
-# The original version is saved in .zprofile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.12/bin:${PATH}"
-export PATH
