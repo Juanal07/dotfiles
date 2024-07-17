@@ -1,12 +1,12 @@
-require("which-key").setup({
-	window = {
-		border = "rounded",
-		winblend = 10,
+local wk = require("which-key")
+wk.setup({
+	win = {
+		border = "border",
 	},
 })
-require("which-key").register({
-	["<leader>"] = {
-		f = { name = "Telescope" },
-		m = { name = "Neotest" },
-	},
+wk.add({
+	{ "<leader>f", group = "Telescope", icon = "🔭" },
+	{ "<leader>m", group = "Neotest", icon = "🧪" },
+	{ "<leader>q", "<cmd>q<cr>", desc = "Quit" },
+	{ "<leader>w", "<cmd>w<cr>", desc = "Write" },
 })
