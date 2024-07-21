@@ -180,5 +180,12 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS"\
 " --color=fg:$color04,header:$color0D,info:$color0A,pointer:$color0C"\
 " --color=marker:$color0C,fg+:$color06,prompt:$color0A,hl+:$color0D"
 
-# NVM
-source $(brew --prefix nvm)/nvm.sh
+ # macOS
+if [ "$(uname)" = "Darwin" ]; then
+	# NVM
+	source $(brew --prefix nvm)/nvm.sh
+fi
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
