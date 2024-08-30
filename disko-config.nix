@@ -13,6 +13,7 @@
               content = {
                 type = "filesystem";
                 format = "vfat";
+                mountOptions = [ "umask=0077" ];
                 mountpoint = "/boot";
               };
             };
@@ -45,6 +46,9 @@
 # set_network 0 psk "mypassword"
 # set_network 0 key_mgmt WPA-PSK
 # enable_network 0
+# quit
 
 # curl -L -o disko-config.nix raw.githubusercontent.com/Juanal07/dotfiles/master/disko-config.nix
 # sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./disko-config.nix
+# nixos-generate-config --root /mnt
+# nixos-install
