@@ -9,7 +9,7 @@
           partitions = {
             ESP = {
               name = "ESP";
-              start = "1MiB";
+              start = "2MiB";
               end = "1GiB";
               type = "EF00";
               content = {
@@ -44,4 +44,13 @@
   };
 }
 
-# sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko /tmp/disk-config.nix
+# sudo systemctl start wpa_supplicant
+# wpa_cli
+# add_network
+# set_network 0 ssid "myhomenetwork"
+# set_network 0 psk "mypassword"
+# set_network 0 key_mgmt WPA-PSK
+# enable_network 0
+
+# curl -L -o https://raw.githubusercontent.com/Juanal07/dotfiles/master/disko-config.nix
+# sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./disko-config.nix
