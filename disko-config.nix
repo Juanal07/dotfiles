@@ -18,15 +18,15 @@
                 mountpoint = "/boot";
               };
             };
-            swap = {
-              name = "swap";
-              start = "1GiB";
-              end = "9GiB";
-              content = {
-                type = "swap";
-                randomEncryption = true;
-              };
-            };
+            # swap = {
+            #   name = "swap";
+            #   start = "1GiB";
+            #   end = "9GiB";
+            #   content = {
+            #     type = "swap";
+            #     randomEncryption = true;
+            #   };
+            # };
             root = {
               name = "root";
               start = "9GiB";
@@ -52,5 +52,5 @@
 # set_network 0 key_mgmt WPA-PSK
 # enable_network 0
 
-# curl -L -o https://raw.githubusercontent.com/Juanal07/dotfiles/master/disko-config.nix
+# curl -L -o disko-config.nix raw.githubusercontent.com/Juanal07/dotfiles/master/disko-config.nix
 # sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./disko-config.nix
