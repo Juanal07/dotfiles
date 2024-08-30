@@ -44,7 +44,7 @@ require("lazy").setup({
 			highlight = { "NonText" },
 		},
 	},
-	{ "ellisonleao/gruvbox.nvim", priority = 1000 },
+	{ "ellisonleao/gruvbox.nvim",            priority = 1000 },
 	"folke/tokyonight.nvim",
 	"Mofiqul/vscode.nvim",
 	"kyazdani42/nvim-tree.lua",
@@ -100,8 +100,8 @@ require("lazy").setup({
 			"windwp/nvim-ts-autotag",
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			{
-				"elgiano/nvim-treesitter-angular",
-				branch = "topic/jsx-fix",
+			"elgiano/nvim-treesitter-angular",
+			branch = "topic/jsx-fix",
 			},
 		},
 	},
@@ -142,7 +142,8 @@ require("lazy").setup({
 	"nvim-telescope/telescope.nvim",
 	{
 		"nvim-telescope/telescope-fzf-native.nvim",
-		build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+		build =
+		"cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
 	},
 	"nvim-telescope/telescope-media-files.nvim",
 	{
@@ -169,7 +170,7 @@ require("lazy").setup({
 		end,
 	},
 	-- "gpanders/editorconfig.nvim",
-	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl",   opts = {} },
 	{
 		"nvim-pack/nvim-spectre",
 		cmd = "Spectre",
