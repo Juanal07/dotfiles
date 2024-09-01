@@ -50,6 +50,7 @@ if [ "$(uname)" = "Darwin" ]; then # macOS
 else # Linux
     export PATH="$PATH:${$(find ~/dotfiles/bin/.local/bin -type d -printf %p:)%%:}"
     export PATH="$BUN_INSTALL/bin:$PATH"
+	export PATH="$PATH:/$HOME/.turso"
 
     export BROWSER="brave"
     export WORKSPACE_PATH="$HOME/code/workspace/"
@@ -66,6 +67,8 @@ else # Linux
     export CARGO_HOME="$XDG_DATA_HOME/cargo"
 
     source "$CARGO_HOME/env"
+
+
 
     # export DISPLAY=:0
     # export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"

@@ -96,12 +96,6 @@ fi
 # Fzf
 export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border --preview "bat --style=numbers,changes --color=always {}"'
 
-# Ctrl + r -> Last commands
-function fzf-history() {
-    local last_commands=$(fc -rln 1 | fzf)
-    print -z -- $last_commands
-}
-
 # Ctrl + f -> Goto and open file
 function open_fzf_files() {
     local selected_file=$(fd . ./ --type f --hidden --follow --exclude .git | fzf)
@@ -151,7 +145,6 @@ function live_grep() {
 bindkey -s '^g' 'live_grep\n'
 bindkey -s '^d' 'cd_fzf\n'
 bindkey -s '^f' 'open_fzf_files\n'
-bindkey -s '^r' 'fzf-history\n'
 bindkey -s '^b' 'pretty-diff-from-HEAD\n'
 bindkey -s '^h' 'pretty-diff-from-diverged\n'
 bindkey -s '^k' 'fzf-kill\n'
@@ -187,5 +180,4 @@ if [ "$(uname)" = "Darwin" ]; then
 fi
 
 . "$HOME/.atuin/bin/env"
-
 eval "$(atuin init zsh)"

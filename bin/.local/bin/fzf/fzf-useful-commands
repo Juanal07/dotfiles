@@ -14,6 +14,7 @@ find . -type f \( -name '.js' -o -name '.jsx' -o -name '.ts' -o -name '.tsx' \) 
 ncdu / --color dark
 df -h
 sudo security add-trusted-cert -d -r trustRoot -k "/Library/Keychains/System.keychain" server.crt
+find ~/.Trash -type f -delete
 EOF
 )
 

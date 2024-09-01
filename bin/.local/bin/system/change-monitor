@@ -2,70 +2,67 @@
 # xrandr --output eDP1 --off --output DP1 --auto
 
 intern=eDP1
-extern=HDMI2
-# extern=DP1
+# extern=HDMI2
+extern=DP1
 
 # fix this cat
 # cat 1 > /tmp/monitor-state
 file="/tmp/monitor-state"
-state=$(cat "$file") # Retrieve last index
+state=$(cat "$file")   # Retrieve last index
 state=$((++state % 4)) # Range 0-3
-echo $state > $file # Store the new state
+echo $state >$file     # Store the new state
 
 try_monitor() {
-    if xrandr | grep "$extern disconnected";
+	if xrandr | grep "$extern disconnected"; then # Laptop
+		xrandr --output "$extern" --off --output "$intern" --auto
+		dunstify "💻 Laptop" -t 2000
 
-    # Laptop
-    then
-        xrandr --output "$extern" --off --output "$intern" --auto
-        dunstify "💻 Laptop" -t 2000
-
-        # Monitor
-    else
-        xrandr --output "$intern" --off --output "$extern" --auto
-        # xrandr --output "$intern" --off --output "$extern" --mode 3440x1440
-        dunstify "🖥️ Monitor" -t 4000
-    fi
+		# Monitor
+	else
+		xrandr --output "$intern" --off --output "$extern" --auto
+		# xrandr --output "$intern" --off --output "$extern" --mode 3440x1440
+		dunstify "🖥️ Monitor" -t 4000
+	fi
 }
 
 laptop() {
-    xrandr --output "$extern" --off --output "$intern" --auto
-    dunstify "💻 Laptop" -t 2000
+	xrandr --output "$extern" --off --output "$intern" --auto
+	dunstify "💻 Laptop" -t 2000
 }
 
 extend() {
-    xrandr --output "$extern" --primary --auto --output "$intern" --right-of "$extern" --auto
-    dunstify "🔗 Extend" -t 2000
+	xrandr --output "$extern" --primary --auto --output "$intern" --right-of "$extern" --auto
+	dunstify "🔗 Extend" -t 2000
 }
 
 duplicate() {
-    xrandr --output "$extern" --auto --same-as "$intern" --auto
-    dunstify "🪞 Duplicate" -t 2000
+	xrandr --output "$extern" --auto --same-as "$intern" --auto
+	dunstify "🪞 Duplicate" -t 2000
 }
 
 case $state in
-    0)
-        laptop
-        ;;
-    1)
-        try_monitor
-        ;;
-    2)
-        extend
-        ;;
-    3)
-        duplicate
-        ;;
-    *)
-        laptop
-        ;;
+0)
+	laptop
+	;;
+1)
+	try_monitor
+	;;
+2)
+	extend
+	;;
+3)
+	duplicate
+	;;
+*)
+	laptop
+	;;
 esac
 
 # Laptop
 # xrandr --output eDP1 --auto --output HDMI2 --off
 
 # Station with monitor
-# xrandr --output eDP1 --off --output HDMI2 --auto
+# xrandr --output eDP1 --off --output HDMI2 --auto --mode 1920x1080
 #
 # Extended
 # xrandr --output "$extern" --primary --auto --output "$intern" --left-of "$extern" --auto
