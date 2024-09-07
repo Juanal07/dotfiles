@@ -1,6 +1,6 @@
 local function lsp_client_names()
 	local client_icons = {
-		-- ["tsserver"] = "",
+		-- ["ts_ls"] = "",
 		-- ["angularls"] = "",
 		-- ["lua_ls"] = "",
 	}

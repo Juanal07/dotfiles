@@ -71,7 +71,7 @@ alias \
 	..="cd .. && l" \
 	...="cd ../.. && l" \
 	....="cd ../../.. && l" \
-	gh="cd ~ && l" \
+	gh="cd ~" \
 	gd="cd /home/juan/Downloads && l" \
 	go="cd /home/juan/Documents && l" \
 	gp="cd /home/juan/Pictures && l" \

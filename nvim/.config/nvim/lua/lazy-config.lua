@@ -44,7 +44,7 @@ require("lazy").setup({
 			highlight = { "NonText" },
 		},
 	},
-	{ "ellisonleao/gruvbox.nvim",            priority = 1000 },
+	{ "ellisonleao/gruvbox.nvim", priority = 1000 },
 	"folke/tokyonight.nvim",
 	"Mofiqul/vscode.nvim",
 	"kyazdani42/nvim-tree.lua",
@@ -100,8 +100,8 @@ require("lazy").setup({
 			"windwp/nvim-ts-autotag",
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			{
-			"elgiano/nvim-treesitter-angular",
-			branch = "topic/jsx-fix",
+				"elgiano/nvim-treesitter-angular",
+				branch = "topic/jsx-fix",
 			},
 		},
 	},
@@ -142,8 +142,7 @@ require("lazy").setup({
 	"nvim-telescope/telescope.nvim",
 	{
 		"nvim-telescope/telescope-fzf-native.nvim",
-		build =
-		"cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+		build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
 	},
 	"nvim-telescope/telescope-media-files.nvim",
 	{
@@ -169,8 +168,16 @@ require("lazy").setup({
 			vim.fn["mkdp#util#install"]()
 		end,
 	},
-	-- "gpanders/editorconfig.nvim",
-	{ "lukas-reineke/indent-blankline.nvim", main = "ibl",   opts = {} },
+	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		after = { "nvim-treesitter" },
+		-- requires = { "echasnovski/mini.nvim", opt = true }, -- if you use the mini.nvim suite requires = { 'echasnovski/mini.icons', opt = true }, -- if you use standalone mini plugins
+		-- requires = { 'nvim-tree/nvim-web-devicons', opt = true }, -- if you prefer nvim-web-devicons
+		config = function()
+			require("render-markdown").setup({})
+		end,
+	},
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 	{
 		"nvim-pack/nvim-spectre",
 		cmd = "Spectre",
