@@ -2,8 +2,8 @@
 # xrandr --output eDP1 --off --output DP1 --auto
 
 intern=eDP1
-# extern=HDMI2
-extern=DP1
+extern=HDMI2
+# extern=DP1
 
 # fix this cat
 # cat 1 > /tmp/monitor-state

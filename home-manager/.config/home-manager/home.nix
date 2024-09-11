@@ -3,8 +3,10 @@
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "jraya";
-  home.homeDirectory = "/Users/jraya";
+  # home.username = "jraya";
+  # home.homeDirectory = "/Users/jraya";
+  home.username = "juan";
+  home.homeDirectory = "/home/juan";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -76,5 +78,5 @@
   programs.neovim.enable = true;
   programs.htop.enable = true;
   programs.eza.enable = true;
-  # programs.neofetch.enable = true;
+  programs.emacs.enable = true;
 }
