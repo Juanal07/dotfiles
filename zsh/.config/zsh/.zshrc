@@ -181,3 +181,5 @@ fi
 
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh)"
+
+. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"

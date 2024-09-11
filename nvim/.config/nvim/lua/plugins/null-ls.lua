@@ -2,6 +2,7 @@ local null_ls = require("null-ls")
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
+
 local misspell = (function()
 	local h = require("null-ls.helpers")
 	local methods = require("null-ls.methods")
@@ -75,6 +76,9 @@ end
 null_ls.setup({
 	debug = false,
 	sources = {
+		-- Nix
+		formatting.nixfmt,
+
 		-- Spellchecking
 		misspell,
 
