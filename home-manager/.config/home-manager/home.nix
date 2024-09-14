@@ -3,6 +3,10 @@
 # home-manager generations
 { config, pkgs, ... }:
 
+let
+  user = config.home.username;
+  homeDir = config.home.homeDirectory;
+in
 {
   # home.username = "jraya";
   # home.homeDirectory = "/Users/jraya";
@@ -37,16 +41,15 @@
   ];
 
   home.file = {
-    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink ~/dotfiles/nvim;
-    ".config/kitty".source = config.lib.file.mkOutOfStoreSymlink ~/dotfiles/kitty;
-    ".config/lf".source = config.lib.file.mkOutOfStoreSymlink ~/dotfiles/lf;
-    ".gitconfig".source = config.lib.file.mkOutOfStoreSymlink ~/dotfiles/git/.gitconfig;
-    # ".gitconfig".source = config.lib.file.mkOutOfStoreSymlink /home/juan/dotfiles/git-mac/.gitconfig;
+    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${homeDir}/dotfiles/nvim";
+    ".config/kitty".source = config.lib.file.mkOutOfStoreSymlink "${homeDir}/dotfiles/kitty";
+    ".config/lf".source = config.lib.file.mkOutOfStoreSymlink "${homeDir}/dotfiles/lf";
+    ".gitconfig".source = config.lib.file.mkOutOfStoreSymlink "${homeDir}/dotfiles/git/.gitconfig";
+    # ".gitconfig".source = config.lib.file.mkOutOfStoreSymlink "${homeDir}/dotfiles/git-mac/.gitconfig";
     ".config/ncdu/config".text = ''
       --color dark
     '';
   };
-
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
   # shell provided by Home Manager. If you don't want to manage your shell
