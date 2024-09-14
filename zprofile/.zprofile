@@ -10,7 +10,7 @@ function common_variables() {
 
     export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
     export INPUTRC="${XDG_CONFIG_HOME:-$HOME/.config}/shell/inputrc"
-    export BAT_THEME="gruvbox-dark"
+    # export BAT_THEME="gruvbox-dark"
 
     export BUN_INSTALL="$HOME/.bun"
 

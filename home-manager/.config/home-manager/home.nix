@@ -73,7 +73,12 @@
     neovim.enable = true;
     htop.enable = true;
     eza.enable = true;
-    bat.enable = true;
+    bat = {
+      enable = true;
+      config = {
+        theme = "gruvbox-dark";
+      };
+    };
     fzf.enable = true;
     jq.enable = true;
     git.enable = true;
