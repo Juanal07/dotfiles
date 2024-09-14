@@ -183,3 +183,5 @@ fi
 eval "$(atuin init zsh)"
 
 . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+
+# export QT_XCB_GL_INTEGRATION=none

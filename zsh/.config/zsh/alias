@@ -82,8 +82,8 @@ alias \
 	g.="cd ~/dotfiles && l" \
 	gC="cd ~/.config && l" \
 	gz="cd ~/.config/zsh && l" \
-	gn="cd ~/.config/nvim && l" \
-	gf="cd ~/.config/lf && l" \
+	gn="cd ~/dotfiles/nvim && l" \
+	gf="cd ~/dotfiles/lf && l" \
 	gs="cd ~/.config/shell && l" \
 	gb="cd "$HOME/.local/bin" && l" \
 	glsr="cd "$HOME/.local/src" && l" \
