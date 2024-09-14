@@ -68,6 +68,8 @@
     TERMINAL = "kitty";
   };
 
+  xdg.enable = true;
+
   programs = {
     home-manager.enable = true;
     neovim.enable = true;
