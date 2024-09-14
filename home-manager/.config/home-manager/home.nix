@@ -37,11 +37,11 @@
   ];
 
   home.file = {
-    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink ~/dotfiles/nvim;
-    ".config/kitty".source = config.lib.file.mkOutOfStoreSymlink ~/dotfiles/kitty;
-    ".config/lf".source = config.lib.file.mkOutOfStoreSymlink ~/dotfiles/lf;
-    ".gitconfig".source = config.lib.file.mkOutOfStoreSymlink ~/dotfiles/git/.gitconfig;
-    # ".gitconfig".source = config.lib.file.mkOutOfStoreSymlink ~/dotfiles/git-mac/.gitconfig;
+    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink /home/juan/dotfiles/nvim;
+    ".config/kitty".source = config.lib.file.mkOutOfStoreSymlink /home/juan/dotfiles/kitty;
+    ".config/lf".source = config.lib.file.mkOutOfStoreSymlink /home/juan/dotfiles/lf;
+    ".gitconfig".source = config.lib.file.mkOutOfStoreSymlink /home/juan/dotfiles/git/.gitconfig;
+    # ".gitconfig".source = config.lib.file.mkOutOfStoreSymlink /home/juan/dotfiles/git-mac/.gitconfig;
     ".config/ncdu/config".text = ''
       --color dark
     '';

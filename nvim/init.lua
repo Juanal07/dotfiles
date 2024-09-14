@@ -22,3 +22,4 @@ require("nvim-surround").setup()
 require("nvim-autopairs").setup()
 require("nvim-web-devicons").setup()
 require("nvim-highlight-colors").setup({ enable_tailwind = true })
+
