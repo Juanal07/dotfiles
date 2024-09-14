@@ -1,12 +1,12 @@
 #!/bin/zsh
 
 function common_variables() {
-    export XDG_CONFIG_HOME="$HOME/.config"
-    export XDG_DATA_HOME="$HOME/.local/share"
-    export XDG_CACHE_HOME="$HOME/.cache"
+    # export XDG_CONFIG_HOME="$HOME/.config"
+    # export XDG_DATA_HOME="$HOME/.local/share"
+    # export XDG_CACHE_HOME="$HOME/.cache"
 
-    export EDITOR="nvim"
-    export TERMINAL="kitty"
+    # export EDITOR="nvim"
+    # export TERMINAL="kitty"
 
     export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
     export INPUTRC="${XDG_CONFIG_HOME:-$HOME/.config}/shell/inputrc"
