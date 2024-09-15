@@ -71,7 +71,7 @@ in
     TERMINAL = "kitty";
   };
 
-  xdg.enable = true;
+  # xdg.enable = true;
 
   programs = {
     home-manager.enable = true;

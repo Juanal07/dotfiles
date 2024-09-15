@@ -1,3 +1,7 @@
+# Nix
+. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+# export QT_XCB_GL_INTEGRATION=none
+
 # cd into typed directory
 setopt autocd
 
@@ -54,7 +58,6 @@ function lfcd() {
         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
     fi
 }
-bindkey -s '^o' 'lfcd\n'
 
 # Ctrl + e -> Edit command line in vim
 autoload edit-command-line; zle -N edit-command-line
@@ -150,6 +153,7 @@ bindkey -s '^h' 'pretty-diff-from-diverged\n'
 bindkey -s '^k' 'fzf-kill\n'
 bindkey -s '^w' 'fzf-tmux-workspace\n'
 bindkey -s '^t' 'fzf-useful-commands\n'
+bindkey -s '^o' 'lfcd\n'
 
 local color00='#32302f'
 local color01='#3c3836'
@@ -181,7 +185,3 @@ fi
 
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh)"
-
-. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
-
-# export QT_XCB_GL_INTEGRATION=none
