@@ -1,7 +1,3 @@
-# Nix
-. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
-# export QT_XCB_GL_INTEGRATION=none
-
 # cd into typed directory
 setopt autocd
 
