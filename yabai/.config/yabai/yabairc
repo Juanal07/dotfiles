@@ -1,5 +1,6 @@
 yabai -m config layout bsp
 
+# Gaps
 yabai -m config top_padding 8
 yabai -m config bottom_padding 8
 yabai -m config left_padding 8
@@ -9,9 +10,3 @@ yabai -m config window_gap 8
 # Disable yabai in some apps
 applications="(QuickTime|System Settings|Karabiner-Elements|Calculator|Logi Options)"
 yabai -m rule --add app="^${applications}$" manage=off
-
-# Window opacity
-# TODO: to make it work https://github.com/koekeishiya/yabai/issues/1054
-# yabai -m config window_opacity on
-# yabai -m config active_window_opacity 1.0
-# yabai -m config normal_window_opacity 0.8

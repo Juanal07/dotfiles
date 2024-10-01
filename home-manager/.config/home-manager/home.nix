@@ -8,10 +8,10 @@ let
   homeDir = config.home.homeDirectory;
 in
 {
-  # home.username = "jraya";
-  # home.homeDirectory = "/Users/jraya";
-  home.username = "juan";
-  home.homeDirectory = "/home/juan";
+  home.username = "jraya";
+  home.homeDirectory = "/Users/jraya";
+  #home.username = "juan";
+  #home.homeDirectory = "/home/juan";
 
   home.stateVersion = "24.05";
 
@@ -44,8 +44,8 @@ in
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${homeDir}/dotfiles/nvim";
     ".config/kitty".source = config.lib.file.mkOutOfStoreSymlink "${homeDir}/dotfiles/kitty";
     ".config/lf".source = config.lib.file.mkOutOfStoreSymlink "${homeDir}/dotfiles/lf";
-    ".gitconfig".source = config.lib.file.mkOutOfStoreSymlink "${homeDir}/dotfiles/git/.gitconfig";
-    # ".gitconfig".source = config.lib.file.mkOutOfStoreSymlink "${homeDir}/dotfiles/git-mac/.gitconfig";
+    #".gitconfig".source = config.lib.file.mkOutOfStoreSymlink "${homeDir}/dotfiles/git/.gitconfig";
+    ".gitconfig".source = config.lib.file.mkOutOfStoreSymlink "${homeDir}/dotfiles/git-mac/.gitconfig";
     ".config/ncdu/config".text = ''
       --color dark
     '';

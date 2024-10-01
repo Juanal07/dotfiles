@@ -7,10 +7,10 @@ require("mason").setup({
 	},
 })
 local servers = {
+	"ts_ls",
+	"eslint",
 	"pyright",
 	"lua_ls",
-	"eslint",
-	"tsserver",
 }
 require("mason-lspconfig").setup({ ensure_installed = servers, automatic_installation = true })
 
@@ -128,10 +128,6 @@ require("mason-lspconfig").setup_handlers({
 	end,
 	-- Default
 	function(server_name)
-
-if server_name == "tsserver" then
-						server_name = "ts_ls"
-					end
 		lspconfig[server_name].setup({
 			on_attach = on_attach,
 		})
