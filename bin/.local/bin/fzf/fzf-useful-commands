@@ -2,7 +2,7 @@
 
 useful_commands=$(
 	cat <<EOF
-yes 'yes' | rm -vRI ./.angular && yes 'yes' | rm -vRI ./node_modules && npm install && npm start: Remove directories and reinstall npm dependencies, then start the application
+yes 'yes' | rm -vRI ./node_modules && npm install && npm start: Remove directories and reinstall npm dependencies, then start the application
 npm run build && cd build/artifact/ && sls deploy --stage test --function {api/bot name} && cd ../..: Build the project, deploy using Serverless framework, then return to root directory
 brew update && brew upgrade: Update and upgrade Homebrew and installed packages
 sxs-cli login: Login to sxs-cli
