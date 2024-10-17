@@ -187,3 +187,6 @@ export PATH="$PATH:/Users/jraya/dotfiles/bin/.local/bin"
 
 # Turso
 export PATH="$PATH:/home/juan/.turso"
+
+# bun completions
+[ -s "/Users/jraya/.bun/_bun" ] && source "/Users/jraya/.bun/_bun"

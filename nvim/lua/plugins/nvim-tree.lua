@@ -72,6 +72,8 @@ require("nvim-tree").setup({
 		side = "right",
 		width = 100,
 		-- width = {},
+		number = true,
+        relativenumber = true,
 	},
 	renderer = {
 		root_folder_label = false,
