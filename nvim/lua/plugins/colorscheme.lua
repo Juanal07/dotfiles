@@ -9,6 +9,10 @@ require("gruvbox").setup({
 		GruvboxYellowSign = { bg = "NONE" },
 		GruvboxBlueSign = { bg = "NONE" },
 		GruvboxAquaSign = { bg = "NONE" },
+		-- TODO: replace string for gruvbox darkgrey variable
+		IlluminatedWordText = { bg = "#3c3836", fg = "none" },
+		IlluminatedWordRead = { bg = "#3c3836", fg = "none" },
+		IlluminatedWordWrite = { bg = "#3c3836", fg = "none" },
 	},
 })
 vim.cmd("colorscheme gruvbox")

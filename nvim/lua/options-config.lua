@@ -21,7 +21,6 @@ vim.opt.list = true
 vim.opt.listchars = { tab = "→ ", trail = "·", extends = "…" }
 -- vim.opt.listchars = { space = "·", tab = "→ ", trail = "·", eol = "↲", extends = "…" }
 vim.opt.iskeyword:append("-")
-vim.opt.cursorline = true
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking text",

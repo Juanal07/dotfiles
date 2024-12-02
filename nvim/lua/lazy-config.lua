@@ -45,8 +45,6 @@ require("lazy").setup({
 		},
 	},
 	{ "ellisonleao/gruvbox.nvim", priority = 1000 },
-	"folke/tokyonight.nvim",
-	"Mofiqul/vscode.nvim",
 	"kyazdani42/nvim-tree.lua",
 	"hoob3rt/lualine.nvim",
 	"arkav/lualine-lsp-progress",
@@ -99,10 +97,6 @@ require("lazy").setup({
 		dependencies = {
 			"windwp/nvim-ts-autotag",
 			"nvim-treesitter/nvim-treesitter-textobjects",
-			{
-				"elgiano/nvim-treesitter-angular",
-				branch = "topic/jsx-fix",
-			},
 		},
 	},
 	"JoosepAlviste/nvim-ts-context-commentstring",

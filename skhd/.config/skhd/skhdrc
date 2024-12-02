@@ -18,7 +18,7 @@ cmd - q : yabai -m window --close
 # Apps
 cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
 cmd - w : open -a 'Google Chrome'
-cmd - d : open -a Raycast 
+# cmd - d : open -a Raycast (Configured in Raycast settings)
 
 # full screen
 cmd - f : yabai -m query --windows --space | jq '.[].id' | xargs -I{} yabai -m window {} --toggle zoom-fullscreen
