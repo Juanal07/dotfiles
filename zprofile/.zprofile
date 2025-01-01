@@ -3,7 +3,7 @@
 function common_variables() {
 
 # Nix
-. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+#. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 # export QT_XCB_GL_INTEGRATION=none
 
     export XDG_CONFIG_HOME="$HOME/.config"

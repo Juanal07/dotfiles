@@ -35,6 +35,7 @@
     editor = nvim
     ignorecase = false
 	pager = delta
+	excludesfile = /Users/jraya/.gitignore_global
 [delta]
     navigate = true
 	line-numbers = true

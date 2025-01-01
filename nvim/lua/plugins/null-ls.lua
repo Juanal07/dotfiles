@@ -113,8 +113,8 @@ null_ls.setup({
 				group = augroup,
 				buffer = bufnr,
 				callback = function()
-					async_formatting(bufnr)
-					-- sync_formatting(bufnr)
+					-- async_formatting(bufnr)
+					sync_formatting(bufnr)
 				end,
 			})
 		end

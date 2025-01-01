@@ -41,7 +41,7 @@ alias sudo="sudo "
 # Colorize commands
 alias \
 	ls="eza --icons" \
-	l="eza -la --icons --no-time --no-user" \
+	l="eza -la --icons --no-time --no-user --group-directories-first" \
 	lst="eza --tree --level=2 --icons --git" \
 	diff="diff --color=auto"
 
